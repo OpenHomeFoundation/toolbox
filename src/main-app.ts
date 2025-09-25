@@ -1,99 +1,60 @@
 import { LitElement, css, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, state } from 'lit/decorators.js';
+import { match } from 'ts-pattern';
 
 import './components/app-header.js';
-import './components/tool-card.js';
-import tools from './components/utils';
+
+import './pages/home-page.js';
+import './pages/vpe-details';
+import './pages/zwa2-details';
+
+import { router } from './utils/router';
 
 @customElement('main-app')
 export class MainApp extends LitElement {
+  @state() private currentRoute = '/';
+
   static styles = css`
     :host {
       display: block;
       min-height: 100vh;
       background: white;
     }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 40px 20px;
-      margin-bottom: 40px;
-    }
-
-    .hero .title {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      font-weight: 600;
-      color: #333;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: #666;
-      margin: 0;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .tools-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .container {
-        padding: 16px;
-      }
-    }
   `;
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    router.addRoute('/', 'home-page');
+    router.addRoute('/vpe', 'vpe-details');
+    router.addRoute('/zwa2', 'zwa2-details');
+
+    window.addEventListener('route-changed', this._handleRouteChange);
+    this.currentRoute = router.getCurrentRoute();
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    window.removeEventListener('route-changed', this._handleRouteChange);
+  }
+
+  private _handleRouteChange = (e: Event) => {
+    const event = e as CustomEvent<{ path: string }>;
+    this.currentRoute = event.detail.path;
+  };
+
+  private _renderPage() {
+    return match(this.currentRoute)
+      .with('/vpe', () => html`<vpe-details></vpe-details>`)
+      .with('/zwa2', () => html`<zwa2-details></zwa2-details>`)
+      .otherwise(() => html`<home-page></home-page>`);
+  }
 
   render() {
     return html`
       <div>
         <app-header></app-header>
-
-        <div class="container">
-          <div class="hero">
-            <div class="title">Device Toolbox</div>
-            <p>
-              Flash firmware, configure devices, and manage your smart home
-              hardware directly from your browser. No installation required.
-            </p>
-          </div>
-
-          <div class="tools-grid">
-            ${tools.map(
-              tool => html`
-                <tool-card
-                  title="${tool.title}"
-                  description="${tool.description}"
-                  image="${tool.image}"
-                  url="${tool.url}"
-                  category="${tool.category ?? ''}"
-                  .links=${tool.links}
-                ></tool-card>
-              `
-            )}
-          </div>
-        </div>
+        ${this._renderPage()}
       </div>
     `;
   }
