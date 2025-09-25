@@ -1,8 +1,14 @@
 export class SimpleRouter {
   private routes = new Map<string, string>();
   private currentRoute = '/';
+  private basePath = '';
 
   constructor() {
+    // Set base path in production (for GitHub Pages)
+    if (import.meta.env.PROD) {
+      this.basePath = '/toolbox';
+    }
+    
     window.addEventListener('popstate', () => this.handleRoute());
     this.handleRoute();
   }
@@ -12,12 +18,19 @@ export class SimpleRouter {
   }
 
   navigate(path: string) {
-    window.history.pushState({}, '', path);
+    const fullPath = this.basePath + path;
+    window.history.pushState({}, '', fullPath);
     this.handleRoute();
   }
 
   private handleRoute() {
-    const path = window.location.pathname;
+    let path = window.location.pathname;
+    
+    // Remove base path if present
+    if (this.basePath && path.startsWith(this.basePath)) {
+      path = path.slice(this.basePath.length) || '/';
+    }
+    
     this.currentRoute = path;
 
     window.dispatchEvent(
