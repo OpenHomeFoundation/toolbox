@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 import '../components/tool-card.js';
-import tools from '../utils/tools.js';
+import { tools } from '../utils/tools.js';
 
 @customElement('home-page')
 export class HomePage extends LitElement {
@@ -81,8 +81,8 @@ export class HomePage extends LitElement {
               description="${tool.description}"
               image="${tool.image}"
               url="${tool.url}"
+              text="${tool.text}"
               category="${tool.category ?? ''}"
-              .links=${tool.links}
             ></tool-card>
           `
         )}

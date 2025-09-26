@@ -1,11 +1,6 @@
+import '@awesome.me/webawesome/dist/components/button/button.js';
 import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-
-interface CardLink {
-  text: string;
-  url: string;
-  primary?: boolean;
-}
 
 @customElement('tool-card')
 export class ToolCard extends LitElement {
@@ -13,8 +8,8 @@ export class ToolCard extends LitElement {
   @property({ type: String }) description = '';
   @property({ type: String }) image = '';
   @property({ type: String }) url = '';
+  @property({ type: String }) text = '';
   @property({ type: String }) category = '';
-  @property({ type: Array }) links: CardLink[] = [];
 
   static styles = css`
     :host {
@@ -77,7 +72,7 @@ export class ToolCard extends LitElement {
     .card-description {
       color: #666;
       line-height: 1.5;
-      margin: 0 0 20px 0;
+      margin: 0 0 40px 0;
       flex: 1;
     }
 
@@ -86,38 +81,6 @@ export class ToolCard extends LitElement {
       flex-direction: column;
       gap: 8px;
       margin-top: auto;
-    }
-
-    .card-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 16px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 500;
-      transition: all 0.2s ease;
-      border: 1px solid transparent;
-      font-size: 0.9rem;
-    }
-
-    .card-link.primary {
-      background: #03a9f4;
-      color: white;
-    }
-
-    .card-link.primary:hover {
-      background: #0288d1;
-    }
-
-    .card-link.secondary {
-      background: transparent;
-      color: #03a9f4;
-      border-color: #03a9f4;
-    }
-
-    .card-link.secondary:hover {
-      background: #e3f2fd;
     }
 
     .external-icon {
@@ -147,34 +110,18 @@ export class ToolCard extends LitElement {
     return url.startsWith('http') && !url.includes('#');
   }
 
-  private _handleCardClick() {
+  private _handleButtonClick(event: Event) {
+    event.stopPropagation();
+
     if (this.url && this.url !== '#') {
       const isExternal = this._isExternalLink(this.url);
       if (isExternal) {
         window.open(this.url, '_blank', 'noopener,noreferrer');
-      } else {
-        this.dispatchEvent(
-          new CustomEvent('card-action', {
-            detail: { url: this.url },
-            bubbles: true,
-            composed: true,
-          })
-        );
-      }
-    }
-  }
-
-  private _handleLinkClick(link: CardLink, event: Event) {
-    event.stopPropagation();
-
-    if (link.url && link.url !== '#') {
-      const isExternal = this._isExternalLink(link.url);
-      if (isExternal) {
-        window.open(link.url, '_blank', 'noopener,noreferrer');
+        return;
       } else {
         this.dispatchEvent(
           new CustomEvent('tool-action', {
-            detail: { url: link.url, text: link.text },
+            detail: { url: this.url, text: this.text },
             bubbles: true,
             composed: true,
           })
@@ -185,7 +132,7 @@ export class ToolCard extends LitElement {
 
   render() {
     return html`
-      <div class="card" @click="${this._handleCardClick}">
+      <div class="card">
         <img src="${this.image}" alt="${this.title}" class="card-image" />
 
         <div class="card-content">
@@ -197,26 +144,12 @@ export class ToolCard extends LitElement {
           </div>
 
           <p class="card-description">${this.description}</p>
-
-          <div class="card-actions">
-            ${this.links.map(
-              link => html`
-                <a
-                  href="${link.url || '#'}"
-                  class="card-link ${link.primary ? 'primary' : 'secondary'}"
-                  target="${this._isExternalLink(link.url)
-                    ? '_blank'
-                    : '_self'}"
-                  rel="${this._isExternalLink(link.url)
-                    ? 'noopener noreferrer'
-                    : ''}"
-                  @click="${(e: Event) => this._handleLinkClick(link, e)}"
-                >
-                  ${link.text}
-                </a>
-              `
-            )}
-          </div>
+          <wa-button
+            href="${!this._isExternalLink(this.url) ? this.url : '#'}"
+            variant="brand"
+            @click="${(e: Event) => this._handleButtonClick(e)}"
+            >${this.text}</wa-button
+          >
         </div>
       </div>
     `;
