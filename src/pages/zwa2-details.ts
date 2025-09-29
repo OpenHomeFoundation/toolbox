@@ -31,7 +31,7 @@ export class ZWA2Details extends LitElement {
 
   render() {
     return html`<details-page .config=${detailsByKey.zwa2}></details-page>
-      <div class="firmware-section">
+      <!-- <div class="firmware-section">
         <h2>Install Firmware</h2>
 
         <div class="firmware-option">
@@ -49,6 +49,6 @@ export class ZWA2Details extends LitElement {
             manifest="https://firmware.esphome.io/ha-connect-zwa-2/zwave-esp-bridge/manifest.json"
           ></esp-web-install-button>
         </div>
-      </div>`;
+      </div> --> `;
   }
 }

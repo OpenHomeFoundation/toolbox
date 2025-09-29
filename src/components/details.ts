@@ -1,6 +1,7 @@
+import '@awesome.me/webawesome/dist/components/icon/icon.js';
 import { Router } from '@vaadin/router';
 import { LitElement, css, html, nothing } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 export interface DetailsAction {
   variant?: 'primary' | 'default' | 'secondary';
   title: string;
@@ -21,14 +22,15 @@ export interface DetailsConfig {
     title: string;
     subtitle?: string;
     description: string;
+    secondaryDescription?: string;
   };
   actions: DetailsAction[];
-  features: { title: string; items: DetailsFeature[] };
 }
 
 @customElement('details-page')
 export class DetailsPage extends LitElement {
   @property({ type: Object }) config!: DetailsConfig;
+  @state() private isDescriptionExpanded = false;
 
   static styles = css`
     :host {
@@ -39,7 +41,7 @@ export class DetailsPage extends LitElement {
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
@@ -59,13 +61,23 @@ export class DetailsPage extends LitElement {
       background: #e3f2fd;
     }
 
+    .layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+      grid-auto-rows: 1fr;
+      margin-bottom: 30px;
+    }
+
     .hero {
       background: white;
       border-radius: 16px;
-      padding: 40px;
-      margin-bottom: 30px;
+      padding: 0 32px 0 32px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .hero h1 {
@@ -82,52 +94,73 @@ export class DetailsPage extends LitElement {
       margin: 0 0 20px 0;
     }
 
-    .hero p {
+    .hero .description {
       color: #666;
       line-height: 1.6;
       margin: 0;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
-    .actions {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 30px;
+    .hero .secondary-description {
+      color: #666;
+      line-height: 1.6;
+      font-size: 1.05rem;
     }
 
-    .action-card {
+    @media (max-width: 768px) {
+      .hero .description.clamped {
+        -webkit-line-clamp: 5;
+      }
+    }
+
+    .read-more {
+      margin-top: 10px;
+      background: transparent;
+      border: none;
+      color: #1976d2;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+      display: none;
+    }
+
+    .actions-list {
       background: white;
-      border-radius: 12px;
-      padding: 24px;
+      border-radius: 16px;
+      padding: 8px 8px 0 8px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      text-align: center;
+      height: 100%;
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      flex-direction: column;
     }
 
-    .action-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    .action-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 16px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      border-radius: 12px;
     }
 
-    .action-card.primary {
-      background: linear-gradient(135deg, #03a9f4 0%, #0288d1 100%);
-      color: white;
+    .action-item:hover {
+      background: #fafafa;
     }
 
-    .action-card.primary h3 {
-      color: white;
-    }
-
-    .action-card.primary p {
-      color: rgba(255, 255, 255, 0.9);
+    .action-item:last-child {
+      border-bottom: none;
     }
 
     .action-icon {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 16px auto;
-      padding: 12px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background: #e3f2fd;
       display: flex;
@@ -135,134 +168,59 @@ export class DetailsPage extends LitElement {
       justify-content: center;
     }
 
-    .action-card.primary .action-icon {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
     .action-icon svg {
-      width: 24px;
-      height: 24px;
-      fill: #03a9f4;
-    }
-
-    .action-card.primary .action-icon svg {
-      fill: white;
-    }
-
-    .action-card h3 {
-      color: #333;
-      margin: 0 0 12px 0;
-      font-size: 1.25rem;
-    }
-
-    .action-card p {
-      color: #666;
-      margin: 0 0 20px 0;
-      line-height: 1.5;
-    }
-
-    .action-button {
-      display: inline-block;
-      background: #03a9f4;
-      color: white;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 500;
-      transition: all 0.2s ease;
-      border: none;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-
-    .action-button:hover {
-      background: #0288d1;
-    }
-
-    .action-button.secondary {
-      background: transparent;
-      color: #03a9f4;
-      border: 2px solid #03a9f4;
-    }
-
-    .action-button.secondary:hover {
-      background: #e3f2fd;
-    }
-
-    .action-card.primary .action-button {
-      background: white;
-      color: #03a9f4;
-    }
-
-    .action-card.primary .action-button:hover {
-      background: #f5f5f5;
-    }
-
-    .features {
-      background: white;
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .features h2 {
-      color: #333;
-      margin: 0 0 20px 0;
-      font-size: 1.5rem;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .feature-icon {
       width: 20px;
       height: 20px;
-      fill: #4caf50;
-      margin-top: 2px;
-      flex-shrink: 0;
+      fill: #1976d2;
     }
 
-    .feature-content h4 {
-      margin: 0 0 4px 0;
+    .action-content h3 {
+      margin: 0 0 6px 0;
       color: #333;
       font-size: 1rem;
     }
 
-    .feature-content p {
+    .action-content p {
       margin: 0;
       color: #666;
-      font-size: 0.9rem;
-      line-height: 1.4;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .action-trailing svg {
+      width: 20px;
+      height: 20px;
+      fill: #9e9e9e;
     }
 
     @media (max-width: 768px) {
+      .hero[data-expanded='false'] .secondary-description {
+        display: none;
+      }
+
+      .read-more {
+        display: inline-block;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+      }
+
       .hero {
-        padding: 30px 20px;
+        padding: 24px 20px;
+        height: auto;
+        display: block;
       }
 
       .hero h1 {
         font-size: 1.8rem;
       }
 
-      .actions {
-        grid-template-columns: 1fr;
-      }
-
-      .features {
-        padding: 24px 20px;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
+      .actions-list {
+        height: auto;
+        margin-top: 16px;
+        display: block;
       }
     }
   `;
@@ -278,9 +236,18 @@ export class DetailsPage extends LitElement {
     return html`<svg viewBox="0 0 24 24"><path d="${path}" /></svg>`;
   }
 
+  private _handleActionClick(href: string) {
+    const isExternal = href.startsWith('http');
+    if (isExternal) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    Router.go(href);
+  }
+
   render() {
-    const { hero, actions, features } = this.config ?? ({} as DetailsConfig);
-    if (!hero || !actions || !features) {
+    const { hero, actions } = this.config ?? ({} as DetailsConfig);
+    if (!hero || !actions) {
       return null;
     }
 
@@ -302,50 +269,60 @@ export class DetailsPage extends LitElement {
           Back to Home
         </a>
 
-        <div class="hero">
-          <h1>${hero.title}</h1>
-          ${hero.subtitle
-            ? html`<p class="subtitle">${hero.subtitle}</p>`
-            : nothing}
-          <p>${hero.description}</p>
-        </div>
+        <div class="layout">
+          <div
+            class="hero"
+            data-expanded="${this.isDescriptionExpanded ? 'true' : 'false'}"
+          >
+            <h1 style="margin-top: 32px;">${hero.title}</h1>
+            ${hero.subtitle
+              ? html`<p class="subtitle">${hero.subtitle}</p>`
+              : nothing}
+            <p
+              class="description ${this.isDescriptionExpanded ? '' : 'clamped'}"
+            >
+              ${hero.description}
+            </p>
+            ${hero.secondaryDescription
+              ? html`<p class="secondary-description">
+                  ${hero.secondaryDescription}
+                </p>`
+              : nothing}
+            ${html`<button
+              class="read-more"
+              @click=${() =>
+                (this.isDescriptionExpanded = !this.isDescriptionExpanded)}
+            >
+              ${this.isDescriptionExpanded ? 'Read less' : 'Read more'}
+            </button>`}
+          </div>
 
-        <div class="actions">
-          ${actions.map(
-            a => html`
-              <div
-                class="action-card ${a.variant === 'primary' ? 'primary' : ''}"
-              >
-                <div class="action-icon">${this.renderIcon(a.iconPath)}</div>
-                <h3>${a.title}</h3>
-                <p>${a.description}</p>
-                <a
-                  href="${a.href}"
-                  class="action-button ${a.variant === 'secondary'
-                    ? 'secondary'
-                    : ''}"
-                  target="_blank"
-                  rel="noopener noreferrer"
+          <div class="actions-list">
+            ${actions.map(
+              a => html`
+                <div
+                  class="action-item"
+                  @click=${() => this._handleActionClick(a.href)}
                 >
-                  ${a.label}
-                </a>
-              </div>
-            `
-          )}
-        </div>
-
-        <div class="features">
-          <h2>${features.title}</h2>
-          <div class="features-grid">
-            ${features.items.map(
-              f => html`
-                <div class="feature">
-                  <svg class="feature-icon" viewBox="0 0 24 24">
-                    <path d="${f.iconPath}" />
-                  </svg>
-                  <div class="feature-content">
-                    <h4>${f.header}</h4>
-                    <p>${f.text}</p>
+                  <div class="action-icon">${this.renderIcon(a.iconPath)}</div>
+                  <div class="action-content">
+                    <h3>${a.title}</h3>
+                    <p>${a.description}</p>
+                  </div>
+                  <div class="action-trailing">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 448 512"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z"
+                        />
+                      </svg>
+                    </svg>
                   </div>
                 </div>
               `

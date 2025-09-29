@@ -17,13 +17,13 @@ export const tools: ToolDefinition[] = [
   {
     title: 'Home Assistant Voice Preview Edition',
     description:
-      'Bring choice to voice – the best way to get started with voice',
+      'Bring choice to voice. The best way to get started with voice',
     image: '/images/voice.jpg',
     url: '/vpe',
   },
   {
-    title: 'SkyConnect Firmware Update',
-    description: 'Update firmware for your SkyConnect Zigbee coordinator',
+    title: 'Home Assistant Connect ZBT-1',
+    description: 'Update firmware for your Connect ZBT-1 coordinator',
     image: '/images/zbt1.jpg',
     url: '/zbt1',
   },
