@@ -81,7 +81,6 @@ export class HomePage extends LitElement {
               description="${tool.description}"
               image="${tool.image}"
               url="${tool.url}"
-              text="${tool.text}"
               category="${tool.category ?? ''}"
             ></tool-card>
           `
