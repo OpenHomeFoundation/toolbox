@@ -1,8 +1,6 @@
+import { Router } from '@vaadin/router';
 import { LitElement, css, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-
-import { router } from '../utils/router.js';
-
 export interface DetailsAction {
   variant?: 'primary' | 'default' | 'secondary';
   title: string;
@@ -270,7 +268,7 @@ export class DetailsPage extends LitElement {
   `;
 
   private _goHome() {
-    router.navigate('/');
+    Router.go('/');
   }
 
   private renderIcon(path?: string) {

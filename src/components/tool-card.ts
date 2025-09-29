@@ -1,4 +1,5 @@
 import '@awesome.me/webawesome/dist/components/button/button.js';
+import { Router } from '@vaadin/router';
 import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
@@ -8,7 +9,6 @@ export class ToolCard extends LitElement {
   @property({ type: String }) description = '';
   @property({ type: String }) image = '';
   @property({ type: String }) url = '';
-  @property({ type: String }) text = '';
   @property({ type: String }) category = '';
 
   static styles = css`
@@ -25,6 +25,7 @@ export class ToolCard extends LitElement {
       height: 100%;
       display: flex;
       flex-direction: column;
+      cursor: pointer;
     }
 
     .card:hover {
@@ -110,7 +111,7 @@ export class ToolCard extends LitElement {
     return url.startsWith('http') && !url.includes('#');
   }
 
-  private _handleButtonClick(event: Event) {
+  private _handleCardClick(event: Event) {
     event.stopPropagation();
 
     if (this.url && this.url !== '#') {
@@ -119,20 +120,14 @@ export class ToolCard extends LitElement {
         window.open(this.url, '_blank', 'noopener,noreferrer');
         return;
       } else {
-        this.dispatchEvent(
-          new CustomEvent('tool-action', {
-            detail: { url: this.url, text: this.text },
-            bubbles: true,
-            composed: true,
-          })
-        );
+        Router.go(this.url);
       }
     }
   }
 
   render() {
     return html`
-      <div class="card">
+      <div class="card" @click="${(e: Event) => this._handleCardClick(e)}">
         <img src="${this.image}" alt="${this.title}" class="card-image" />
 
         <div class="card-content">
@@ -144,12 +139,6 @@ export class ToolCard extends LitElement {
           </div>
 
           <p class="card-description">${this.description}</p>
-          <wa-button
-            href="${!this._isExternalLink(this.url) ? this.url : '#'}"
-            variant="brand"
-            @click="${(e: Event) => this._handleButtonClick(e)}"
-            >${this.text}</wa-button
-          >
         </div>
       </div>
     `;

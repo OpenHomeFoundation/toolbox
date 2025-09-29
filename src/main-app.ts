@@ -1,6 +1,6 @@
+import { Router } from '@vaadin/router';
 import { LitElement, css, html } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
-import { match } from 'ts-pattern';
+import { customElement } from 'lit/decorators.js';
 
 import './components/app-header.js';
 
@@ -14,12 +14,10 @@ import './pages/vpe-details';
 import './pages/zbt1-details';
 import './pages/zwa2-details';
 
-import { router } from './utils/router';
+// Using Vaadin Router for client-side routing
 
 @customElement('main-app')
 export class MainApp extends LitElement {
-  @state() private currentRoute = '/';
-
   static styles = css`
     :host {
       display: block;
@@ -28,50 +26,34 @@ export class MainApp extends LitElement {
     }
   `;
 
-  connectedCallback() {
-    super.connectedCallback();
+  firstUpdated() {
+    const outlet = this.renderRoot.querySelector(
+      '#outlet'
+    ) as HTMLElement | null;
+    if (!outlet) {
+      return;
+    }
 
-    window.addEventListener('route-changed', this._handleRouteChange);
-    this.currentRoute = router.getCurrentRoute();
-  }
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    window.removeEventListener('route-changed', this._handleRouteChange);
-  }
-
-  private _handleRouteChange = (e: Event) => {
-    const event = e as CustomEvent<{ path: string }>;
-    this.currentRoute = event.detail.path;
-  };
-
-  private _renderPage() {
-    return match(this.currentRoute)
-      .with('/vpe', () => html`<vpe-details></vpe-details>`)
-      .with('/zwa2', () => html`<zwa2-details></zwa2-details>`)
-      .with('/zbt1', () => html`<zbt1-details></zbt1-details>`)
-      .with('/esphome', () => html`<esphome-details></esphome-details>`)
-      .with(
-        '/media-player',
-        () => html`<media-player-details></media-player-details>`
-      )
-      .with('/improv', () => html`<improv-details></improv-details>`)
-      .with(
-        '/empty-esphome',
-        () => html`<empty-esphome-details></empty-esphome-details>`
-      )
-      .with(
-        '/bluetooth-proxy',
-        () => html`<bluetooth-proxy-details></bluetooth-proxy-details>`
-      )
-      .otherwise(() => html`<home-page></home-page>`);
+    const router = new Router(outlet);
+    router.setRoutes([
+      { path: '/', component: 'home-page' },
+      { path: '/vpe', component: 'vpe-details' },
+      { path: '/zwa2', component: 'zwa2-details' },
+      { path: '/zbt1', component: 'zbt1-details' },
+      { path: '/esphome', component: 'esphome-details' },
+      { path: '/media-player', component: 'media-player-details' },
+      { path: '/improv', component: 'improv-details' },
+      { path: '/empty-esphome', component: 'empty-esphome-details' },
+      { path: '/bluetooth-proxy', component: 'bluetooth-proxy-details' },
+      { path: '(.*)', redirect: '/' },
+    ]);
   }
 
   render() {
     return html`
       <div>
         <app-header></app-header>
-        ${this._renderPage()}
+        <main id="outlet"></main>
       </div>
     `;
   }
