@@ -64,7 +64,7 @@ export const zwa2Details: DetailsConfig = {
       variant: 'primary',
       title: 'Install/update firmware',
       description:
-        'Flash the latest firmware directly to your ZWA-2 stick using our web-based toolbox',
+        'Flash the latest firmware directly to your Connect ZWA-2 using our web-based toolbox',
       href: 'https://home-assistant.github.io/zwa2-toolbox/',
       label: 'Open toolbox',
       iconPath:
@@ -93,7 +93,7 @@ export const zwa2Details: DetailsConfig = {
     {
       title: 'Product info',
       description:
-        'Learn more about the ZWA-2 specifications, compatibility, and features',
+        'Learn more about the Connect ZWA-2 features, specifications, and where to buy',
       href: 'https://www.home-assistant.io/connect/zwa-2/',
       label: 'Product page',
       variant: 'secondary',
@@ -124,7 +124,7 @@ export const zbt1Details: DetailsConfig = {
     {
       title: 'Getting started',
       description:
-        'Step-by-step guide to set up your ZBT-1 and connect Zigbee devices',
+        'Step-by-step guide to set up your Connect ZBT-1 and connect Zigbee devices',
       href: 'https://home-assistant-skyconnect.netlify.app/',
       label: 'Setup guide',
       variant: 'secondary',
@@ -144,7 +144,7 @@ export const zbt1Details: DetailsConfig = {
     {
       title: 'Product info',
       description:
-        'Learn more about Connect ZBT-1 product features and where to buy',
+        'Learn more about Connect ZBT-1 product features, specifications, and where to buy',
       href: 'https://www.home-assistant.io/connectzbt1',
       label: 'Product page',
       variant: 'secondary',
