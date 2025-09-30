@@ -24,14 +24,6 @@ export const vpeDetails: DetailsConfig = {
       href: 'https://www.home-assistant.io/voice_control/',
       label: 'Setup guide',
       variant: 'secondary',
-    },
-    {
-      title: 'Source code',
-      description:
-        'View the open-source Voice PE firmware code and contribute to development',
-      href: 'https://github.com/esphome/home-assistant-voice-pe',
-      label: 'GitHub repository',
-      variant: 'secondary',
       icon: '/svgs/doc.svg',
     },
     {
@@ -76,18 +68,9 @@ export const zwa2Details: DetailsConfig = {
     },
     {
       title: 'Documentation',
-      description:
-        'User documentation, troubleshooting, and resources',
+      description: 'User documentation, troubleshooting, and resources',
       href: 'https://support.nabucasa.com/hc/en-us/categories/28669861145885',
       label: 'Get support',
-      variant: 'secondary',
-    },
-    {
-      title: 'Source code',
-      description:
-        'View the open-source toolbox code, contribute, or report issues',
-      href: 'https://github.com/home-assistant/zwa2-toolbox',
-      label: 'GitHub repository',
       variant: 'secondary',
       icon: '/svgs/doc.svg',
     },
@@ -134,14 +117,6 @@ export const zbt1Details: DetailsConfig = {
         'Step-by-step guide to set up your Connect ZBT-1 and connect Zigbee devices',
       href: 'https://home-assistant-skyconnect.netlify.app/',
       label: 'Setup guide',
-      variant: 'secondary',
-    },
-    {
-      title: 'Documentation',
-      description:
-        'User documentation, troubleshooting, and resources',
-      href: 'https://home-assistant-skyconnect.netlify.app/documentation/',
-      label: 'View docs',
       variant: 'secondary',
       icon: '/svgs/start.svg',
     },
@@ -190,6 +165,7 @@ export const esphomeWebDetails: DetailsConfig = {
       href: 'https://web.esphome.io/?pico',
       label: 'Flash Pico',
       variant: 'secondary',
+      icon: '/svgs/raspberry.svg',
     },
     {
       title: 'View logs',
