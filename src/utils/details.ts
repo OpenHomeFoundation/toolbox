@@ -157,7 +157,7 @@ export const zbt1Details: DetailsConfig = {
 export const esphomeWebDetails: DetailsConfig = {
   hero: {
     title: 'ESPHome Web',
-    subtitle: 'Install & manage ESPHome firmware',
+    subtitle: 'Install and manage ESPHome firmware',
     description:
       'Flash ESPHome firmware directly from your browser to ESP32, ESP8266, and Raspberry Pi Pico devices. No installation required. Just connect your device and get started with smart home automation.',
   },
