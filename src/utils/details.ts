@@ -59,7 +59,7 @@ export const zwa2Details: DetailsConfig = {
   actions: [
     {
       variant: 'primary',
-      title: 'Install/update firmware',
+      title: 'Install firmware',
       description:
         'Flash the latest firmware directly to your Connect ZWA-2 using our web-based toolbox',
       href: 'https://home-assistant.github.io/zwa2-toolbox/',
@@ -164,15 +164,6 @@ export const esphomeWebDetails: DetailsConfig = {
         'Install ESPHome on Raspberry Pi Pico W for wireless home automation projects',
       href: 'https://web.esphome.io/?pico',
       label: 'Flash Pico',
-      variant: 'secondary',
-      icon: '/svgs/raspberry.svg',
-    },
-    {
-      title: 'View logs',
-      description:
-        'Monitor device logs in real-time to debug and verify your ESPHome installation',
-      href: 'https://web.esphome.io/',
-      label: 'Open logs',
       variant: 'secondary',
       icon: '/svgs/raspberry.svg',
     },
