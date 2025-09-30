@@ -13,6 +13,8 @@ import './pages/media-player-details';
 import './pages/vpe-details';
 import './pages/zbt1-details';
 import './pages/zwa2-details';
+import './pages/zwa2-install-original';
+import './pages/zwa2-install-portable';
 
 // Using Vaadin Router for client-side routing
 
@@ -39,6 +41,8 @@ export class MainApp extends LitElement {
       { path: '/', component: 'home-page' },
       { path: '/vpe', component: 'vpe-details' },
       { path: '/zwa2', component: 'zwa2-details' },
+      { path: '/zwa2/install', component: 'zwa2-install-original' },
+      { path: '/zwa2/install-portable', component: 'zwa2-install-portable' },
       { path: '/zbt1', component: 'zbt1-details' },
       { path: '/esphome', component: 'esphome-details' },
       { path: '/media-player', component: 'media-player-details' },

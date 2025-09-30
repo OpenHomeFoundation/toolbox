@@ -1,14 +1,16 @@
+import '@awesome.me/webawesome/dist/components/button/button.js';
 import '@awesome.me/webawesome/dist/components/icon/icon.js';
 import { Router } from '@vaadin/router';
 import { LitElement, css, html, nothing } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 export interface DetailsAction {
-  variant?: 'primary' | 'default' | 'secondary';
   title: string;
   description: string;
   href: string;
   label: string;
   icon: string;
+  experimental?: boolean;
+  trailingIcon?: string;
 }
 
 export interface DetailsConfig {
@@ -19,11 +21,15 @@ export interface DetailsConfig {
     secondaryDescription?: string;
   };
   actions: DetailsAction[];
+  heroCtaLabel?: string;
+  heroCta?: unknown;
 }
 
 @customElement('details-page')
 export class DetailsPage extends LitElement {
   @property({ type: Object }) config!: DetailsConfig;
+  @property({ type: Boolean, attribute: 'history-back' }) historyBack = false;
+  @property({ type: String, attribute: 'back-href' }) backHref = '/';
   @state() private isDescriptionExpanded = false;
 
   static styles = css`
@@ -62,6 +68,10 @@ export class DetailsPage extends LitElement {
       align-items: stretch;
       grid-auto-rows: 1fr;
       margin-bottom: 30px;
+    }
+
+    .layout.single {
+      grid-template-columns: 1fr;
     }
 
     .hero {
@@ -127,6 +137,26 @@ export class DetailsPage extends LitElement {
       display: none;
     }
 
+    .hero-cta {
+      margin: 16px 0 24px 0;
+      display: inline-flex;
+    }
+
+    .hero-cta button.install {
+      color: #03a9f4;
+      background: #fff;
+      border: 1px solid #03a9f4;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .hero-cta button.install:hover {
+      background: #03a9f4;
+      color: #fff;
+    }
+
     .actions-list {
       background: white;
       border-radius: 16px;
@@ -188,10 +218,28 @@ export class DetailsPage extends LitElement {
       line-height: 1.45;
     }
 
+    .action-subtitle {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .experimental {
+      color: #e78e21;
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
     .action-trailing svg {
       width: 16px;
       height: 16px;
       fill: #9e9e9e;
+    }
+
+    .action-trailing img {
+      width: 16px;
+      height: 16px;
+      display: block;
     }
 
     @media (max-width: 768px) {
@@ -226,8 +274,12 @@ export class DetailsPage extends LitElement {
     }
   `;
 
-  private _goHome() {
-    Router.go('/');
+  private _goBack() {
+    if (this.historyBack && window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+    Router.go(this.backHref || '/');
   }
 
   private _handleActionClick(href: string) {
@@ -240,8 +292,9 @@ export class DetailsPage extends LitElement {
   }
 
   render() {
-    const { hero, actions } = this.config ?? ({} as DetailsConfig);
-    if (!hero || !actions) {
+    const { hero, actions, heroCtaLabel, heroCta } =
+      this.config ?? ({} as DetailsConfig);
+    if (!hero) {
       return null;
     }
 
@@ -252,7 +305,7 @@ export class DetailsPage extends LitElement {
           class="back-button"
           @click=${(e: Event) => {
             e.preventDefault();
-            this._goHome();
+            this._goBack();
           }}
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
@@ -260,10 +313,10 @@ export class DetailsPage extends LitElement {
               d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
             />
           </svg>
-          Back to Home
+          ${this.historyBack ? 'Back' : 'Back to Home'}
         </a>
 
-        <div class="layout">
+        <div class="layout ${actions && actions.length ? '' : 'single'}">
           <div
             class="hero"
             data-expanded="${this.isDescriptionExpanded ? 'true' : 'false'}"
@@ -277,11 +330,17 @@ export class DetailsPage extends LitElement {
             >
               ${hero.description}
             </p>
-            ${hero.secondaryDescription
-              ? html`<p class="secondary-description">
-                  ${hero.secondaryDescription}
-                </p>`
-              : nothing}
+            ${heroCta
+              ? html`<div class="hero-cta">${heroCta}</div>`
+              : heroCtaLabel
+                ? html`<div class="hero-cta">
+                    <wa-button variant="primary">${heroCtaLabel}</wa-button>
+                  </div>`
+                : hero.secondaryDescription
+                  ? html`<p class="secondary-description">
+                      ${hero.secondaryDescription}
+                    </p>`
+                  : nothing}
             ${html`<button
               class="read-more"
               @click=${() =>
@@ -291,37 +350,52 @@ export class DetailsPage extends LitElement {
             </button>`}
           </div>
 
-          <div class="actions-list">
-            ${actions.map(
-              a => html`
-                <div
-                  class="action-item"
-                  @click=${() => this._handleActionClick(a.href)}
-                >
-                  <div class="action-icon">
+          ${actions && actions.length
+            ? html`<div class="actions-list">
+                ${actions.map(
+                  a => html`
                     <div
-                      class="icon-mask"
-                      style="--icon-url: url(${a.icon})"
-                    ></div>
-                  </div>
-                  <div class="action-content">
-                    <h3>${a.title}</h3>
-                    <p>${a.description}</p>
-                  </div>
-                  <div class="action-trailing">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 448 512"
+                      class="action-item"
+                      @click=${() => this._handleActionClick(a.href)}
                     >
-                      <path
-                        d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              `
-            )}
-          </div>
+                      <div class="action-icon">
+                        <div
+                          class="icon-mask"
+                          style="--icon-url: url(${a.icon})"
+                        ></div>
+                      </div>
+                      <div class="action-content">
+                        <h3>${a.title}</h3>
+                        <p>
+                          ${a.experimental
+                            ? html`<span class="experimental"
+                                >Experimental.</span
+                              >`
+                            : nothing}
+                          <span>${a.description}</span>
+                        </p>
+                      </div>
+                      <div class="action-trailing">
+                        ${a.trailingIcon
+                          ? html`<img
+                              src="${a.trailingIcon}"
+                              alt=""
+                              style="width: 20px; height: 20px;"
+                            />`
+                          : html`<svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 448 512"
+                            >
+                              <path
+                                d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z"
+                              />
+                            </svg>`}
+                      </div>
+                    </div>
+                  `
+                )}
+              </div>`
+            : nothing}
         </div>
       </div>
     `;

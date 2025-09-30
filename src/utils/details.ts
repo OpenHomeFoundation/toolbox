@@ -9,7 +9,6 @@ export const vpeDetails: DetailsConfig = {
   },
   actions: [
     {
-      variant: 'primary',
       title: 'Install firmware',
       description:
         'Flash the latest Voice PE firmware directly to your device using our web installer',
@@ -23,7 +22,6 @@ export const vpeDetails: DetailsConfig = {
         'Complete guide to setting up voice control, wake words, and commands',
       href: 'https://www.home-assistant.io/voice_control/',
       label: 'Setup guide',
-      variant: 'secondary',
       icon: '/svgs/doc.svg',
     },
     {
@@ -32,7 +30,6 @@ export const vpeDetails: DetailsConfig = {
         'Learn about Voice PE features, hardware specifications, and where to buy',
       href: 'https://www.home-assistant.io/voice-pe/',
       label: 'Product details',
-      variant: 'secondary',
       icon: '/svgs/product.svg',
     },
     {
@@ -41,7 +38,6 @@ export const vpeDetails: DetailsConfig = {
         'View the open-source Voice PE firmware code and contribute to development',
       href: 'https://github.com/esphome/home-assistant-voice-pe',
       label: 'GitHub Repository',
-      variant: 'secondary',
       icon: '/svgs/github.svg',
     },
   ],
@@ -58,20 +54,29 @@ export const zwa2Details: DetailsConfig = {
   },
   actions: [
     {
-      variant: 'primary',
-      title: 'Install firmware',
+      title: 'Install original firmware',
       description:
-        'Flash the latest firmware directly to your Connect ZWA-2 using our web-based toolbox',
-      href: 'https://home-assistant.github.io/zwa2-toolbox/',
+        'The original firmware that allows to connect the ZWA-2 directly to Home Assistant hub via USB cable.',
+      href: '/zwa2/install',
+      label: 'Open original toolbox',
+      icon: '/svgs/install.svg',
+      trailingIcon: '/svgs/chevron-right.svg',
+    },
+    {
+      title: 'Install portable Z-Wave firmware',
+      description:
+        'Place the ZWA-2 in the most optimal position and connect it to Home Assistant via Wi-Fi.',
+      href: '/zwa2/install-portable',
       label: 'Open toolbox',
       icon: '/svgs/install.svg',
+      trailingIcon: '/svgs/chevron-right.svg',
+      experimental: true,
     },
     {
       title: 'Documentation',
       description: 'User documentation, troubleshooting, and resources',
       href: 'https://support.nabucasa.com/hc/en-us/categories/28669861145885',
       label: 'Get support',
-      variant: 'secondary',
       icon: '/svgs/doc.svg',
     },
     {
@@ -80,7 +85,6 @@ export const zwa2Details: DetailsConfig = {
         'Learn more about the Connect ZWA-2 features, specifications, and where to buy',
       href: 'https://www.home-assistant.io/connect/zwa-2/',
       label: 'Product page',
-      variant: 'secondary',
       icon: '/svgs/product.svg',
     },
     {
@@ -88,7 +92,6 @@ export const zwa2Details: DetailsConfig = {
       description: 'View the open-source Z-Wave firmware code',
       href: 'https://github.com/NabuCasa/zwave-firmware',
       label: 'GitHub Repository',
-      variant: 'secondary',
       icon: '/svgs/github.svg',
     },
   ],
@@ -103,7 +106,6 @@ export const zbt1Details: DetailsConfig = {
   },
   actions: [
     {
-      variant: 'primary',
       title: 'Firmware update',
       description:
         'Update your Connect ZBT-1 firmware to the latest version directly from your browser',
@@ -117,7 +119,6 @@ export const zbt1Details: DetailsConfig = {
         'Step-by-step guide to set up your Connect ZBT-1 and connect Zigbee devices',
       href: 'https://home-assistant-skyconnect.netlify.app/',
       label: 'Setup guide',
-      variant: 'secondary',
       icon: '/svgs/start.svg',
     },
     {
@@ -126,7 +127,6 @@ export const zbt1Details: DetailsConfig = {
         'Learn more about Connect ZBT-1 product features, specifications, and where to buy',
       href: 'https://www.home-assistant.io/connectzbt1',
       label: 'Product page',
-      variant: 'secondary',
       icon: '/svgs/product.svg',
     },
     {
@@ -135,7 +135,6 @@ export const zbt1Details: DetailsConfig = {
         'Complete documentation, troubleshooting guides, and technical specifications',
       href: 'https://home-assistant-skyconnect.netlify.app/documentation/',
       label: 'View Docs',
-      variant: 'secondary',
       icon: '/svgs/doc.svg',
     },
   ],
@@ -150,7 +149,6 @@ export const esphomeWebDetails: DetailsConfig = {
   },
   actions: [
     {
-      variant: 'primary',
       title: 'Prepare device',
       description:
         'Connect and prepare your ESP32, ESP8266 device for ESPHome installation',
@@ -164,7 +162,6 @@ export const esphomeWebDetails: DetailsConfig = {
         'Install ESPHome on Raspberry Pi Pico W for wireless home automation projects',
       href: 'https://web.esphome.io/?pico',
       label: 'Flash Pico',
-      variant: 'secondary',
       icon: '/svgs/raspberry.svg',
     },
     {
@@ -173,7 +170,6 @@ export const esphomeWebDetails: DetailsConfig = {
         'Complete guide to ESPHome components, configuration, and advanced features',
       href: 'https://esphome.io/',
       label: 'Learn more',
-      variant: 'secondary',
       icon: '/svgs/doc.svg',
     },
   ],
@@ -188,7 +184,6 @@ export const mediaPlayerDetails: DetailsConfig = {
   },
   actions: [
     {
-      variant: 'primary',
       title: 'Install (ready‑made projects)',
       description:
         'Use the browser installer to flash a supported media player device',
@@ -202,7 +197,6 @@ export const mediaPlayerDetails: DetailsConfig = {
         'View known, tested devices and configurations for ESPHome media players',
       href: 'https://github.com/esphome/media-players',
       label: 'Open repository',
-      variant: 'secondary',
       icon: '/svgs/github.svg',
     },
   ],
@@ -217,7 +211,6 @@ export const bluetoothProxyDetails: DetailsConfig = {
   },
   actions: [
     {
-      variant: 'primary',
       title: 'Install (ready‑made projects)',
       description:
         'Use the browser installer to flash a supported Bluetooth proxy device',
@@ -231,7 +224,6 @@ export const bluetoothProxyDetails: DetailsConfig = {
         'View known, tested devices and configurations for Bluetooth proxies',
       href: 'https://github.com/esphome/bluetooth-proxies',
       label: 'Open repository',
-      variant: 'secondary',
       icon: '/svgs/github.svg',
     },
   ],
@@ -246,7 +238,6 @@ export const emptyESPHomeDetails: DetailsConfig = {
   },
   actions: [
     {
-      variant: 'primary',
       title: 'Install (ready‑made projects)',
       description: 'Use the browser installer to flash an empty ESPHome device',
       href: 'https://esphome.io/projects/index.html?type=empty',
@@ -259,7 +250,6 @@ export const emptyESPHomeDetails: DetailsConfig = {
         'Explore components and configuration options to build your device',
       href: 'https://esphome.io/',
       label: 'Open documentation',
-      variant: 'secondary',
       icon: '/svgs/github.svg',
     },
   ],
@@ -274,7 +264,6 @@ export const improvDetails: DetailsConfig = {
   },
   actions: [
     {
-      variant: 'primary',
       title: 'Improv Wi‑Fi',
       description: 'Learn about the Improv protocol and supported transports',
       href: 'https://www.improv-wifi.com/',
@@ -286,7 +275,6 @@ export const improvDetails: DetailsConfig = {
       description: 'Provision devices to Wi‑Fi over Bluetooth Low Energy',
       href: 'https://www.improv-wifi.com/ble/',
       label: 'Open BLE',
-      variant: 'secondary',
       icon: '/svgs/ble.svg',
     },
     {
@@ -294,7 +282,6 @@ export const improvDetails: DetailsConfig = {
       description: 'Provision devices to Wi‑Fi over Serial / Web Serial',
       href: 'https://www.improv-wifi.com/serial/',
       label: 'Open serial',
-      variant: 'secondary',
       icon: '/svgs/serial.svg',
     },
     {
@@ -303,7 +290,6 @@ export const improvDetails: DetailsConfig = {
         'This page contains SDK and code samples to help you get started using Improv Wi-Fi in your projects.',
       href: 'https://www.improv-wifi.com/code/',
       label: 'Open SDK',
-      variant: 'secondary',
       icon: '/svgs/code.svg',
     },
   ],
