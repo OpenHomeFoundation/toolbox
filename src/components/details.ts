@@ -8,13 +8,7 @@ export interface DetailsAction {
   description: string;
   href: string;
   label: string;
-  iconPath?: string;
-}
-
-export interface DetailsFeature {
-  iconPath: string;
-  header: string;
-  text: string;
+  icon: string;
 }
 
 export interface DetailsConfig {
@@ -82,7 +76,7 @@ export class DetailsPage extends LitElement {
 
     .hero h1 {
       color: #333;
-      margin: 0 0 16px 0;
+      margin: 32px 0 16px 0;
       font-size: 2.2rem;
       font-weight: 600;
     }
@@ -111,6 +105,12 @@ export class DetailsPage extends LitElement {
     }
 
     @media (max-width: 768px) {
+      .hero h1 {
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
       .hero .description.clamped {
         -webkit-line-clamp: 5;
       }
@@ -130,7 +130,7 @@ export class DetailsPage extends LitElement {
     .actions-list {
       background: white;
       border-radius: 16px;
-      padding: 8px 8px 0 8px;
+      padding: 8px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       height: 100%;
       box-sizing: border-box;
@@ -145,9 +145,8 @@ export class DetailsPage extends LitElement {
       align-items: center;
       gap: 16px;
       padding: 18px 16px;
-      border-bottom: 1px solid #eee;
       cursor: pointer;
-      border-radius: 12px;
+      border-radius: 6px;
     }
 
     .action-item:hover {
@@ -168,10 +167,12 @@ export class DetailsPage extends LitElement {
       justify-content: center;
     }
 
-    .action-icon svg {
+    .icon-mask {
       width: 20px;
       height: 20px;
-      fill: #1976d2;
+      background-color: #1976d2;
+      -webkit-mask: var(--icon-url) no-repeat center / contain;
+      mask: var(--icon-url) no-repeat center / contain;
     }
 
     .action-content h3 {
@@ -188,8 +189,8 @@ export class DetailsPage extends LitElement {
     }
 
     .action-trailing svg {
-      width: 20px;
-      height: 20px;
+      width: 16px;
+      height: 16px;
       fill: #9e9e9e;
     }
 
@@ -227,13 +228,6 @@ export class DetailsPage extends LitElement {
 
   private _goHome() {
     Router.go('/');
-  }
-
-  private renderIcon(path?: string) {
-    if (!path) {
-      return null;
-    }
-    return html`<svg viewBox="0 0 24 24"><path d="${path}" /></svg>`;
   }
 
   private _handleActionClick(href: string) {
@@ -274,7 +268,7 @@ export class DetailsPage extends LitElement {
             class="hero"
             data-expanded="${this.isDescriptionExpanded ? 'true' : 'false'}"
           >
-            <h1 style="margin-top: 32px;">${hero.title}</h1>
+            <h1>${hero.title}</h1>
             ${hero.subtitle
               ? html`<p class="subtitle">${hero.subtitle}</p>`
               : nothing}
@@ -304,7 +298,12 @@ export class DetailsPage extends LitElement {
                   class="action-item"
                   @click=${() => this._handleActionClick(a.href)}
                 >
-                  <div class="action-icon">${this.renderIcon(a.iconPath)}</div>
+                  <div class="action-icon">
+                    <div
+                      class="icon-mask"
+                      style="--icon-url: url(${a.icon})"
+                    ></div>
+                  </div>
                   <div class="action-content">
                     <h3>${a.title}</h3>
                     <p>${a.description}</p>
@@ -314,14 +313,9 @@ export class DetailsPage extends LitElement {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 448 512"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512"
-                      >
-                        <path
-                          d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z"
-                        />
-                      </svg>
+                      <path
+                        d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z"
+                      />
                     </svg>
                   </div>
                 </div>

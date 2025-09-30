@@ -1,4 +1,5 @@
 import '@awesome.me/webawesome/dist/components/icon/icon.js';
+import { Router } from '@vaadin/router';
 import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
@@ -27,6 +28,7 @@ export class AppHeader extends LitElement {
       display: flex;
       align-items: center;
       gap: 12px;
+      cursor: pointer;
     }
 
     .logo {
@@ -117,10 +119,14 @@ export class AppHeader extends LitElement {
     }
   `;
 
+  private _handleLogoClick() {
+    Router.go('/');
+  }
+
   render() {
     return html`
       <header>
-        <div class="logo-section">
+        <div class="logo-section" @click=${this._handleLogoClick}>
           <img
             src="/open-home-foundation.svg"
             alt="Open Home Foundation"

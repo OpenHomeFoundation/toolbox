@@ -32,7 +32,7 @@ export const tools: ToolDefinition[] = [
     description:
       'Install and manage ESPHome firmware directly from your browser',
     image: '/images/esphome.png',
-    url: 'https://web.esphome.io/',
+    url: '/esphome',
   },
   {
     title: 'Bluetooth Proxy',
@@ -64,6 +64,6 @@ export const tools: ToolDefinition[] = [
     description: 'Install WLED firmware on ESP32/ESP8266 for LED control',
     image: '/images/wled.png',
     url: 'https://install.wled.me/',
-    category: 'Community',
+    category: 'Collaboration partner',
   },
 ];
