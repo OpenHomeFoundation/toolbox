@@ -17,11 +17,19 @@ export const vpeDetails: DetailsConfig = {
       icon: '/svgs/install.svg',
     },
     {
-      title: 'Voice control documentation',
+      title: 'Voice control in Home Assistant',
       description:
         'Complete guide to setting up voice control, wake words, and commands',
       href: 'https://www.home-assistant.io/voice_control/',
       label: 'Setup guide',
+      icon: '/svgs/doc.svg',
+    },
+    {
+      title: 'Documentation',
+      description:
+        'Complete documentation, troubleshooting guides, and technical specifications',
+      href: 'https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition',
+      label: 'Get support',
       icon: '/svgs/doc.svg',
     },
     {
@@ -33,7 +41,7 @@ export const vpeDetails: DetailsConfig = {
       icon: '/svgs/product.svg',
     },
     {
-      title: 'Source Code',
+      title: 'Source code',
       description:
         'View the open-source Voice PE firmware code and contribute to development',
       href: 'https://github.com/esphome/home-assistant-voice-pe',
@@ -88,7 +96,7 @@ export const zwa2Details: DetailsConfig = {
       icon: '/svgs/product.svg',
     },
     {
-      title: 'Source Code',
+      title: 'Source code',
       description: 'View the open-source Z-Wave firmware code',
       href: 'https://github.com/NabuCasa/zwave-firmware',
       label: 'GitHub Repository',
@@ -105,21 +113,21 @@ export const zbt1Details: DetailsConfig = {
       'The Home Assistant Connect ZBT-1 (formerly SkyConnect) is a powerful Zigbee 3.0 USB adapter that connects your Zigbee devices to Home Assistant. Easy setup, reliable performance, and seamless integration.',
   },
   actions: [
+    // {
+    //   title: 'Firmware update',
+    //   description:
+    //     'Update your Connect ZBT-1 firmware to the latest version directly from your browser',
+    //   href: 'https://home-assistant-skyconnect.netlify.app/firmware-update/',
+    //   label: 'Update firmware',
+    //   icon: '/svgs/install.svg',
+    // },
     {
-      title: 'Firmware update',
+      title: 'Documentation',
       description:
-        'Update your Connect ZBT-1 firmware to the latest version directly from your browser',
-      href: 'https://home-assistant-skyconnect.netlify.app/firmware-update/',
-      label: 'Update firmware',
-      icon: '/svgs/install.svg',
-    },
-    {
-      title: 'Getting started',
-      description:
-        'Step-by-step guide to set up your Connect ZBT-1 and connect Zigbee devices',
-      href: 'https://home-assistant-skyconnect.netlify.app/',
-      label: 'Setup guide',
-      icon: '/svgs/start.svg',
+        'Complete documentation, troubleshooting guides, and technical specifications',
+      href: 'https://support.nabucasa.com/hc/en-us/categories/24734620813469',
+      label: 'View Docs',
+      icon: '/svgs/doc.svg',
     },
     {
       title: 'Product info',
@@ -130,126 +138,10 @@ export const zbt1Details: DetailsConfig = {
       icon: '/svgs/product.svg',
     },
     {
-      title: 'Documentation',
-      description:
-        'Complete documentation, troubleshooting guides, and technical specifications',
-      href: 'https://home-assistant-skyconnect.netlify.app/documentation/',
-      label: 'View Docs',
-      icon: '/svgs/doc.svg',
-    },
-  ],
-};
-
-export const esphomeWebDetails: DetailsConfig = {
-  hero: {
-    title: 'ESPHome Web',
-    subtitle: 'Install and manage ESPHome firmware',
-    description:
-      'Flash ESPHome firmware directly from your browser to ESP32, ESP8266, and Raspberry Pi Pico devices. No installation required. Just connect your device and get started with smart home automation.',
-  },
-  actions: [
-    {
-      title: 'Prepare device',
-      description:
-        'Connect and prepare your ESP32, ESP8266 device for ESPHome installation',
-      href: 'https://web.esphome.io/',
-      label: 'Connect device',
-      icon: '/svgs/install.svg',
-    },
-    {
-      title: 'Raspberry Pi Pico',
-      description:
-        'Install ESPHome on Raspberry Pi Pico W for wireless home automation projects',
-      href: 'https://web.esphome.io/?pico',
-      label: 'Flash Pico',
-      icon: '/svgs/raspberry.svg',
-    },
-    {
-      title: 'ESPHome documentation',
-      description:
-        'Complete guide to ESPHome components, configuration, and advanced features',
-      href: 'https://esphome.io/',
-      label: 'Learn more',
-      icon: '/svgs/doc.svg',
-    },
-  ],
-};
-
-export const mediaPlayerDetails: DetailsConfig = {
-  hero: {
-    title: 'ESPHome media players',
-    subtitle: 'Smart, connected audio powered by ESPHome',
-    description:
-      'Create an internet-connected media player that integrates with Home Assistant. Install ready-made firmware and explore supported devices.',
-  },
-  actions: [
-    {
-      title: 'Install (ready‑made projects)',
-      description:
-        'Use the browser installer to flash a supported media player device',
-      href: 'https://esphome.io/projects/index.html?type=media',
-      label: 'Open installer',
-      icon: '/svgs/install.svg',
-    },
-    {
       title: 'Source code',
-      description:
-        'View known, tested devices and configurations for ESPHome media players',
-      href: 'https://github.com/esphome/media-players',
-      label: 'Open repository',
-      icon: '/svgs/github.svg',
-    },
-  ],
-};
-
-export const bluetoothProxyDetails: DetailsConfig = {
-  hero: {
-    title: 'ESPHome Bluetooth proxy',
-    subtitle: 'Extend Bluetooth reach for Home Assistant',
-    description:
-      'Turn ESP32 devices into Bluetooth proxies that forward BLE traffic to Home Assistant, improving coverage and reliability.',
-  },
-  actions: [
-    {
-      title: 'Install (ready‑made projects)',
-      description:
-        'Use the browser installer to flash a supported Bluetooth proxy device',
-      href: 'https://esphome.io/projects/index.html?type=bluetooth',
-      label: 'Open installer',
-      icon: '/svgs/install.svg',
-    },
-    {
-      title: 'Source code',
-      description:
-        'View known, tested devices and configurations for Bluetooth proxies',
-      href: 'https://github.com/esphome/bluetooth-proxies',
-      label: 'Open repository',
-      icon: '/svgs/github.svg',
-    },
-  ],
-};
-
-export const emptyESPHomeDetails: DetailsConfig = {
-  hero: {
-    title: 'Empty ESPHome device',
-    subtitle: 'Start from a clean slate',
-    description:
-      'Install a minimal ESPHome firmware with no special features built-in. Perfect starting point to build your own device.',
-  },
-  actions: [
-    {
-      title: 'Install (ready‑made projects)',
-      description: 'Use the browser installer to flash an empty ESPHome device',
-      href: 'https://esphome.io/projects/index.html?type=empty',
-      label: 'Open installer',
-      icon: '/svgs/install.svg',
-    },
-    {
-      title: 'ESPHome docs',
-      description:
-        'Explore components and configuration options to build your device',
-      href: 'https://esphome.io/',
-      label: 'Open documentation',
+      description: 'View the open-source firmware code',
+      href: 'https://github.com/NabuCasa/silabs-firmware-builder',
+      label: 'GitHub Repository',
       icon: '/svgs/github.svg',
     },
   ],
@@ -295,22 +187,10 @@ export const improvDetails: DetailsConfig = {
   ],
 };
 
-export type DetailsKey =
-  | 'vpe'
-  | 'zwa2'
-  | 'zbt1'
-  | 'esphome'
-  | 'media'
-  | 'bluetooth'
-  | 'empty'
-  | 'improv';
+export type DetailsKey = 'vpe' | 'zwa2' | 'zbt1' | 'improv';
 export const detailsByKey: Record<DetailsKey, DetailsConfig> = {
   vpe: vpeDetails,
   zwa2: zwa2Details,
   zbt1: zbt1Details,
-  esphome: esphomeWebDetails,
-  media: mediaPlayerDetails,
-  bluetooth: bluetoothProxyDetails,
-  empty: emptyESPHomeDetails,
   improv: improvDetails,
 };

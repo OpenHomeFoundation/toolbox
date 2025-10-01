@@ -28,30 +28,23 @@ export const tools: ToolDefinition[] = [
     url: '/zbt1',
   },
   {
-    title: 'ESPHome Web',
-    description:
-      'Install and manage ESPHome firmware directly from your browser',
-    image: '/images/esphome.png',
-    url: '/esphome',
-  },
-  {
     title: 'Bluetooth proxy',
     description:
       'Create a device to allow Home Assistant to control Bluetooth devices.',
     image: '/images/bluetooth-proxy.png',
-    url: '/bluetooth-proxy',
-  },
-  {
-    title: 'Empty ESPHome',
-    description: 'No special features built-in. Ready to make it your own.',
-    image: '/images/empty-esphome.png',
-    url: '/empty-esphome',
+    url: 'https://esphome.io/projects/index.html?type=bluetooth',
   },
   {
     title: 'Media player',
     description: 'Create an internet connected smart media player.',
     image: '/images/media-player.png',
-    url: '/media-player',
+    url: 'https://esphome.io/projects/index.html?type=media',
+  },
+  {
+    title: 'Empty ESPHome',
+    description: 'No special features built-in. Ready to make it your own.',
+    image: '/images/empty-esphome.png',
+    url: 'https://esphome.io/projects/index.html?type=empty',
   },
   {
     title: 'Improv Wi-Fi',
@@ -65,5 +58,12 @@ export const tools: ToolDefinition[] = [
     image: '/images/wled.png',
     url: 'https://install.wled.me/',
     category: 'Collaboration partner',
+  },
+  {
+    title: 'ESPHome Web',
+    description:
+      'Install and manage ESPHome firmware directly from your browser',
+    image: '/images/esphome.png',
+    url: 'https://web.esphome.io/',
   },
 ];

@@ -20,18 +20,33 @@ export class Zwa2InstallPortablePage extends LitElement {
     );
   }
 
+  handleLearnMore() {
+    // Placeholder link for future blog post
+    window.open(
+      'https://www.home-assistant.io/blog/',
+      '_blank',
+      'noopener,noreferrer'
+    );
+  }
+
   render() {
     const config = {
       hero: {
         title: 'Install portable Z-Wave firmware',
         subtitle: 'Place ZWA-2 optimally and connect via Wi‑Fi',
         description:
-          'This installation will flash the portable Z-Wave firmware to your ZWA-2, enabling Wi‑Fi connectivity so you can place it in the best location for coverage.',
+          'This firmware is experimental. If you experience any issues, revert back to the original firmware.',
+        secondaryDescription:
+          'This experiment allows you to put your ZWA-2 in the most optimal location to reach your Z-Wave devices, which might very well not have been the basement where you have tucked away your Home Assistant hub!',
+        tertiaryDescription:
+          'It does this by activating the ESP32-S3 wifi chip in the Home Assistant Connect ZWA-2 and turning the ZWA-2 into a wirelessly connected Z-Wave proxy that seamlessly integrates with Home Assistant.',
+        learnMoreHref: 'https://www.home-assistant.io/blog/',
+        learnMoreLabel: 'Learn more',
       },
       actions: [],
-      heroCta: html`<button class="install" @click=${this.handleInstall}>
-        Install
-      </button>`,
+      heroCta: html`
+        <button class="install" @click=${this.handleInstall}>Install</button>
+      `,
     } as const;
 
     return html`<details-page

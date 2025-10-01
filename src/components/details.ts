@@ -19,6 +19,9 @@ export interface DetailsConfig {
     subtitle?: string;
     description: string;
     secondaryDescription?: string;
+    tertiaryDescription?: string;
+    learnMoreHref?: string;
+    learnMoreLabel?: string;
   };
   actions: DetailsAction[];
   heroCtaLabel?: string;
@@ -114,6 +117,13 @@ export class DetailsPage extends LitElement {
       font-size: 1.05rem;
     }
 
+    .hero .tertiary-description {
+      color: #666;
+      line-height: 1.6;
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
     @media (max-width: 768px) {
       .hero h1 {
         margin-top: 0;
@@ -139,7 +149,8 @@ export class DetailsPage extends LitElement {
 
     .hero-cta {
       margin: 16px 0 24px 0;
-      display: inline-flex;
+      display: block;
+      width: 100%;
     }
 
     .hero-cta button.install {
@@ -247,6 +258,10 @@ export class DetailsPage extends LitElement {
         display: none;
       }
 
+      .hero[data-expanded='false'] .tertiary-description {
+        display: none;
+      }
+
       .read-more {
         display: inline-block;
       }
@@ -330,17 +345,26 @@ export class DetailsPage extends LitElement {
             >
               ${hero.description}
             </p>
-            ${heroCta
-              ? html`<div class="hero-cta">${heroCta}</div>`
-              : heroCtaLabel
-                ? html`<div class="hero-cta">
-                    <wa-button variant="primary">${heroCtaLabel}</wa-button>
-                  </div>`
-                : hero.secondaryDescription
-                  ? html`<p class="secondary-description">
-                      ${hero.secondaryDescription}
-                    </p>`
-                  : nothing}
+            ${hero.secondaryDescription
+              ? html`<p class="secondary-description">
+                  ${hero.secondaryDescription}
+                </p>`
+              : nothing}
+            ${hero.tertiaryDescription
+              ? html`<p class="tertiary-description">
+                  ${hero.tertiaryDescription}
+                </p>`
+              : nothing}
+            ${hero.learnMoreHref
+              ? html`<p class="secondary-description">
+                  <a
+                    href="${hero.learnMoreHref}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >${hero.learnMoreLabel || 'Learn more'}</a
+                  >
+                </p>`
+              : nothing}
             ${html`<button
               class="read-more"
               @click=${() =>
@@ -348,6 +372,13 @@ export class DetailsPage extends LitElement {
             >
               ${this.isDescriptionExpanded ? 'Read less' : 'Read more'}
             </button>`}
+            ${heroCta
+              ? html`<div class="hero-cta">${heroCta}</div>`
+              : heroCtaLabel
+                ? html`<div class="hero-cta">
+                    <wa-button variant="primary">${heroCtaLabel}</wa-button>
+                  </div>`
+                : nothing}
           </div>
 
           ${actions && actions.length
