@@ -156,33 +156,11 @@ export const improvDetails: DetailsConfig = {
   },
   actions: [
     {
-      title: 'Improv Wi‑Fi',
+      title: 'Documentation',
       description: 'Learn about the Improv protocol and supported transports',
       href: 'https://www.improv-wifi.com/',
       label: 'Open website',
-      icon: '/svgs/wifi.svg',
-    },
-    {
-      title: 'BLE provisioning',
-      description: 'Provision devices to Wi‑Fi over Bluetooth Low Energy',
-      href: 'https://www.improv-wifi.com/ble/',
-      label: 'Open BLE',
-      icon: '/svgs/ble.svg',
-    },
-    {
-      title: 'Serial provisioning',
-      description: 'Provision devices to Wi‑Fi over Serial / Web Serial',
-      href: 'https://www.improv-wifi.com/serial/',
-      label: 'Open serial',
-      icon: '/svgs/serial.svg',
-    },
-    {
-      title: 'SDK and code samples',
-      description:
-        'This page contains SDK and code samples to help you get started using Improv Wi-Fi in your projects.',
-      href: 'https://www.improv-wifi.com/code/',
-      label: 'Open SDK',
-      icon: '/svgs/code.svg',
+      icon: '/svgs/doc.svg',
     },
   ],
 };

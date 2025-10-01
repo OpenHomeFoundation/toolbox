@@ -26,6 +26,7 @@ export interface DetailsConfig {
   actions: DetailsAction[];
   heroCtaLabel?: string;
   heroCta?: unknown;
+  customActions?: unknown;
 }
 
 @customElement('details-page')
@@ -307,7 +308,7 @@ export class DetailsPage extends LitElement {
   }
 
   render() {
-    const { hero, actions, heroCtaLabel, heroCta } =
+    const { hero, actions, heroCtaLabel, heroCta, customActions } =
       this.config ?? ({} as DetailsConfig);
     if (!hero) {
       return null;
@@ -383,6 +384,7 @@ export class DetailsPage extends LitElement {
 
           ${actions && actions.length
             ? html`<div class="actions-list">
+                ${customActions ? customActions : nothing}
                 ${actions.map(
                   a => html`
                     <div

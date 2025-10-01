@@ -18,6 +18,7 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-lit": "^2.1.1",
     "eslint-plugin-wc": "^3.0.1",
+    "improv-wifi-sdk": "^1.4.0",
     "lit": "^3.3.1",
     "prettier": "^3.6.2",
     "ts-pattern": "^5.8.0"
