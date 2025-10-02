@@ -1,6 +1,5 @@
 import '@awesome.me/webawesome/dist/components/button/button.js';
 import '@awesome.me/webawesome/dist/components/icon/icon.js';
-import { Router } from '@vaadin/router';
 import { LitElement, css, html, nothing } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 export interface DetailsAction {
@@ -307,7 +306,7 @@ export class DetailsPage extends LitElement {
       window.history.back();
       return;
     }
-    Router.go(this.backHref || '/');
+    window.location.href = this.backHref || '/';
   }
 
   private _handleActionClick(href: string) {
@@ -316,7 +315,7 @@ export class DetailsPage extends LitElement {
       window.open(href, '_blank', 'noopener,noreferrer');
       return;
     }
-    Router.go(href);
+    window.location.href = href;
   }
 
   render() {

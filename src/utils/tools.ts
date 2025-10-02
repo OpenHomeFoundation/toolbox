@@ -12,7 +12,7 @@ export const tools: ToolDefinition[] = [
     description:
       'The ultimate way to connect Z-Wave devices to Home Assistant.',
     image: '/images/zwa2.webp',
-    url: '/zwa2',
+    url: '/zwa2/',
   },
   {
     title: 'Home Assistant Voice Preview Edition',

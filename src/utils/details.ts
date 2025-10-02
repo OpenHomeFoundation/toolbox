@@ -65,7 +65,7 @@ export const zwa2Details: DetailsConfig = {
       title: 'Install original firmware',
       description:
         'The original firmware that allows to connect the ZWA-2 directly to Home Assistant hub via USB cable.',
-      href: '/zwa2/install',
+      href: '/zwa2/install.html',
       label: 'Open original toolbox',
       icon: '/svgs/install.svg',
       trailingIcon: '/svgs/chevron-right.svg',
@@ -74,7 +74,7 @@ export const zwa2Details: DetailsConfig = {
       title: 'Install portable Z-Wave firmware',
       description:
         'Place the ZWA-2 in the most optimal position and connect it to Home Assistant via Wi-Fi.',
-      href: '/zwa2/install-portable',
+      href: '/zwa2/install-portable.html',
       label: 'Open toolbox',
       icon: '/svgs/install.svg',
       trailingIcon: '/svgs/chevron-right.svg',

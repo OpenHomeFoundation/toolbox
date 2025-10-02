@@ -1,5 +1,4 @@
 import '@awesome.me/webawesome/dist/components/button/button.js';
-import { Router } from '@vaadin/router';
 import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
@@ -120,7 +119,7 @@ export class ToolCard extends LitElement {
         window.open(this.url, '_blank', 'noopener,noreferrer');
         return;
       } else {
-        Router.go(this.url);
+        window.location.href = this.url;
       }
     }
   }

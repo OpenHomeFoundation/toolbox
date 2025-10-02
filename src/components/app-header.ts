@@ -1,5 +1,4 @@
 import '@awesome.me/webawesome/dist/components/icon/icon.js';
-import { Router } from '@vaadin/router';
 import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
@@ -120,7 +119,7 @@ export class AppHeader extends LitElement {
   `;
 
   private _handleLogoClick() {
-    Router.go('/');
+    window.location.href = '/';
   }
 
   render() {
