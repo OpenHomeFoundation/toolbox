@@ -53,17 +53,17 @@ export const tools: ToolDefinition[] = [
     url: '/improv',
   },
   {
-    title: 'WLED installer',
-    description: 'Install WLED firmware on ESP32/ESP8266 for LED control',
-    image: '/images/wled.png',
-    url: 'https://install.wled.me/',
-    category: 'Collaboration partner',
-  },
-  {
     title: 'ESPHome Web',
     description:
       'Install and manage ESPHome firmware directly from your browser',
     image: '/images/esphome.png',
     url: 'https://web.esphome.io/',
+  },
+  {
+    title: 'WLED installer',
+    description: 'Install WLED firmware on ESP32/ESP8266 for LED control',
+    image: '/images/wled.png',
+    url: 'https://install.wled.me/',
+    category: 'Collaboration partner',
   },
 ];

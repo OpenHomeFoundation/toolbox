@@ -59,10 +59,17 @@ export class DetailsPage extends LitElement {
       border-radius: 8px;
       transition: all 0.2s ease;
       margin-bottom: 20px;
+      background: #e3f2fd;
     }
 
     .back-button:hover {
-      background: #e3f2fd;
+      background: #c0e1f8;
+    }
+
+    .back-button svg {
+      margin-top: 2px;
+      width: 14px;
+      height: 14px;
     }
 
     .layout {
@@ -255,6 +262,10 @@ export class DetailsPage extends LitElement {
     }
 
     @media (max-width: 768px) {
+      :host {
+        padding: 0px;
+      }
+
       .hero[data-expanded='false'] .secondary-description {
         display: none;
       }
@@ -270,10 +281,11 @@ export class DetailsPage extends LitElement {
       .layout {
         grid-template-columns: 1fr;
         grid-auto-rows: auto;
+        gap: 10px;
       }
 
       .hero {
-        padding: 24px 20px;
+        padding: 16px 20px;
         height: auto;
         display: block;
       }
@@ -324,7 +336,7 @@ export class DetailsPage extends LitElement {
             this._goBack();
           }}
         >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <svg viewBox="0 0 16 16" fill="currentColor">
             <path
               d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
             />
