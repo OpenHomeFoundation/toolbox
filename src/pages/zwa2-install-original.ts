@@ -78,7 +78,7 @@ export class Zwa2InstallOriginalPage extends LitElement {
             </li>
             <li>Download backup is at the bottom of the page.</li>
           </ol>
-          <li>nstall the ESP Serial Bridge firmware</li>
+          <li>Install the ESP Serial Bridge firmware</li>
         </ol>
         <button class="install" @click=${this.handleInstall}>Install</button>
       `,
