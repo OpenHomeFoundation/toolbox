@@ -19,7 +19,7 @@ export const tools: ToolDefinition[] = [
     description:
       'Bring choice to voice. The best way to get started with voice',
     image: '/images/voice.jpg',
-    url: '/vpe',
+    url: '/vpe/',
   },
   {
     title: 'Home Assistant Connect ZBT-1',

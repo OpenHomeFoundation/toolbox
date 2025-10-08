@@ -26,6 +26,7 @@ export interface DetailsConfig {
   heroCtaLabel?: string;
   heroCta?: unknown;
   customActions?: unknown;
+  footer?: unknown;
 }
 
 @customElement('details-page')
@@ -87,16 +88,16 @@ export class DetailsPage extends LitElement {
     .hero {
       background: white;
       border-radius: 16px;
-      padding: 0 32px 0 32px;
+      padding: 0 32px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       height: 100%;
       display: flex;
       flex-direction: column;
     }
 
-    .hero h1 {
+    .hero-title {
       color: #333;
-      margin: 32px 0 16px 0;
+      margin-top: 32px;
       font-size: 2.2rem;
       font-weight: 600;
     }
@@ -105,7 +106,7 @@ export class DetailsPage extends LitElement {
       color: #03a9f4;
       font-size: 1.1rem;
       font-weight: 500;
-      margin: 0 0 20px 0;
+      margin: 0 0 10px 0;
     }
 
     .hero .description {
@@ -171,6 +172,23 @@ export class DetailsPage extends LitElement {
     }
 
     .hero-cta button.install:hover {
+      background: #03a9f4;
+      color: #fff;
+    }
+
+    button.install {
+      color: #03a9f4;
+      background: #fff;
+      border: 1px solid #03a9f4;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+
+    button.install:hover {
       background: #03a9f4;
       color: #fff;
     }
@@ -319,7 +337,7 @@ export class DetailsPage extends LitElement {
   }
 
   render() {
-    const { hero, actions, heroCtaLabel, heroCta, customActions } =
+    const { hero, actions, heroCtaLabel, heroCta, customActions, footer } =
       this.config ?? ({} as DetailsConfig);
     if (!hero) {
       return null;
@@ -348,15 +366,19 @@ export class DetailsPage extends LitElement {
             class="hero"
             data-expanded="${this.isDescriptionExpanded ? 'true' : 'false'}"
           >
-            <h1>${hero.title}</h1>
+            <div class="hero-title">${hero.title}</div>
             ${hero.subtitle
               ? html`<p class="subtitle">${hero.subtitle}</p>`
               : nothing}
-            <p
-              class="description ${this.isDescriptionExpanded ? '' : 'clamped'}"
-            >
-              ${hero.description}
-            </p>
+            ${hero.description
+              ? html`<p
+                  class="description ${this.isDescriptionExpanded
+                    ? ''
+                    : 'clamped'}"
+                >
+                  ${hero.description}
+                </p>`
+              : nothing}
             ${hero.secondaryDescription
               ? html`<p class="secondary-description">
                   ${hero.secondaryDescription}
@@ -391,6 +413,7 @@ export class DetailsPage extends LitElement {
                     <wa-button variant="primary">${heroCtaLabel}</wa-button>
                   </div>`
                 : nothing}
+            ${footer ? html`<div>${footer}</div>` : nothing}
           </div>
 
           ${actions && actions.length

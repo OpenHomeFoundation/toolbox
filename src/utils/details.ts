@@ -10,11 +10,11 @@ export const vpeDetails: DetailsConfig = {
   actions: [
     {
       title: 'Install firmware',
-      description:
-        'Flash the latest Voice PE firmware directly to your device using our web installer',
-      href: 'https://esphome.github.io/home-assistant-voice-pe/',
+      description: 'Flash the latest Voice PE firmware',
+      href: '/vpe/install',
       label: 'Install firmware',
       icon: '/svgs/install.svg',
+      trailingIcon: '/svgs/chevron-right.svg',
     },
     {
       title: 'Voice control in Home Assistant',
@@ -65,7 +65,7 @@ export const zwa2Details: DetailsConfig = {
       title: 'Install original firmware',
       description:
         'The original firmware that allows to connect the ZWA-2 directly to Home Assistant hub via USB cable.',
-      href: '/zwa2/install.html',
+      href: '/zwa2/install',
       label: 'Open original toolbox',
       icon: '/svgs/install.svg',
       trailingIcon: '/svgs/chevron-right.svg',
@@ -74,7 +74,17 @@ export const zwa2Details: DetailsConfig = {
       title: 'Install portable Z-Wave firmware',
       description:
         'Place the ZWA-2 in the most optimal position and connect it to Home Assistant via Wi-Fi.',
-      href: '/zwa2/install-portable.html',
+      href: '/zwa2/install-portable',
+      label: 'Open toolbox',
+      icon: '/svgs/install.svg',
+      trailingIcon: '/svgs/chevron-right.svg',
+      experimental: true,
+    },
+    {
+      title: 'Use Portable Z-Wave with Power-over-Ethernet',
+      description:
+        'Place the ZWA-2 in the most optimal position and connect it to Home Assistant via Power-over-Ethernet.',
+      href: '/zwa2/use-poe',
       label: 'Open toolbox',
       icon: '/svgs/install.svg',
       trailingIcon: '/svgs/chevron-right.svg',
@@ -113,14 +123,6 @@ export const zbt1Details: DetailsConfig = {
       'The Home Assistant Connect ZBT-1 (formerly SkyConnect) is a powerful Zigbee 3.0 USB adapter that connects your Zigbee devices to Home Assistant. Easy setup, reliable performance, and seamless integration.',
   },
   actions: [
-    // {
-    //   title: 'Firmware update',
-    //   description:
-    //     'Update your Connect ZBT-1 firmware to the latest version directly from your browser',
-    //   href: 'https://home-assistant-skyconnect.netlify.app/firmware-update/',
-    //   label: 'Update firmware',
-    //   icon: '/svgs/install.svg',
-    // },
     {
       title: 'Documentation',
       description:
