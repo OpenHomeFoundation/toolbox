@@ -82,8 +82,13 @@ export class Zwa2InstallPortablePage extends LitElement {
             </ol>
           </li>
           <li>
-            Connect the Waveshare board to your computer via USB, click this
-            button and follow the instructions to install:
+            Connect the Waveshare board to your computer via USB and use the
+            installer below to flash the firmware:
+            <p>
+              <a href="#installer" @click=${this._scrollToInstaller}
+                >Go to Installer</a
+              >
+            </p>
           </li>
         </ol>
 
@@ -128,6 +133,14 @@ export class Zwa2InstallPortablePage extends LitElement {
         back-href="/zwa2"
       ></details-page>
     `;
+  }
+
+  private _scrollToInstaller(e: Event) {
+    e.preventDefault();
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth',
+    });
   }
 }
 

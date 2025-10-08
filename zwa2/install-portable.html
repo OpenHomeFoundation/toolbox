@@ -29,7 +29,6 @@
       .installer-wrapper {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 20px;
       }
 
       .installer-card {
@@ -59,13 +58,19 @@
       a:hover {
         text-decoration: underline;
       }
+
+      @media (max-width: 1200px) {
+        .installer-wrapper {
+          padding: 0 20px;
+        }
+      }
     </style>
   </head>
   <body class="wa-palette-shoelace wa-theme-shoelace">
     <app-header></app-header>
     <zwa2-install-portable></zwa2-install-portable>
     <div class="installer-wrapper" id="installer-container">
-      <div class="installer-card">
+      <div class="installer-card" id="installer">
         <install-esphome-firmware></install-esphome-firmware>
       </div>
     </div>

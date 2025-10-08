@@ -2,6 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 import '../components/details.js';
+import '../components/warning-card.js';
 
 @customElement('zwa2-install-poe')
 export class Zwa2InstallPoEPage extends LitElement {
@@ -21,6 +22,8 @@ export class Zwa2InstallPoEPage extends LitElement {
   }
 
   render() {
+    const isSerialUnavailable = !('serial' in navigator);
+
     const config = {
       hero: {
         title: 'Use Portable Z-Wave with Power-over-Ethernet',
@@ -122,15 +125,49 @@ export class Zwa2InstallPoEPage extends LitElement {
           <li>
             Connect the Waveshare board to your computer via USB, click this
             button and follow the instructions to install:
-            <div style="margin: 12px 0;">
-              <esp-web-install-button
-                manifest="https://firmware.esphome.io/ha-connect-zwa-2/home-assistant-zwa-2-poe/manifest.json"
-              ></esp-web-install-button>
-            </div>
-            <p style="font-style: italic;">
-              Don’t worry about the error at the end. Our installer can no
-              longer connect to the device because it now expects the ZWA-2.
-            </p>
+            ${isSerialUnavailable
+              ? html`<div
+                  style="
+                    background:#fff3e0;
+                    border:1px solid #ffb74d;
+                    border-radius:8px;
+                    padding:24px;
+                    display:flex;
+                    gap:16px;
+                    align-items:flex-start;
+                    margin: 20px 0;
+                  "
+                >
+                  <svg
+                    style="flex-shrink:0;width:24px;height:24px;color:#eb9136;margin-top:3px;"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                    />
+                  </svg>
+                  <div style="flex:1;">
+                    <h3
+                      style="margin:0 0 8px 0;font-size:1.1rem;font-weight:600;color:#e16725;"
+                    >
+                      Your browser does not support Web Serial
+                    </h3>
+                    <p style="margin:0;color:#5d4037;line-height:1.5;">
+                      Open this page in Google Chrome or Microsoft Edge instead.
+                    </p>
+                  </div>
+                </div>`
+              : html`<div style="margin: 12px 0;">
+                    <esp-web-install-button
+                      manifest="https://firmware.esphome.io/ha-connect-zwa-2/home-assistant-zwa-2-poe/manifest.json"
+                    ></esp-web-install-button>
+                  </div>
+                  <p style="font-style: italic;">
+                    Don’t worry about the error at the end. Our installer can no
+                    longer connect to the device because it now expects the
+                    ZWA-2.
+                  </p>`}
           </li>
           <li>Disconnect the Waveshare board from your computer.</li>
           <li>
