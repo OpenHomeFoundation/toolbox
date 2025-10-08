@@ -12,14 +12,6 @@ export class Zwa2InstallOriginalPage extends LitElement {
     }
   `;
 
-  handleInstall() {
-    window.open(
-      'https://home-assistant.github.io/zwa2-toolbox/',
-      '_blank',
-      'noopener,noreferrer'
-    );
-  }
-
   render() {
     const config = {
       hero: {
@@ -80,15 +72,16 @@ export class Zwa2InstallOriginalPage extends LitElement {
           </ol>
           <li>Install the ESP Serial Bridge firmware</li>
         </ol>
-        <button class="install" @click=${this.handleInstall}>Install</button>
       `,
     } as const;
 
-    return html`<details-page
-      .config=${config}
-      history-back
-      back-href="/zwa2"
-    ></details-page>`;
+    return html`
+      <details-page
+        .config=${config}
+        history-back
+        back-href="/zwa2"
+      ></details-page>
+    `;
   }
 }
 

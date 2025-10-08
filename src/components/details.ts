@@ -39,7 +39,7 @@ export class DetailsPage extends LitElement {
   static styles = css`
     :host {
       display: block;
-      padding: 20px;
+      padding-top: 20px;
       font-family:
         -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
@@ -47,6 +47,16 @@ export class DetailsPage extends LitElement {
     .container {
       max-width: 1200px;
       margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    a {
+      color: #03a9f4;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     .back-button {

@@ -12,14 +12,6 @@ export class Zwa2InstallPortablePage extends LitElement {
     }
   `;
 
-  handleInstall() {
-    window.open(
-      'https://home-assistant.github.io/zwa2-toolbox/',
-      '_blank',
-      'noopener,noreferrer'
-    );
-  }
-
   render() {
     const config = {
       hero: {
@@ -94,7 +86,6 @@ export class Zwa2InstallPortablePage extends LitElement {
             button and follow the instructions to install:
           </li>
         </ol>
-        <button class="install" @click=${this.handleInstall}>Install</button>
 
         <h3>Troubleshooting</h3>
         <p>
@@ -130,11 +121,13 @@ export class Zwa2InstallPortablePage extends LitElement {
       `,
     } as const;
 
-    return html`<details-page
-      .config=${config}
-      history-back
-      back-href="/zwa2"
-    ></details-page>`;
+    return html`
+      <details-page
+        .config=${config}
+        history-back
+        back-href="/zwa2"
+      ></details-page>
+    `;
   }
 }
 
