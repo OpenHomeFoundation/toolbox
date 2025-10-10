@@ -32,7 +32,6 @@ export interface DetailsConfig {
 @customElement('details-page')
 export class DetailsPage extends LitElement {
   @property({ type: Object }) config!: DetailsConfig;
-  @property({ type: Boolean, attribute: 'history-back' }) historyBack = false;
   @property({ type: String, attribute: 'back-href' }) backHref = '/';
   @state() private isDescriptionExpanded = false;
 
@@ -330,10 +329,6 @@ export class DetailsPage extends LitElement {
   `;
 
   private _goBack() {
-    if (this.historyBack && window.history.length > 1) {
-      window.history.back();
-      return;
-    }
     window.location.href = this.backHref || '/';
   }
 
@@ -368,7 +363,7 @@ export class DetailsPage extends LitElement {
               d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
             />
           </svg>
-          ${this.historyBack ? 'Back' : 'Back to Home'}
+          ${this.backHref === '/' ? 'Back to Home' : 'Back'}
         </a>
 
         <div class="layout ${actions && actions.length ? '' : 'single'}">

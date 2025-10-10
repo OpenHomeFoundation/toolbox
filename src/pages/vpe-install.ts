@@ -9,7 +9,6 @@ export class VPEInstallPage extends LitElement {
   static styles = css`
     :host {
       display: block;
-      padding: 20px;
     }
     .back-button {
       display: inline-flex;
@@ -125,11 +124,7 @@ export class VPEInstallPage extends LitElement {
               </p>
             </div>
           </div>`
-      : html`<details-page
-          .config=${config}
-          history-back
-          back-href="/vpe"
-        ></details-page>`;
+      : html`<details-page .config=${config} back-href="/vpe/"></details-page>`;
   }
 }
 

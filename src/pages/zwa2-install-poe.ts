@@ -236,8 +236,7 @@ export class Zwa2InstallPoEPage extends LitElement {
 
     return html`<details-page
       .config=${config}
-      history-back
-      back-href="/zwa2"
+      back-href="/zwa2/"
     ></details-page>`;
   }
 }

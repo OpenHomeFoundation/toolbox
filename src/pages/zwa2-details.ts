@@ -9,7 +9,6 @@ export class ZWA2Details extends LitElement {
   static styles = css`
     :host {
       display: block;
-      padding: 20px;
     }
 
     .firmware-section {

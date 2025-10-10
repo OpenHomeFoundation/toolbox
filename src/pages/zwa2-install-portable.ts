@@ -127,11 +127,7 @@ export class Zwa2InstallPortablePage extends LitElement {
     } as const;
 
     return html`
-      <details-page
-        .config=${config}
-        history-back
-        back-href="/zwa2"
-      ></details-page>
+      <details-page .config=${config} back-href="/zwa2/"></details-page>
     `;
   }
 
