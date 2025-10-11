@@ -13,14 +13,6 @@ export class Zwa2InstallPoEPage extends LitElement {
     }
   `;
 
-  handleInstall() {
-    window.open(
-      'https://home-assistant.github.io/zwa2-toolbox/',
-      '_blank',
-      'noopener,noreferrer'
-    );
-  }
-
   render() {
     const isSerialUnavailable = !('serial' in navigator);
 
@@ -121,6 +113,10 @@ export class Zwa2InstallPoEPage extends LitElement {
               </li>
               <li>Download backup is at the bottom of the page.</li>
             </ol>
+          </li>
+          <li>
+            Make sure the Power-over-Ethernet cable is not connected to the
+            Waveshare board.
           </li>
           <li>
             Connect the Waveshare board to your computer via USB, click this
