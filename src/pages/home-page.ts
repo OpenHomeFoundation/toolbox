@@ -10,7 +10,8 @@ export class HomePage extends LitElement {
     :host {
       display: block;
       min-height: 100vh;
-      background: white;
+      background: var(--app-bg-primary);
+      color: var(--app-text-primary);
     }
 
     .container {
@@ -29,12 +30,12 @@ export class HomePage extends LitElement {
       font-size: 2.5rem;
       margin-bottom: 10px;
       font-weight: 600;
-      color: #333;
+      color: var(--app-text-primary);
     }
 
     .hero p {
       font-size: 1.1rem;
-      color: #666;
+      color: var(--app-text-secondary);
       margin: 0;
       max-width: 600px;
       margin: 0 auto;

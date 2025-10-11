@@ -7,7 +7,8 @@ export class AppHeader extends LitElement {
   static styles = css`
     :host {
       display: block;
-      background: white;
+      background: var(--app-bg-header);
+      border-bottom: 1px solid var(--app-border);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -38,7 +39,7 @@ export class AppHeader extends LitElement {
     .title {
       font-size: 1.25rem;
       font-weight: 500;
-      color: #333;
+      color: var(--app-text-primary);
       margin: 0;
     }
 
@@ -49,18 +50,19 @@ export class AppHeader extends LitElement {
     }
 
     .nav-link {
-      color: #666;
+      color: var(--app-text-secondary);
+      border: 1px solid var(--app-border);
       text-decoration: none;
       padding: 8px 12px;
       border-radius: 6px;
-      border: 1px solid #e0e0e0;
       transition: all 0.2s ease;
       font-weight: 400;
     }
 
     .nav-link:hover {
-      background: #f5f5f5;
-      color: #333;
+      background: var(--app-bg-secondary);
+      color: var(--app-text-primary);
+      border-color: var(--app-border-hover);
     }
 
     .github-link {

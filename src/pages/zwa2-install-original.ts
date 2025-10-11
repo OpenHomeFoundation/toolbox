@@ -76,7 +76,10 @@ export class Zwa2InstallOriginalPage extends LitElement {
     } as const;
 
     return html`
-      <details-page .config=${config} back-href="/zwa2/"></details-page>
+      <details-page
+        .config=${config}
+        back-href="/home-assistant-connect-zwa-2/"
+      ></details-page>
     `;
   }
 }

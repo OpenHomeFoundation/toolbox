@@ -41,6 +41,8 @@ export class DetailsPage extends LitElement {
       padding-top: 20px;
       font-family:
         -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--app-bg-primary);
+      color: var(--app-text-primary);
     }
 
     .container {
@@ -50,7 +52,7 @@ export class DetailsPage extends LitElement {
     }
 
     a {
-      color: #03a9f4;
+      color: var(--wa-color-brand-50);
       text-decoration: none;
     }
 
@@ -62,17 +64,17 @@ export class DetailsPage extends LitElement {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: #03a9f4;
+      color: var(--wa-color-brand-50);
       text-decoration: none;
       padding: 8px 16px;
       border-radius: 8px;
       transition: all 0.2s ease;
       margin-bottom: 20px;
-      background: #e3f2fd;
+      background: var(--app-category-bg);
     }
 
     .back-button:hover {
-      background: #c0e1f8;
+      background: var(--app-bg-secondary);
     }
 
     .back-button svg {
@@ -95,31 +97,31 @@ export class DetailsPage extends LitElement {
     }
 
     .hero {
-      background: white;
+      background: var(--app-bg-card);
       border-radius: 16px;
       padding: 0 32px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px var(--app-shadow);
       height: 100%;
       display: flex;
       flex-direction: column;
     }
 
     .hero-title {
-      color: #333;
+      color: var(--app-text-primary);
       margin-top: 32px;
       font-size: 2.2rem;
       font-weight: 600;
     }
 
     .hero .subtitle {
-      color: #03a9f4;
+      color: var(--wa-color-brand-50);
       font-size: 1.1rem;
       font-weight: 500;
       margin: 0 0 10px 0;
     }
 
     .hero .description {
-      color: #666;
+      color: var(--app-text-secondary);
       line-height: 1.6;
       margin: 0;
       font-size: 1.05rem;
@@ -129,13 +131,13 @@ export class DetailsPage extends LitElement {
     }
 
     .hero .secondary-description {
-      color: #666;
+      color: var(--app-text-secondary);
       line-height: 1.6;
       font-size: 1.05rem;
     }
 
     .hero .tertiary-description {
-      color: #666;
+      color: var(--app-text-secondary);
       line-height: 1.6;
       font-size: 1.05rem;
       margin: 0;
@@ -157,7 +159,7 @@ export class DetailsPage extends LitElement {
       margin-top: 10px;
       background: transparent;
       border: none;
-      color: #1976d2;
+      color: var(--wa-color-brand-50);
       font-weight: 600;
       cursor: pointer;
       padding: 0;
@@ -171,9 +173,9 @@ export class DetailsPage extends LitElement {
     }
 
     .hero-cta button.install {
-      color: #03a9f4;
-      background: #fff;
-      border: 1px solid #03a9f4;
+      color: var(--wa-color-brand-50);
+      background: var(--app-bg-primary);
+      border: 1px solid var(--wa-color-brand-50);
       border-radius: 8px;
       padding: 10px 16px;
       font-weight: 600;
@@ -181,14 +183,14 @@ export class DetailsPage extends LitElement {
     }
 
     .hero-cta button.install:hover {
-      background: #03a9f4;
-      color: #fff;
+      background: var(--wa-color-brand-50);
+      color: var(--app-bg-primary);
     }
 
     button.install {
-      color: #03a9f4;
-      background: #fff;
-      border: 1px solid #03a9f4;
+      color: var(--wa-color-brand-50);
+      background: var(--app-bg-primary);
+      border: 1px solid var(--wa-color-brand-50);
       border-radius: 8px;
       padding: 10px 16px;
       font-weight: 600;
@@ -198,15 +200,15 @@ export class DetailsPage extends LitElement {
     }
 
     button.install:hover {
-      background: #03a9f4;
-      color: #fff;
+      background: var(--wa-color-brand-50);
+      color: var(--app-bg-primary);
     }
 
     .actions-list {
-      background: white;
+      background: var(--app-bg-card);
       border-radius: 16px;
       padding: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px var(--app-shadow);
       height: 100%;
       box-sizing: border-box;
       position: relative;
@@ -225,7 +227,7 @@ export class DetailsPage extends LitElement {
     }
 
     .action-item:hover {
-      background: #fafafa;
+      background: var(--app-bg-secondary);
     }
 
     .action-item:last-child {
@@ -236,7 +238,7 @@ export class DetailsPage extends LitElement {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: #e3f2fd;
+      background: var(--app-category-bg);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -245,20 +247,20 @@ export class DetailsPage extends LitElement {
     .icon-mask {
       width: 20px;
       height: 20px;
-      background-color: #1976d2;
+      background-color: var(--app-category-text);
       -webkit-mask: var(--icon-url) no-repeat center / contain;
       mask: var(--icon-url) no-repeat center / contain;
     }
 
     .action-content h3 {
       margin: 0 0 6px 0;
-      color: #333;
+      color: var(--app-text-primary);
       font-size: 1rem;
     }
 
     .action-content p {
       margin: 0;
-      color: #666;
+      color: var(--app-text-secondary);
       font-size: 0.95rem;
       line-height: 1.45;
     }
@@ -278,13 +280,13 @@ export class DetailsPage extends LitElement {
     .action-trailing svg {
       width: 16px;
       height: 16px;
-      fill: #9e9e9e;
+      fill: var(--app-text-muted);
     }
 
-    .action-trailing img {
-      width: 16px;
-      height: 16px;
-      display: block;
+    .chevron-icon {
+      color: var(--app-text-primary);
+      width: 20px !important;
+      height: 20px !important;
     }
 
     @media (max-width: 768px) {
@@ -449,11 +451,16 @@ export class DetailsPage extends LitElement {
                       </div>
                       <div class="action-trailing">
                         ${a.trailingIcon
-                          ? html`<img
-                              src="${a.trailingIcon}"
-                              alt=""
-                              style="width: 20px; height: 20px;"
-                            />`
+                          ? html`<svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              class="chevron-icon"
+                            >
+                              <path
+                                fill="currentColor"
+                                d="M12.6 12L8 7.4L9.4 6l6 6l-6 6L8 16.6z"
+                              />
+                            </svg>`
                           : html`<svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 448 512"

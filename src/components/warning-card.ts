@@ -13,8 +13,8 @@ export class WarningCard extends LitElement {
     }
 
     .warning-card {
-      background: #fff3e0;
-      border: 1px solid #ffb74d;
+      background: var(--wa-color-warning-fill-quiet);
+      border: 1px solid var(--wa-color-warning-border-normal);
       border-radius: 8px;
       padding: 24px;
       display: flex;
@@ -26,7 +26,7 @@ export class WarningCard extends LitElement {
       flex-shrink: 0;
       width: 24px;
       height: 24px;
-      color: #eb9136;
+      color: var(--wa-color-warning-50);
       margin-top: 3px;
     }
 
@@ -38,12 +38,12 @@ export class WarningCard extends LitElement {
       margin: 0 0 8px 0;
       font-size: 1.1rem;
       font-weight: 600;
-      color: #e16725;
+      color: var(--wa-color-warning-on-normal);
     }
 
     .warning-description {
       margin: 0;
-      color: #5d4037;
+      color: var(--wa-color-warning-on-quiet);
       line-height: 1.5;
     }
   `;

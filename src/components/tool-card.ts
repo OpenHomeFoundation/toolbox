@@ -16,10 +16,10 @@ export class ToolCard extends LitElement {
     }
 
     .card {
-      background: white;
+      background: var(--app-bg-card);
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px var(--app-shadow);
       transition: all 0.3s ease;
       height: 100%;
       display: flex;
@@ -28,7 +28,7 @@ export class ToolCard extends LitElement {
     }
 
     .card:hover {
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 16px var(--app-shadow-hover);
       transform: translateY(-2px);
     }
 
@@ -53,15 +53,15 @@ export class ToolCard extends LitElement {
     .card-title {
       font-size: 1.25rem;
       font-weight: 600;
-      color: #333;
+      color: var(--app-text-primary);
       margin: 0 0 8px 0;
       line-height: 1.3;
     }
 
     .card-category {
       display: inline-block;
-      background: #e3f2fd;
-      color: #1976d2;
+      background: var(--app-category-bg);
+      color: var(--app-category-text);
       padding: 2px 8px;
       border-radius: 12px;
       font-size: 0.75rem;
@@ -70,7 +70,7 @@ export class ToolCard extends LitElement {
     }
 
     .card-description {
-      color: #666;
+      color: var(--app-text-secondary);
       line-height: 1.5;
       margin: 0 0 40px 0;
       flex: 1;

@@ -9,22 +9,25 @@ export class VPEInstallPage extends LitElement {
   static styles = css`
     :host {
       display: block;
+      background: var(--app-bg-primary);
+      color: var(--app-text-primary);
+      padding: 20px;
     }
     .back-button {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: #03a9f4;
+      color: var(--wa-color-brand-50);
       text-decoration: none;
       padding: 8px 16px;
       border-radius: 8px;
       transition: all 0.2s ease;
-      margin-bottom: 20px;
-      background: #e3f2fd;
+      margin-bottom: 50px;
+      background: var(--app-category-bg);
     }
 
     .back-button:hover {
-      background: #c0e1f8;
+      background: var(--app-bg-secondary);
     }
 
     .back-button svg {
@@ -34,38 +37,7 @@ export class VPEInstallPage extends LitElement {
     }
 
     .warning-card {
-      background: #fff3e0;
-      border: 1px solid #ffb74d;
-      border-radius: 8px;
-      padding: 24px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    .warning-icon {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      color: #eb9136;
-      margin-top: 3px;
-    }
-
-    .warning-content {
-      flex: 1;
-    }
-
-    .warning-title {
-      margin: 0 0 8px 0;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #e16725;
-    }
-
-    .warning-description {
-      margin: 0;
-      color: #5d4037;
-      line-height: 1.5;
+      margin: 0 -40px;
     }
   `;
 
@@ -112,17 +84,7 @@ export class VPEInstallPage extends LitElement {
             Back
           </a>
           <div class="warning-card">
-            <svg class="warning-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
-            </svg>
-            <div class="warning-content">
-              <h3 class="warning-title">
-                Your browser does not support Web Serial
-              </h3>
-              <p class="warning-description">
-                Open this page in Google Chrome or Microsoft Edge instead.
-              </p>
-            </div>
+            <warning-card></warning-card>
           </div>`
       : html`<details-page .config=${config} back-href="/vpe/"></details-page>`;
   }

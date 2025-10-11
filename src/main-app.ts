@@ -10,7 +10,8 @@ export class MainApp extends LitElement {
     :host {
       display: block;
       min-height: 100vh;
-      background: white;
+      background: var(--app-bg-primary);
+      color: var(--app-text-primary);
     }
   `;
 

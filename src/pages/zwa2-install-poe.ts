@@ -124,8 +124,8 @@ export class Zwa2InstallPoEPage extends LitElement {
             ${isSerialUnavailable
               ? html`<div
                   style="
-                    background:#fff3e0;
-                    border:1px solid #ffb74d;
+                    background: var(--wa-color-warning-fill-quiet);
+      border: 1px solid var(--wa-color-warning-border-normal);
                     border-radius:8px;
                     padding:24px;
                     display:flex;
@@ -135,7 +135,7 @@ export class Zwa2InstallPoEPage extends LitElement {
                   "
                 >
                   <svg
-                    style="flex-shrink:0;width:24px;height:24px;color:#eb9136;margin-top:3px;"
+                    style="flex-shrink:0;width:24px;height:24px;color: var(--wa-color-warning-50);margin-top:3px;"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -145,11 +145,13 @@ export class Zwa2InstallPoEPage extends LitElement {
                   </svg>
                   <div style="flex:1;">
                     <h3
-                      style="margin:0 0 8px 0;font-size:1.1rem;font-weight:600;color:#e16725;"
+                      style="margin:0 0 8px 0;font-size:1.1rem;font-weight:600;var(--wa-color-warning-on-normal);"
                     >
                       Your browser does not support Web Serial
                     </h3>
-                    <p style="margin:0;color:#5d4037;line-height:1.5;">
+                    <p
+                      style="margin:0;var(--wa-color-warning-on-quiet);line-height:1.5;"
+                    >
                       Open this page in Google Chrome or Microsoft Edge instead.
                     </p>
                   </div>
@@ -224,7 +226,7 @@ export class Zwa2InstallPoEPage extends LitElement {
         <p>
           If you are unable to get it to work,
           <a
-            href="https://toolbox.openhomefoundation.org/zwa2/install"
+            href="https://toolbox.openhomefoundation.org/home-assistant-connect-zwa-2/install"
             target="_blank"
             rel="noopener noreferrer"
             >revert back to the original firmware</a
@@ -236,7 +238,7 @@ export class Zwa2InstallPoEPage extends LitElement {
 
     return html`<details-page
       .config=${config}
-      back-href="/zwa2/"
+      back-href="/home-assistant-connect-zwa-2/"
     ></details-page>`;
   }
 }
