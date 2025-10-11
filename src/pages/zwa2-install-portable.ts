@@ -124,8 +124,10 @@ export class Zwa2InstallPortablePage extends LitElement {
         </ol>
         <p>
           If you are unable to get it to work, revert back by
-          <a href="/zwa2/install">installing the original firmware</a> and
-          connect it directly to Home Assistant.
+          <a href="/home-assistant-connect-zwa-2/install"
+            >installing the original firmware</a
+          >
+          and connect it directly to Home Assistant.
         </p>
       `,
     } as const;
