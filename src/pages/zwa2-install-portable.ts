@@ -82,8 +82,8 @@ export class Zwa2InstallPortablePage extends LitElement {
             </ol>
           </li>
           <li>
-            Connect the Waveshare board to your computer via USB and use the
-            installer below to flash the firmware:
+            Connect the ZWA-2 to your computer via USB and use the installer
+            below to flash the firmware:
             <p>
               <a href="#installer" @click=${this._scrollToInstaller}
                 >Go to Installer</a
@@ -94,8 +94,8 @@ export class Zwa2InstallPortablePage extends LitElement {
 
         <h3>Troubleshooting</h3>
         <p>
-          Make sure the Waveshare ESP32-PoE board is connected to the same
-          network as Home Assistant.
+          Make sure the ZWA-2 is connected to the same network as Home
+          Assistant.
         </p>
         <p>
           Make sure you configure both the discovered ZWA-2 ESPHome and Z-Wave
@@ -119,9 +119,9 @@ export class Zwa2InstallPortablePage extends LitElement {
           <li>Restore backup is at the bottom of the page.</li>
         </ol>
         <p>
-          If you are unable to get it to work, revert back by disconnecting the
-          ZWA-2 from the Waveshare board and connect it directly to Home
-          Assistant.
+          If you are unable to get it to work, revert back by
+          <a href="/zwa2/install">installing the original firmware</a> and
+          connect it directly to Home Assistant.
         </p>
       `,
     } as const;
