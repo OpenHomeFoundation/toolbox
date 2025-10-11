@@ -189,6 +189,10 @@ export class Zwa2InstallPoEPage extends LitElement {
             On the same page, once ESPHome has been configured, look for the
             discovered Z-Wave device. Configure it
           </li>
+          <li>
+            If you have moved the ZWA-2 to a different location, go to the
+            Z-Wave config panel and hit <i>rebuild network routes</i>.
+          </li>
           <li>Enjoy!</li>
         </ol>
 

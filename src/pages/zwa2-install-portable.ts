@@ -90,6 +90,10 @@ export class Zwa2InstallPortablePage extends LitElement {
               >
             </p>
           </li>
+          <li>
+            If you have moved the ZWA-2 to a different location, go to the
+            Z-Wave config panel and hit <i>rebuild network routes</i>.
+          </li>
         </ol>
 
         <h3>Troubleshooting</h3>
