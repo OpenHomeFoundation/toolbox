@@ -194,21 +194,48 @@ export class Zwa2InstallPoEPage extends LitElement {
             that it received power from the Waveshare board.
           </li>
           <li>
-            Open Home Assistant and check for discovered ESPHome devices on
-            <a
-              href="https://my.home-assistant.io/redirect/config_flow_start/?domain=esphome"
-              target="_blank"
-              rel="noopener noreferrer"
-              >the integrations page</a
-            >. Configure the discovered device.
+            <b>
+              This step is for people running a recommended Z-Wave installation:
+            </b>
+            <br />
+            (Home Assistant OS with Z-Wave JS add-on managed by the Z-Wave
+            integration)
+            <ol type="a">
+              <li>
+                Open Home Assistant and check for discovered ESPHome devices on
+                <a
+                  href="https://my.home-assistant.io/redirect/config_flow_start/?domain=esphome"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >the integrations page</a
+                >. Configure the discovered device.
+              </li>
+              <li>
+                On the same page, once ESPHome has been configured, look for the
+                discovered Z-Wave device. Configure it
+              </li>
+            </ol>
           </li>
           <li>
-            On the same page, once ESPHome has been configured, look for the
-            discovered Z-Wave device. Configure it
+            <b>This step is for other installation methods:</b>
+            <br />
+            (if you are managing your own Z-Wave JS server)
+            <ol type="a">
+              <li>
+                Find the IP address of the Waveshare board on your network.
+              </li>
+              <li>
+                Configure the Z-Wave JS Server to use the following serial port:
+                <code>esphome://WAVESHARE-BOARD-IP</code>
+                <br />
+                <b>Example:</b> <code>esphome://192.168.1.100</code>
+              </li>
+            </ol>
           </li>
           <li>
             If you have moved the ZWA-2 to a different location, go to the
-            Z-Wave config panel and hit <i>rebuild network routes</i>.
+            Z-Wave config panel in Home Assistant and hit
+            <i>rebuild network routes</i>.
           </li>
           <li>Enjoy!</li>
         </ol>
