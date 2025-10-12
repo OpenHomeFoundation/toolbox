@@ -121,9 +121,14 @@ export class Zwa2InstallPortablePage extends LitElement {
               <li>Find the IP address of the ZWA-2 on your network.</li>
               <li>
                 Configure the Z-Wave JS Server to use the following serial port:
-                <code>esphome://ZWA-2-IP</code>
-                <br />
-                <b>Example:</b> <code>esphome://192.168.1.100</code>
+                <code>esphome://ZWA-2-IP</code>. Replace ZWA-2-IP with the IP
+                address of your ZWA-2. If the IP address of your ZWA-2 is
+                <code>192.168.1.100</code>, the serial port would be
+                <code>esphome://192.168.1.100</code>. <br /><br />
+                <i>
+                  Note: this is for the configuration of the Z-Wave JS Server,
+                  not inside Home Assistant!
+                </i>
               </li>
             </ol>
           </li>

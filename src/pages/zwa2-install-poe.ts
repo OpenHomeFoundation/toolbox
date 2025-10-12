@@ -226,9 +226,15 @@ export class Zwa2InstallPoEPage extends LitElement {
               </li>
               <li>
                 Configure the Z-Wave JS Server to use the following serial port:
-                <code>esphome://WAVESHARE-BOARD-IP</code>
-                <br />
-                <b>Example:</b> <code>esphome://192.168.1.100</code>
+                <code>esphome://WAVESHARE-BOARD-IP</code>. Replace
+                WAVESHARE-BOARD-IP with the IP address of your Waveshare board.
+                If the IP address of your Waveshare board is
+                <code>192.168.1.100</code>, the serial port would be
+                <code>esphome://192.168.1.100</code>. <br /><br />
+                <i>
+                  Note: this is for the configuration of the Z-Wave JS Server,
+                  not inside Home Assistant!
+                </i>
               </li>
             </ol>
           </li>
