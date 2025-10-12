@@ -97,6 +97,21 @@ export class Zwa2InstallPoEPage extends LitElement {
           </li>
         </ul>
 
+        <p
+          style="background: var(--wa-color-neutral-fill-quiet); border: 1px solid var(--wa-color-neutral-border-normal); border-radius: 8px; padding: 16px; margin: 20px 0;"
+        >
+          <strong>Note:</strong> Once the Waveshare board has Portable Z-Wave
+          installed, the USB port is only able to talk to the ZWA-2. To be able
+          to install software on it again: long press the BOOT button, press
+          RESET at the same time, then release RESET, then release the BOOT
+          button. (<a
+            href="https://www.waveshare.com/wiki/ESP32-S3-ETH#accordion1"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Waveshare wiki</a
+          >)
+        </p>
+
         <h3>Installation</h3>
         <ol>
           <li>
