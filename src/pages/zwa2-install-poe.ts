@@ -49,6 +49,7 @@ export class Zwa2InstallPoEPage extends LitElement {
               rel="noopener noreferrer"
               >Home Assistant</a
             >
+            (2025.10.2 or newer)
           </li>
           <li>
             <a

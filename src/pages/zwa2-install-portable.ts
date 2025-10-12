@@ -45,6 +45,7 @@ export class Zwa2InstallPortablePage extends LitElement {
               rel="noopener noreferrer"
               >Home Assistant</a
             >
+            (2025.10.2 or newer)
           </li>
           <li>
             <a
