@@ -3,40 +3,12 @@ import { customElement } from 'lit/decorators.js';
 
 import '../components/details.js';
 import '../components/warning-card.js';
-import { isSerialUnavailable } from '../utils/const.js';
 
 @customElement('zwa2-install-poe')
 export class Zwa2InstallPoEPage extends LitElement {
   static styles = css`
     :host {
       display: block;
-    }
-
-    .troubleshooting-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .troubleshooting-card {
-      background: var(--app-bg-card);
-      border-radius: 16px;
-      padding: 16px 20px;
-      box-shadow: 0 2px 8px var(--app-shadow);
-      margin: 20px 0 30px;
-    }
-
-    .troubleshooting-card h3 {
-      margin-top: 0;
-    }
-
-    .troubleshooting-card a {
-      color: var(--wa-color-brand-50);
-      text-decoration: none;
-    }
-
-    .troubleshooting-card a:hover {
-      text-decoration: underline;
     }
 
     p[slot='subtitle'] {
@@ -97,11 +69,6 @@ export class Zwa2InstallPoEPage extends LitElement {
       color: var(--wa-color-warning-on-quiet);
       line-height: 1.5;
     }
-
-    .install-button {
-      margin: 12px 0;
-    }
-
     .install-note {
       font-style: italic;
     }
@@ -239,35 +206,11 @@ export class Zwa2InstallPoEPage extends LitElement {
             <li>
               Connect the Waveshare board to your computer via USB, click this
               button and follow the instructions to install:
-              ${isSerialUnavailable
-                ? html`<div class="warning-box">
-                    <svg
-                      class="warning-icon"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path
-                        d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-                      />
-                    </svg>
-                    <div class="warning-content">
-                      <h3>Your browser does not support Web Serial</h3>
-                      <p>
-                        Open this page in Google Chrome or Microsoft Edge
-                        instead.
-                      </p>
-                    </div>
-                  </div>`
-                : html`<div class="install-button">
-                      <esp-web-install-button
-                        manifest="https://firmware.esphome.io/ha-connect-zwa-2/home-assistant-zwa-2-poe/manifest.json"
-                      ></esp-web-install-button>
-                    </div>
-                    <p class="install-note">
-                      Don't worry about the error at the end. Our installer can
-                      no longer connect to the device because it now expects the
-                      ZWA-2.
-                    </p>`}
+              <p>
+                <a href="#installer" @click=${this._scrollToInstaller}
+                  >Go to Installer</a
+                >
+              </p>
             </li>
             <li>Disconnect the Waveshare board from your computer.</li>
             <li>
@@ -351,47 +294,15 @@ export class Zwa2InstallPoEPage extends LitElement {
           </ol>
         </div>
       </details-page>
-
-      <div class="troubleshooting-container">
-        <div class="troubleshooting-card">
-          <h3>Troubleshooting</h3>
-          <p>
-            Make sure the Waveshare ESP32-PoE board is connected to the same
-            network as Home Assistant.
-          </p>
-          <p>
-            Make sure you configure both the discovered ZWA-2 ESPHome and Z-Wave
-            configurations in Home Assistant.
-          </p>
-          <p>
-            If Home Assistant is connected and you are not able to see your
-            Z-Wave devices, restore the backup.
-          </p>
-          <ol type="a">
-            <li>
-              You can do this on the
-              <a
-                href="https://my.home-assistant.io/redirect/config_zwave_js/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Z-Wave config panel in Home Assistant</a
-              >. Config -> Devices & services -> Z-Wave -> Settings icon.
-            </li>
-            <li>Restore backup is at the bottom of the page.</li>
-          </ol>
-          <p>
-            If you are unable to get it to work,
-            <a
-              href="https://toolbox.openhomefoundation.org/home-assistant-connect-zwa-2/install"
-              target="_blank"
-              rel="noopener noreferrer"
-              >revert back to the original firmware</a
-            >
-            and connect the ZWA-2 directly to Home Assistant.
-          </p>
-        </div>
-      </div>
     `;
+  }
+
+  private _scrollToInstaller(e: Event) {
+    e.preventDefault();
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth',
+    });
   }
 }
 

@@ -9,33 +9,6 @@ export class Zwa2InstallPortablePage extends LitElement {
       display: block;
     }
 
-    .troubleshooting-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .troubleshooting-card {
-      background: var(--app-bg-card);
-      border-radius: 16px;
-      padding: 16px 20px;
-      box-shadow: 0 2px 8px var(--app-shadow);
-      margin: 20px 0 30px;
-    }
-
-    .troubleshooting-card h3 {
-      margin-top: 0;
-    }
-
-    .troubleshooting-card a {
-      color: var(--wa-color-brand-50);
-      text-decoration: none;
-    }
-
-    .troubleshooting-card a:hover {
-      text-decoration: underline;
-    }
-
     p[slot='subtitle'] {
       color: var(--wa-color-brand-50);
       font-size: 1.1rem;
@@ -227,43 +200,6 @@ export class Zwa2InstallPortablePage extends LitElement {
           </ol>
         </div>
       </details-page>
-
-      <div class="troubleshooting-container">
-        <div class="troubleshooting-card">
-          <h3>Troubleshooting</h3>
-          <p>
-            Make sure the ZWA-2 is connected to the same network as Home
-            Assistant.
-          </p>
-          <p>
-            Make sure you configure both the discovered ZWA-2 ESPHome and Z-Wave
-            configurations in Home Assistant.
-          </p>
-          <p>
-            If Home Assistant is connected and you are not able to see your
-            Z-Wave devices, restore the backup.
-          </p>
-          <ol type="a">
-            <li>
-              You can do this on the
-              <a
-                href="https://my.home-assistant.io/redirect/config_zwave_js/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Z-Wave config panel in Home Assistant</a
-              >. Config -> Devices & services -> Z-Wave -> Settings icon.
-            </li>
-            <li>Restore backup is at the bottom of the page.</li>
-          </ol>
-          <p>
-            If you are unable to get it to work, revert back by
-            <a href="/home-assistant-connect-zwa-2/install"
-              >installing the original firmware</a
-            >
-            and connect it directly to Home Assistant.
-          </p>
-        </div>
-      </div>
     `;
   }
 
