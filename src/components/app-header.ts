@@ -36,6 +36,13 @@ export class AppHeader extends LitElement {
       width: auto;
     }
 
+    @media (prefers-color-scheme: dark) {
+      .logo {
+        content: url('/ohf_dark.svg');
+        height: 70px;
+      }
+    }
+
     .title {
       font-size: 1.25rem;
       font-weight: 500;
