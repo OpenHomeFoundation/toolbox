@@ -38,7 +38,7 @@
         border-radius: 12px;
         padding: 20px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        margin-top: 20px;
+        margin: 20px 0;
       }
 
       .installer-card install-esp-bridge-firmware {
@@ -78,8 +78,7 @@
     </div>
     <script type="module">
       import '../src/components/warning-card.js';
-
-      const isSerialUnavailable = !('serial' in navigator);
+      import { isSerialUnavailable } from '../src/utils/const.ts';
 
       if (isSerialUnavailable) {
         const installerContainer = document.getElementById(
