@@ -9,6 +9,33 @@ export class Zwa2InstallPortablePage extends LitElement {
       display: block;
     }
 
+    .troubleshooting-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .troubleshooting-card {
+      background: var(--app-bg-card);
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: 0 2px 8px var(--app-shadow);
+      margin: 20px 0 30px;
+    }
+
+    .troubleshooting-card h3 {
+      margin-top: 0;
+    }
+
+    .troubleshooting-card a {
+      color: var(--wa-color-brand-50);
+      text-decoration: none;
+    }
+
+    .troubleshooting-card a:hover {
+      text-decoration: underline;
+    }
+
     p[slot='subtitle'] {
       color: var(--wa-color-brand-50);
       font-size: 1.1rem;
@@ -198,7 +225,11 @@ export class Zwa2InstallPortablePage extends LitElement {
               <i>rebuild network routes</i>.
             </li>
           </ol>
+        </div>
+      </details-page>
 
+      <div class="troubleshooting-container">
+        <div class="troubleshooting-card">
           <h3>Troubleshooting</h3>
           <p>
             Make sure the ZWA-2 is connected to the same network as Home
@@ -232,7 +263,7 @@ export class Zwa2InstallPortablePage extends LitElement {
             and connect it directly to Home Assistant.
           </p>
         </div>
-      </details-page>
+      </div>
     `;
   }
 

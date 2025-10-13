@@ -127,7 +127,7 @@ export class DetailsPage extends LitElement {
 
     @media (max-width: 768px) {
       :host {
-        padding: 0px;
+        padding: 20px 0 0 0;
       }
 
       .hero[data-expanded='false'] ::slotted([slot='secondary-description']),
