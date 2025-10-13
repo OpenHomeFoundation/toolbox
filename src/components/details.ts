@@ -16,7 +16,6 @@ export class DetailsPage extends LitElement {
       padding-top: 20px;
       font-family:
         -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--app-bg-primary);
       color: var(--app-text-primary);
     }
 
