@@ -38,6 +38,14 @@ export class ZBT1Details extends LitElement {
 
         <div slot="actions">
           <action-item
+            href="/zbt1/install"
+            icon="/svgs/install.svg"
+            trailing-icon="/svgs/chevron-right.svg"
+          >
+            <h3>Install firmware</h3>
+            <p>Update your ZBT-1 with the latest Zigbee or Thread firmware</p>
+          </action-item>
+          <action-item
             href="https://support.nabucasa.com/hc/en-us/categories/24734620813469"
             icon="/svgs/doc.svg"
           >

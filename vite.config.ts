@@ -2,6 +2,24 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  plugins: [
+    {
+      name: 'py-raw-loader',
+      transform(code, id) {
+        if (id.endsWith('.py')) {
+          return { code: `export default ${JSON.stringify(code)};`, map: null };
+        }
+        return null;
+      },
+    },
+  ],
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        '.py': 'text',
+      },
+    },
+  },
   build: {
     rollupOptions: {
       input: {
@@ -24,7 +42,8 @@ export default defineConfig({
           __dirname,
           'home-assistant-connect-zwa-2/use-poe.html'
         ),
-        zbt1: resolve(__dirname, 'zbt1.html'),
+        zbt1: resolve(__dirname, 'zbt1/index.html'),
+        zbt1Install: resolve(__dirname, 'zbt1/install.html'),
         improv: resolve(__dirname, 'improv.html'),
       },
     },

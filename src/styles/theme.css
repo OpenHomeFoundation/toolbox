@@ -538,6 +538,9 @@
   --app-shadow-hover: rgba(0, 0, 0, 0.15);
   --app-category-bg: #e3f2fd;
   --app-category-text: #1976d2;
+
+  --mdc-theme-primary: #03a9f4;
+  --mdc-theme-on-primary: white;
 }
 
 html {
@@ -562,6 +565,9 @@ body.wa-dark {
   --app-shadow-hover: rgba(0, 0, 0, 0.5);
   --app-category-bg: #003c62;
   --app-category-text: #66d4ff;
+
+  --mdc-theme-primary: #03a9f4;
+  --mdc-theme-on-primary: white;
 }
 
 html:has(body.wa-dark) {

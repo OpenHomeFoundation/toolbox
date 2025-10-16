@@ -25,7 +25,7 @@ export const tools: ToolDefinition[] = [
     title: 'Home Assistant Connect ZBT-1',
     description: 'Update firmware for your Connect ZBT-1 adapter',
     image: '/images/zbt1.jpg',
-    url: '/zbt1',
+    url: '/zbt1/',
   },
   {
     title: 'Bluetooth proxy',

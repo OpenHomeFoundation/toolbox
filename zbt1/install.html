@@ -4,18 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ZWA2 - Device Toolbox</title>
-    <script type="module" src="../src/pages/zwa2-install-poe.ts"></script>
-    <script type="module" src="../src/components/app-header.ts"></script>
-    <script
-      type="module"
-      src="../src/components/troubleshooting-poe.ts"
-    ></script>
-    <script type="module" src="../src/utils/dark-mode.ts"></script>
+    <title>Install Firmware - ZBT-1</title>
     <script
       type="module"
       src="https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js"
     ></script>
+    <script type="module" src="../src/components/app-header.ts"></script>
+    <script type="module" src="../src/pages/zbt1-install.ts"></script>
+    <script type="module" src="../src/utils/dark-mode.ts"></script>
     <link
       rel="stylesheet"
       href="https://early.webawesome.com/webawesome@3.0.0-beta.6/dist/styles/webawesome.css"
@@ -23,6 +19,7 @@
     <style>
       @import url('../src/styles/shoelace.css');
       @import url('../src/styles/theme.css');
+
       body {
         margin: 0;
         font-family:
@@ -30,6 +27,7 @@
         --color-blue-600: #03a9f4;
         --color-blue-500: #0288d1;
       }
+
       .installer-wrapper {
         max-width: 1200px;
         margin: 0 auto;
@@ -42,19 +40,19 @@
         margin: 20px 0;
       }
 
-      .installer-card install-esphome-firmware {
+      .installer-card install-esp-bridge-firmware {
         width: 100%;
         border: none;
         min-height: 600px;
         border-radius: 16px;
       }
 
-      warning-card::part(container) {
-        margin: 10px 20px 20px;
+      install-esp-bridge-firmware .min-h-screen {
+        min-height: auto !important;
       }
 
-      install-esphome-firmware .min-h-screen {
-        min-height: auto !important;
+      warning-card::part(container) {
+        margin: -5px 20px 20px;
       }
 
       a {
@@ -75,31 +73,6 @@
   </head>
   <body class="wa-palette-shoelace wa-theme-shoelace">
     <app-header></app-header>
-    <zwa2-install-poe></zwa2-install-poe>
-    <div class="installer-wrapper" id="installer-container">
-      <div class="installer-card" id="installer">
-        <install-esp-bridge-firmware
-          manifest="https://firmware.esphome.io/ha-connect-zwa-2/home-assistant-zwa-2-poe/manifest.json"
-          device_name="Waveshare PoE"
-          serialport_label="W4v3"
-        ></install-esp-bridge-firmware>
-      </div>
-    </div>
-    <script type="module">
-      import '../src/components/warning-card.js';
-      import { isSerialUnavailable } from '../src/utils/const.ts';
-
-      if (isSerialUnavailable) {
-        const installerContainer = document.getElementById(
-          'installer-container'
-        );
-        installerContainer.className = '';
-        installerContainer.innerHTML = '';
-
-        const warningCard = document.createElement('warning-card');
-        installerContainer.appendChild(warningCard);
-      }
-    </script>
-    <troubleshooting-poe></troubleshooting-poe>
+    <zbt1-install></zbt1-install>
   </body>
 </html>
