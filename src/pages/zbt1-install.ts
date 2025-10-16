@@ -81,23 +81,11 @@ export class ZBT1InstallPage extends LitElement {
           </p>
           <div class="flasher-container">
             <nabucasa-zigbee-flasher
-              manifest="/assets/manifests/skyconnect.json"
+              manifest="/assets/manifests/zbt1.json"
             >
               <span slot="button">Install firmware</span>
             </nabucasa-zigbee-flasher>
           </div>
-          <h3>Update content of Voice PE firmware installer</h3>
-          <p>
-            Home Assistant will automatically detect updates for the Home
-            Assistant Voice Preview Edition and allow you to install them. This
-            page is only needed if you are using the device with other software
-            than Home Assistant.
-          </p>
-          <p>
-            If you are looking to factory reset the device, you can hold the
-            middle button pressed for 30 seconds instead of re-installing the
-            firmware.
-          </p>
         </div>
       </details-page>
     `;
