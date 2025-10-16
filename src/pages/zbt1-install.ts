@@ -81,7 +81,7 @@ export class ZBT1InstallPage extends LitElement {
           </p>
           <div class="flasher-container">
             <nabucasa-zigbee-flasher
-              manifest="/assets/manifests/skyconnect.json"
+              manifest="/assets/manifests/zbt1.json"
             >
               <span slot="button">Install firmware</span>
             </nabucasa-zigbee-flasher>
