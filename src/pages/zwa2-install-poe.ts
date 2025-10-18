@@ -90,7 +90,7 @@ export class Zwa2InstallPoEPage extends LitElement {
         back-label="Back"
       >
         <span slot="title">Use Portable Z-Wave with Power-over-Ethernet</span>
-        <p slot="subtitle">Place ZWA-2 optimally and connect via Wi‑Fi</p>
+        <p slot="subtitle">Place ZWA-2 optimally and connect via ethernet</p>
 
         <div slot="footer" class="footer-content">
           <p>
