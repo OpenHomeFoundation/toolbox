@@ -92,6 +92,16 @@ export class TroubleshootingPortable extends LitElement {
             >
             and connect it directly to Home Assistant.
           </p>
+          <p>
+            If you want to further customize the ESPHome-based portable Z-Wave
+            firmware that runs on the ZWA-2, you can adopt it inside ESPHome
+            Device Builder. To ensure it continues to work, after adoption, you
+            have to edit the generated YAML and remove the
+            <code>encryption</code> and <code>key</code> sections under
+            <code>api:</code>. Z-Wave JS does not currently support ESPHome
+            encryption and the Z-Wave serial protocol has their own encryption
+            mechanism.
+          </p>
         </div>
       </div>
     `;
