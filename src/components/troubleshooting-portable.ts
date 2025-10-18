@@ -1,8 +1,8 @@
 import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
-@customElement('troubleshooting-poe')
-export class TroubleshootingPoe extends LitElement {
+@customElement('troubleshooting-portable')
+export class TroubleshootingPortable extends LitElement {
   static styles = css`
     .troubleshooting-container {
       max-width: 1200px;
