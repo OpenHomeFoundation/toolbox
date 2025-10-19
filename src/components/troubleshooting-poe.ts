@@ -66,8 +66,8 @@ export class TroubleshootingPoe extends LitElement {
             network as Home Assistant.
           </p>
           <p>
-            Make sure you configure both the discovered ZWA-2 ESPHome and Z-Wave
-            configurations in Home Assistant.
+            Make sure you configure both the discovered Waveshare ESP32-PoE
+            ESPHome and Z-Wave configurations in Home Assistant.
           </p>
           <p>
             If Home Assistant is connected and you are not able to see your
