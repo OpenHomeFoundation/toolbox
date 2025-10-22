@@ -21,9 +21,20 @@ export default defineConfig({
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
           if (req.url && !req.url.includes('.') && !req.url.endsWith('/')) {
+            // Try to find the HTML file in nested directories
             const htmlPath = path.join(server.config.root, req.url + '.html');
             if (fs.existsSync(htmlPath)) {
               req.url = req.url + '.html';
+            } else {
+              // Try to find index.html in a subdirectory
+              const indexPath = path.join(
+                server.config.root,
+                req.url,
+                'index.html'
+              );
+              if (fs.existsSync(indexPath)) {
+                req.url = req.url + '/index.html';
+              }
             }
           }
           next();
@@ -44,25 +55,25 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'dist/index.html'),
         vpe: resolve(__dirname, 'dist/vpe/index.html'),
-        vpeInstall: resolve(__dirname, 'dist/vpe/install.html'),
+        vpeInstall: resolve(__dirname, 'dist/vpe/install/index.html'),
         homeAssistantConnectZwa2: resolve(
           __dirname,
           'dist/home-assistant-connect-zwa-2/index.html'
         ),
         homeAssistantConnectZwa2Install: resolve(
           __dirname,
-          'dist/home-assistant-connect-zwa-2/install.html'
+          'dist/home-assistant-connect-zwa-2/install/index.html'
         ),
         homeAssistantConnectZwa2InstallPortable: resolve(
           __dirname,
-          'dist/home-assistant-connect-zwa-2/install-portable.html'
+          'dist/home-assistant-connect-zwa-2/install-portable/index.html'
         ),
         homeAssistantConnectZwa2UsePoe: resolve(
           __dirname,
-          'dist/home-assistant-connect-zwa-2/use-poe.html'
+          'dist/home-assistant-connect-zwa-2/use-poe/index.html'
         ),
         zbt1: resolve(__dirname, 'dist/zbt1/index.html'),
-        zbt1Install: resolve(__dirname, 'dist/zbt1/install.html'),
+        zbt1Install: resolve(__dirname, 'dist/zbt1/install/index.html'),
         improv: resolve(__dirname, 'dist/improv.html'),
       },
     },
