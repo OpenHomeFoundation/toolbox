@@ -1,16 +1,17 @@
 ---
-layout: base
+layout: base.html
 title: Install Firmware - ZBT-1
-description: Install firmware for ZBT-1 device
+description: Install the latest Zigbee or Thread firmware on your ZBT-1
+permalink: /zbt1/install/index.html
+additionalScripts: |
+  <script type="module" src="https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js"></script>
 ---
 
 <script type="module" src="/src/components/app-header.ts"></script>
 <script type="module" src="/src/pages/zbt1-install.ts"></script>
-<script type="module" src="/src/utils/dark-mode.ts"></script>
 
 <style>
   body {
-    margin: 0;
     font-family:
       -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --color-blue-600: #03a9f4;
