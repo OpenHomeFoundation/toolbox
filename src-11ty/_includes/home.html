@@ -14,7 +14,6 @@
     />
     {% if additionalScripts %}{{ additionalScripts }}{% endif %}
     <script type="module" src="/src/utils/dark-mode.ts"></script>
-    <script type="module" src="/src/components/app-header.ts"></script>
     <style>
       @import url('/src/styles/shoelace.css');
       @import url('/src/styles/theme.css');
@@ -24,7 +23,6 @@
     </style>
   </head>
   <body class="wa-palette-shoelace wa-theme-shoelace">
-    <app-header></app-header>
     {{ content }}
   </body>
 </html>

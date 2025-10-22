@@ -8,7 +8,6 @@ export class AppHeader extends LitElement {
     :host {
       display: block;
       background: var(--app-bg-header);
-      border-bottom: 1px solid var(--app-border);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -19,6 +18,7 @@ export class AppHeader extends LitElement {
       align-items: center;
       justify-content: space-between;
       padding: 0 20px;
+      border-bottom: 1px solid var(--app-border);
       height: 64px;
       max-width: 1200px;
       margin: 0 auto;
