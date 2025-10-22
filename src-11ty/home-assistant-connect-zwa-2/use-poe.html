@@ -7,10 +7,18 @@ description: Home Assistant Connect ZWA2 PoE installation
 <script type="module" src="/src/pages/zwa2-install-poe.js"></script>
 <script type="module" src="/src/components/app-header.js"></script>
 <script type="module" src="/src/utils/dark-mode.js"></script>
-<script
-  type="module"
-  src="https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js"
-></script>
+
+<script type="module">
+  // Wait for DOM to be ready before loading the installer
+  document.addEventListener('DOMContentLoaded', () => {
+    // Load the installer script dynamically
+    const installerScript = document.createElement('script');
+    installerScript.type = 'module';
+    installerScript.src =
+      'https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js';
+    document.head.appendChild(installerScript);
+  });
+</script>
 
 <style>
   body {

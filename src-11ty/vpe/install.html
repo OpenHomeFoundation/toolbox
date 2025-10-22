@@ -7,10 +7,18 @@ description: VPE device installation tools
 <script type="module" src="/src/pages/vpe-install.ts"></script>
 <script type="module" src="/src/components/app-header.ts"></script>
 <script type="module" src="/src/utils/dark-mode.ts"></script>
-<script
-  type="module"
-  src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"
-></script>
+
+<script type="module">
+  // Wait for DOM to be ready before loading the installer
+  document.addEventListener('DOMContentLoaded', () => {
+    // Load the installer script dynamically
+    const installerScript = document.createElement('script');
+    installerScript.type = 'module';
+    installerScript.src =
+      'https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module';
+    document.head.appendChild(installerScript);
+  });
+</script>
 
 <app-header></app-header>
 <vpe-install></vpe-install>
