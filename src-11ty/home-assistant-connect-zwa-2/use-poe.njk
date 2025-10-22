@@ -25,8 +25,7 @@ permalink: /home-assistant-connect-zwa-2/use-poe/index.html
   </div>
 </div>
 
-<!-- Troubleshooting section - inlined -->
-<div class="troubleshooting-container">
+<div class="troubleshooting-container" style="display: none;" id="troubleshooting">
   <div class="troubleshooting-card">
     <h3>Troubleshooting</h3>
     <p>
@@ -111,7 +110,7 @@ permalink: /home-assistant-connect-zwa-2/use-poe/index.html
   .troubleshooting-card {
     background: var(--app-bg-card);
     border-radius: 16px;
-    padding: 1px 32px;
+    padding: 26px 32px 10px;
     box-shadow: 0 2px 8px var(--app-shadow);
     margin: 20px 0 30px;
   }
@@ -157,7 +156,7 @@ permalink: /home-assistant-connect-zwa-2/use-poe/index.html
 <script type="module">
   import { isSerialUnavailable } from '/src/utils/const.ts';
 
-  if (isSerialUnavailable) {
+    if (isSerialUnavailable) {
     const installerContainer = document.getElementById('installer-container');
     installerContainer.className = '';
     installerContainer.innerHTML = '';
@@ -165,4 +164,10 @@ permalink: /home-assistant-connect-zwa-2/use-poe/index.html
     const warningCard = document.createElement('warning-card');
     installerContainer.appendChild(warningCard);
   }
+
+  customElements.whenDefined('zwa2-install-poe').then(() => {
+    setTimeout(() => {
+      document.getElementById('troubleshooting').style.display = 'block';
+    }, 300);
+  });
 </script>

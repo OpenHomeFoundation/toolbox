@@ -21,8 +21,7 @@ permalink: /home-assistant-connect-zwa-2/install-portable/index.html
   </div>
 </div>
 
-<!-- Troubleshooting section - inlined, no component needed -->
-<div class="troubleshooting-container">
+<div class="troubleshooting-container" style="display: none;" id="troubleshooting">
   <div class="troubleshooting-card">
     <h3>Troubleshooting</h3>
     <p>
@@ -156,4 +155,10 @@ permalink: /home-assistant-connect-zwa-2/install-portable/index.html
     const warningCard = document.createElement('warning-card');
     installerContainer.appendChild(warningCard);
   }
+
+  customElements.whenDefined('zwa2-install-portable').then(() => {
+    setTimeout(() => {
+      document.getElementById('troubleshooting').style.display = 'block';
+    }, 300);
+  });
 </script>
