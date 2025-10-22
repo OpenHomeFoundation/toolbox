@@ -6,10 +6,6 @@ permalink: /home-assistant-connect-zwa-2/install-portable/index.html
 ---
 
 <script type="module" src="/src/pages/zwa2-install-portable.ts"></script>
-<script
-  type="module"
-  src="https://home-assistant.github.io/zwa2-toolbox/standalone/install-esphome-firmware.js"
-></script>
 
 <zwa2-install-portable></zwa2-install-portable>
 
@@ -144,6 +140,13 @@ permalink: /home-assistant-connect-zwa-2/install-portable/index.html
 
 <script type="module">
   import { isSerialUnavailable } from '/src/utils/const.ts';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const installerScript = document.createElement('script');
+    installerScript.type = 'module';
+    installerScript.src = 'https://home-assistant.github.io/zwa2-toolbox/standalone/install-esphome-firmware.js';
+    document.head.appendChild(installerScript);
+  });
 
   if (isSerialUnavailable) {
     const installerContainer = document.getElementById('installer-container');

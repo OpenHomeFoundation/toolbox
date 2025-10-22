@@ -3,8 +3,6 @@ layout: base.html
 title: Install Firmware - ZBT-1
 description: Install the latest Zigbee or Thread firmware on your ZBT-1
 permalink: /zbt1/install/index.html
-additionalScripts: |
-  <script type="module" src="https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js"></script>
 ---
 
 <script type="module" src="/src/pages/zbt1-install.ts"></script>
@@ -61,3 +59,13 @@ additionalScripts: |
 </style>
 
 <zbt1-install></zbt1-install>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    const installerScript = document.createElement('script');
+    installerScript.type = 'module';
+    installerScript.src =
+      'https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js';
+    document.head.appendChild(installerScript);
+  });
+</script>

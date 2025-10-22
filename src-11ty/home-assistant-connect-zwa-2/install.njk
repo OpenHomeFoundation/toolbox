@@ -3,8 +3,6 @@ layout: base.html
 title: Install Original Firmware - ZWA2
 description: Restore the original firmware on your Home Assistant Connect ZWA-2
 permalink: /home-assistant-connect-zwa-2/install/index.html
-additionalScripts: |
-  <script type="module" src="https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js"></script>
 ---
 
 <script type="module" src="/src/pages/zwa2-install-original.ts"></script>
@@ -71,6 +69,14 @@ additionalScripts: |
 <script type="module">
   import '/src/components/warning-card.js';
   import { isSerialUnavailable } from '/src/utils/const.ts';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const installerScript = document.createElement('script');
+    installerScript.type = 'module';
+    installerScript.src =
+      'https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js';
+    document.head.appendChild(installerScript);
+  });
 
   if (isSerialUnavailable) {
     const installerContainer = document.getElementById('installer-container');
