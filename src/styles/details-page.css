@@ -1,0 +1,176 @@
+.details-page {
+  display: block;
+  padding-top: 20px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--app-text-primary);
+}
+
+.details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.details-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+  margin-bottom: 30px;
+}
+
+.details-hero {
+  background: var(--app-bg-card);
+  border-radius: 16px;
+  padding: 0 32px;
+  box-shadow: 0 2px 8px var(--app-shadow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.details-hero-title {
+  color: var(--app-text-primary);
+  margin-top: 32px;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.details-hero-subtitle {
+  color: var(--wa-color-brand-50);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+}
+
+.details-hero-description {
+  color: var(--app-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.details-hero-secondary-description {
+  color: var(--app-text-secondary);
+  line-height: 1.6;
+  margin: 12px 0 0 0;
+  font-size: 1.05rem;
+}
+
+.details-actions {
+  background: var(--app-bg-card);
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 2px 8px var(--app-shadow);
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.action-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.action-item:hover {
+  background: var(--app-bg-secondary);
+}
+
+.action-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--app-category-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-mask {
+  width: 20px;
+  height: 20px;
+  background-color: var(--app-category-text);
+  -webkit-mask: var(--icon-url) no-repeat center / contain;
+  mask: var(--icon-url) no-repeat center / contain;
+}
+
+.action-content {
+  min-width: 0;
+}
+
+.action-content h3 {
+  margin: 0 0 6px 0;
+  color: var(--app-text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.action-content p {
+  margin: 0;
+  color: var(--app-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.action-content .experimental {
+  color: #e78e21;
+}
+
+.action-trailing svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--app-text-muted);
+}
+
+.chevron-icon {
+  color: var(--app-text-primary);
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--wa-color-brand-50);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  margin-bottom: 20px;
+  background: var(--app-category-bg);
+}
+
+.back-button:hover {
+  background: var(--app-bg-secondary);
+}
+
+.back-button svg {
+  margin-top: 2px;
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 768px) {
+  .details-layout {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 10px;
+  }
+
+  .details-hero {
+    padding: 16px 20px;
+    height: auto;
+  }
+}
