@@ -1,0 +1,20 @@
+---
+layout: base.html
+title: Install Firmware - VPE
+description: Flash the latest Voice PE firmware directly to your device
+permalink: /vpe/install/index.html
+---
+
+<script type="module" src="/src/pages/vpe-install.ts"></script>
+
+<vpe-install></vpe-install>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    const installerScript = document.createElement('script');
+    installerScript.type = 'module';
+    installerScript.src =
+      'https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module';
+    document.head.appendChild(installerScript);
+  });
+</script>

@@ -1,0 +1,71 @@
+---
+layout: base.html
+title: Install Firmware - ZBT-1
+description: Install the latest Zigbee or Thread firmware on your ZBT-1
+permalink: /zbt1/install/index.html
+---
+
+<script type="module" src="/src/pages/zbt1-install.ts"></script>
+
+<style>
+  body {
+    font-family:
+      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --color-blue-600: #03a9f4;
+    --color-blue-500: #0288d1;
+  }
+
+  .installer-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .installer-card {
+    background: var(--app-bg-card);
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+  }
+
+  .installer-card install-esp-bridge-firmware {
+    width: 100%;
+    border: none;
+    min-height: 600px;
+    border-radius: 16px;
+  }
+
+  install-esp-bridge-firmware .min-h-screen {
+    min-height: auto !important;
+  }
+
+  warning-card::part(container) {
+    margin: -5px 20px 20px;
+  }
+
+  a {
+    color: #03a9f4;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1200px) {
+    .installer-wrapper {
+      padding: 0 20px;
+    }
+  }
+</style>
+
+<zbt1-install></zbt1-install>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    const installerScript = document.createElement('script');
+    installerScript.type = 'module';
+    installerScript.src =
+      'https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js';
+    document.head.appendChild(installerScript);
+  });
+</script>
