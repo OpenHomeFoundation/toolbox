@@ -5,6 +5,11 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   root: 'dist',
   publicDir: '../public',
+  resolve: {
+    alias: {
+      '/src': path.resolve(__dirname, 'src'),
+    },
+  },
 
   plugins: [
     {
