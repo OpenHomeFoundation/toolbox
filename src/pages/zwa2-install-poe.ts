@@ -37,37 +37,6 @@ export class Zwa2InstallPoEPage extends LitElement {
       line-height: 1.6;
     }
 
-    .warning-box {
-      background: var(--wa-color-warning-fill-quiet);
-      border: 1px solid var(--wa-color-warning-border-normal);
-      border-radius: 8px;
-      padding: 24px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      margin: 20px 0;
-    }
-
-    .warning-icon {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      color: var(--wa-color-warning-50);
-      margin-top: 3px;
-    }
-
-    .warning-content h3 {
-      margin: 0 0 8px 0;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--wa-color-warning-on-normal);
-    }
-
-    .warning-content p {
-      margin: 0;
-      color: var(--wa-color-warning-on-quiet);
-      line-height: 1.5;
-    }
     .install-note {
       font-style: italic;
     }
