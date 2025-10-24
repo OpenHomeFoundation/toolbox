@@ -88,10 +88,6 @@ permalink: /home-assistant-connect-zwa-2/use-poe/index.html
     border-radius: 16px;
   }
 
-  warning-card::part(container) {
-    margin: 10px 20px 20px;
-  }
-
   install-esp-bridge-firmware .min-h-screen {
     min-height: auto !important;
   }
@@ -148,23 +144,12 @@ permalink: /home-assistant-connect-zwa-2/use-poe/index.html
 </style>
 
 <script type="module">
-  import { isSerialUnavailable } from '/src/utils/const.ts';
-
   document.addEventListener('DOMContentLoaded', () => {
     const installerScript = document.createElement('script');
     installerScript.type = 'module';
     installerScript.src = 'https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js';
     document.head.appendChild(installerScript);
   });
-
-    if (isSerialUnavailable) {
-    const installerContainer = document.getElementById('installer-container');
-    installerContainer.className = '';
-    installerContainer.innerHTML = '';
-
-    const warningCard = document.createElement('warning-card');
-    installerContainer.appendChild(warningCard);
-  }
 
   customElements.whenDefined('zwa2-install-poe').then(() => {
     setTimeout(() => {

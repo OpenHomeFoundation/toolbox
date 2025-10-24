@@ -2,7 +2,6 @@ import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 import '../components/details.js';
-import '../components/warning-card.js';
 
 @customElement('zwa2-install-poe')
 export class Zwa2InstallPoEPage extends LitElement {
