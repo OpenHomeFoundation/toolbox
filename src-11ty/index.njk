@@ -5,6 +5,17 @@ description: Flash firmware, configure devices, and manage your smart home hardw
 permalink: /index.html
 ---
 
-<main-app></main-app>
+<style>
+  .container {
+    display: block;
+    min-height: 100vh;
+    background: var(--app-bg-primary);
+    color: var(--app-text-primary);
+  }
+</style>
 
-<script type="module" src="/src/main-app.ts"></script>
+<div class="container">
+  <home-page></home-page>
+</div>
+
+<script type="module" src="/src/pages/home-page.ts"></script>
