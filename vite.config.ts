@@ -5,6 +5,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   root: 'dist',
   publicDir: '../public',
+  base: './',
   resolve: {
     alias: {
       '/src': path.resolve(__dirname, 'src'),
@@ -56,6 +57,8 @@ export default defineConfig({
     },
   },
   build: {
+    outDir: '.',
+    emptyOutDir: false,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'dist/index.html'),
