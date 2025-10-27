@@ -16,7 +16,7 @@ export default defineConfig({
     {
       name: 'py-raw-loader',
       transform(code, id) {
-        if (id.endsWith('.py')) {
+        if (id.endsWith('.py') || id.endsWith('.txt')) {
           return { code: `export default ${JSON.stringify(code)};`, map: null };
         }
         return null;
@@ -53,6 +53,7 @@ export default defineConfig({
     esbuildOptions: {
       loader: {
         '.py': 'text',
+        '.txt': 'text',
       },
     },
   },
