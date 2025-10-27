@@ -16,9 +16,28 @@ export default defineConfig({
     {
       name: 'py-raw-loader',
       transform(code, id) {
-        if (id.endsWith('.py') || id.endsWith('.txt')) {
+        if (id.endsWith('.py')) {
           return { code: `export default ${JSON.stringify(code)};`, map: null };
         }
+
+        if (id.endsWith('.txt')) {
+          if (code.startsWith('export default "data:text/plain;base64,')) {
+            const match = code.match(/data:text\/plain;base64,(.+?)"$/);
+            if (match) {
+              const base64Content = match[1];
+              const decodedContent = Buffer.from(
+                base64Content,
+                'base64'
+              ).toString('utf-8');
+              return {
+                code: `export default ${JSON.stringify(decodedContent)};`,
+                map: null,
+              };
+            }
+          }
+          return { code: `export default ${JSON.stringify(code)};`, map: null };
+        }
+
         return null;
       },
     },
