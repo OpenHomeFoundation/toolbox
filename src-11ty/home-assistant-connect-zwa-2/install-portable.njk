@@ -15,7 +15,11 @@ permalink: /home-assistant-connect-zwa-2/install-portable/index.html
   </div>
 </div>
 
-<div class="troubleshooting-container" style="display: none;" id="troubleshooting">
+<div
+  class="troubleshooting-container"
+  style="display: none"
+  id="troubleshooting"
+>
   <div class="troubleshooting-card">
     <h3>Troubleshooting</h3>
     <p>
@@ -26,35 +30,37 @@ permalink: /home-assistant-connect-zwa-2/install-portable/index.html
       configurations in Home Assistant.
     </p>
     <p>
-      If Home Assistant is connected and you are not able to see your
-      Z-Wave devices, restore the backup.
+      If Home Assistant is connected and you are not able to see your Z-Wave
+      devices, restore the backup.
     </p>
     <ol type="a">
       <li>
         You can do this on the
-        
+
+        <a
           href="https://my.home-assistant.io/redirect/config_zwave_js/"
           target="_blank"
           rel="noopener noreferrer"
-        >Z-Wave config panel in Home Assistant</a>. 
-        Config → Devices & services → Z-Wave → Settings icon.
+          >Z-Wave config panel in Home Assistant</a
+        >. Config → Devices & services → Z-Wave → Settings icon.
       </li>
       <li>Restore backup is at the bottom of the page.</li>
     </ol>
     <p>
       If you are unable to get it to work, revert back by
-      <a href="/home-assistant-connect-zwa-2/install">installing the original firmware</a>
+      <a href="/home-assistant-connect-zwa-2/install"
+        >installing the original firmware</a
+      >
       and connect it directly to Home Assistant.
     </p>
     <p>
       If you want to further customize the ESPHome-based portable Z-Wave
-      firmware that runs on the ZWA-2, you can adopt it inside ESPHome
-      Device Builder. To ensure it continues to work, after adoption, you
-      have to edit the generated YAML and remove the
+      firmware that runs on the ZWA-2, you can adopt it inside ESPHome Device
+      Builder. To ensure it continues to work, after adoption, you have to edit
+      the generated YAML and remove the
       <code>encryption</code> and <code>key</code> sections under
-      <code>api:</code>. Z-Wave JS does not currently support ESPHome
-      encryption and the Z-Wave serial protocol has their own encryption
-      mechanism.
+      <code>api:</code>. Z-Wave JS does not currently support ESPHome encryption
+      and the Z-Wave serial protocol has their own encryption mechanism.
     </p>
   </div>
 </div>
@@ -135,11 +141,11 @@ permalink: /home-assistant-connect-zwa-2/install-portable/index.html
 </style>
 
 <script type="module">
-
   document.addEventListener('DOMContentLoaded', () => {
     const installerScript = document.createElement('script');
     installerScript.type = 'module';
-    installerScript.src = 'https://home-assistant.github.io/zwa2-toolbox/standalone/install-esphome-firmware.js';
+    installerScript.src =
+      'https://home-assistant.github.io/zwa2-toolbox/standalone/install-esphome-firmware.js';
     document.head.appendChild(installerScript);
   });
 
