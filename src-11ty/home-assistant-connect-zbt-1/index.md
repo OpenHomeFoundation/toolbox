@@ -5,7 +5,7 @@ description: Update firmware for your Connect ZBT-1 adapter
 image: /images/zbt1.jpg
 
 productTitle: Home Assistant Connect ZBT-1
-productSubtitle: Zigbee 3.0 USB adapter
+productSubtitle: Zigbee & Thread 3.0 USB adapter
 
 actions:
   - title: Install firmware
