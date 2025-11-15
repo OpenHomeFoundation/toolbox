@@ -82,8 +82,14 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'dist/index.html'),
-        vpe: resolve(__dirname, 'dist/vpe/index.html'),
-        vpeInstall: resolve(__dirname, 'dist/vpe/install/index.html'),
+        homeAssistantVoicePreviewEdition: resolve(
+          __dirname,
+          'dist/home-assistant-voice-preview-edition/index.html'
+        ),
+        homeAssistantVoicePreviewEditionInstall: resolve(
+          __dirname,
+          'dist/home-assistant-voice-preview-edition/install/index.html'
+        ),
         homeAssistantConnectZwa2: resolve(
           __dirname,
           'dist/home-assistant-connect-zwa-2/index.html'
@@ -100,8 +106,14 @@ export default defineConfig({
           __dirname,
           'dist/home-assistant-connect-zwa-2/use-poe/index.html'
         ),
-        zbt1: resolve(__dirname, 'dist/zbt1/index.html'),
-        zbt1Install: resolve(__dirname, 'dist/zbt1/install/index.html'),
+        homeAssistantConnectZbt1: resolve(
+          __dirname,
+          'dist/home-assistant-connect-zbt-1/index.html'
+        ),
+        homeAssistantConnectZbt1Install: resolve(
+          __dirname,
+          'dist/home-assistant-connect-zbt-1/install/index.html'
+        ),
         improv: resolve(__dirname, 'dist/improv.html'),
       },
     },

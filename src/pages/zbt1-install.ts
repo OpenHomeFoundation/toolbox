@@ -90,7 +90,7 @@ export class ZBT1InstallPage extends LitElement {
 
   render() {
     return html`
-      <details-page back-href="/zbt1/" back-label="Back">
+      <details-page back-href="/home-assistant-connect-zbt-1/" back-label="Back">
         <span slot="title">Install firmware</span>
         <p slot="subtitle">
           Update your ZBT-1 with the latest Zigbee or Thread firmware

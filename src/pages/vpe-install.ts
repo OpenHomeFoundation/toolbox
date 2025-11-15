@@ -33,7 +33,7 @@ export class VPEInstallPage extends LitElement {
 
   render() {
     return html`
-      <details-page back-href="/vpe/" back-label="Back">
+      <details-page back-href="/home-assistant-voice-preview-edition/" back-label="Back">
         <span slot="title">Install firmware</span>
         <p slot="subtitle">
           Flash the latest Voice PE firmware directly to your device using our
