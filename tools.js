@@ -19,7 +19,7 @@ export const tools = [
     slug: 'zbt-1',
     title: 'Home Assistant Connect ZBT-1',
     description:
-      'First generation adapter to bring Zigbee and Matter over Thread devices in Home Assistant.',
+      'Bring Zigbee and Matter over Thread devices in Home Assistant.',
     image: '/images/zbt1.jpg',
     url: '/home-assistant-connect-zbt-1/',
   },
