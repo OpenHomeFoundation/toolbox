@@ -1,20 +1,24 @@
 ---
-layout: base.html
-title: Install Firmware - VPE
+layout: install.html
+title: Install firmware
+subtitle: Flash the latest Voice PE firmware directly to your device using our web installer
 description: Flash the latest Voice PE firmware directly to your device
 permalink: /home-assistant-voice-preview-edition/install/index.html
+backHref: /home-assistant-voice-preview-edition/
+backLabel: Back
+installerScript: https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module
 ---
 
-<script type="module" src="/src/pages/vpe-install.ts"></script>
+<p>
+  Home Assistant will be able to provide the latest firmware when you
+  have the Home Assistant Voice Preview Edition set up. To factory reset
+  the device, you can hold the middle button pressed for 30 seconds or
+  install new firmware below:
+</p>
 
-<vpe-install></vpe-install>
-
-<script type="module">
-  document.addEventListener('DOMContentLoaded', () => {
-    const installerScript = document.createElement('script');
-    installerScript.type = 'module';
-    installerScript.src =
-      'https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module';
-    document.head.appendChild(installerScript);
-  });
-</script>
+<div class="flasher-container">
+  <esp-web-install-button
+    manifest="https://firmware.esphome.io/home-assistant-voice-pe/home-assistant-voice/manifest.json"
+  >
+  </esp-web-install-button>
+</div>
