@@ -1,12 +1,4 @@
-export interface ToolDefinition {
-  title: string;
-  description: string;
-  image: string;
-  url: string;
-  category?: string;
-}
-
-export const tools: ToolDefinition[] = [
+export const tools = [
   {
     title: 'Home Assistant Connect ZWA-2',
     description:
