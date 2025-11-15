@@ -1,0 +1,9 @@
+# Redirect old product URLs to new ones
+
+# Voice Preview Edition redirects
+/vpe/* /home-assistant-voice-preview-edition/:splat 301
+/vpe /home-assistant-voice-preview-edition/ 301
+
+# ZBT-1 redirects
+/zbt1/* /home-assistant-connect-zbt-1/:splat 301
+/zbt1 /home-assistant-connect-zbt-1/ 301

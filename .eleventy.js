@@ -2,7 +2,14 @@ import { env } from 'process';
 
 import { minify } from 'html-minifier-terser';
 
+import { tools } from './tools.js';
+
 export default function (eleventyConfig) {
+  // Add tools collection
+  eleventyConfig.addCollection('tools', function () {
+    return tools;
+  });
+
   // Copy static assets
   eleventyConfig.addPassthroughCopy('public');
 
