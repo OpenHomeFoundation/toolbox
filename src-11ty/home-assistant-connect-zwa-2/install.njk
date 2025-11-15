@@ -5,60 +5,74 @@ subtitle: Connect ZWA-2 directly to Home Assistant via USB
 description: Restore the original firmware on your Home Assistant Connect ZWA-2
 permalink: /home-assistant-connect-zwa-2/install/index.html
 backHref: /home-assistant-connect-zwa-2/
-backLabel: Back
-installerElement: install-esp-bridge-firmware
-installerScript: https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js
 ---
 
-<p>
-  This is the original firmware that is pre-installed on the Home Assistant
-  Connect ZWA-2. It allows you to use the device directly connected to Home
-  Assistant with the included USB cable.
-</p>
-<p>Follow this tutorial to restore the original firmware on your ZWA-2.</p>
+<div class="page-content">
+  <p>
+    This is the original firmware that is pre-installed on the Home Assistant
+    Connect ZWA-2. It allows you to use the device directly connected to Home
+    Assistant with the included USB cable.
+  </p>
+  <p>Follow this tutorial to restore the original firmware on your ZWA-2.</p>
 
-<h3>Requirements</h3>
-<ul>
-  <li>
-    <a
-      href="https://www.home-assistant.io"
-      target="_blank"
-      rel="noopener noreferrer"
-      >Home Assistant</a
-    >
-  </li>
-  <li>
-    <a
-      href="https://www.home-assistant.io/connect/zwa-2/"
-      target="_blank"
-      rel="noopener noreferrer"
-      >Home Assistant Connect ZWA-2</a
-    >
-  </li>
-  <li>
-    <a
-      href="https://amzn.to/4mLqa6S"
-      target="_blank"
-      rel="noopener noreferrer"
-      >USB-C to C cable</a
-    >
-  </li>
-</ul>
-
-<p>To get started, follow these steps:</p>
-<ol>
-  <li>Make a backup of your Z-Wave network in Home Assistant.</li>
-  <ol type="a">
+  <h3>Requirements</h3>
+  <ul>
     <li>
-      You can do this on the
       <a
-        href="https://my.home-assistant.io/redirect/config_zwave_js/"
+        href="https://www.home-assistant.io"
         target="_blank"
         rel="noopener noreferrer"
-        >Z-Wave config panel in Home Assistant</a
-      >. Config → Devices & services → Z-Wave → Settings icon.
+        >Home Assistant</a
+      >
     </li>
-    <li>Download backup is at the bottom of the page.</li>
+    <li>
+      <a
+        href="https://www.home-assistant.io/connect/zwa-2/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Home Assistant Connect ZWA-2</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://amzn.to/4mLqa6S"
+        target="_blank"
+        rel="noopener noreferrer"
+        >USB-C to C cable</a
+      >
+    </li>
+  </ul>
+
+  <p>To get started, follow these steps:</p>
+  <ol>
+    <li>Make a backup of your Z-Wave network in Home Assistant.</li>
+    <ol type="a">
+      <li>
+        You can do this on the
+        <a
+          href="https://my.home-assistant.io/redirect/config_zwave_js/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Z-Wave config panel in Home Assistant</a
+        >. Config → Devices & services → Z-Wave → Settings icon.
+      </li>
+      <li>Download backup is at the bottom of the page.</li>
+    </ol>
+    <li>Install the ESP Serial Bridge firmware</li>
   </ol>
-  <li>Install the ESP Serial Bridge firmware</li>
-</ol>
+</div>
+
+<div class="installer-wrapper">
+  <div class="installer-card">
+    <install-esp-bridge-firmware></install-esp-bridge-firmware>
+  </div>
+</div>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    const installerScript = document.createElement('script');
+    installerScript.type = 'module';
+    installerScript.src = 'https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js';
+    document.head.appendChild(installerScript);
+  });
+</script>
