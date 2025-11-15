@@ -40,6 +40,4 @@ actions:
     icon: /svgs/github.svg
 ---
 
-
-
 Features the latest Z-Wave 800 series chip with Long Range support, SmartStart, and enhanced security for your smart home.
