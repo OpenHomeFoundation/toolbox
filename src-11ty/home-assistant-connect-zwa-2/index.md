@@ -1,13 +1,10 @@
 ---
 layout: product-overview.html
-title: ZWA2
+title: Home Assistant Connect ZWA-2
 description: Home Assistant Connect ZWA-2 - 800 series Z-Wave Long Range adapter
-permalink: /home-assistant-connect-zwa-2/index.html
 
 productTitle: Home Assistant Connect ZWA-2
-productSubtitle: 800 series Z-Wave Long Range adapter
-productDescription: The ultimate way to connect Z-Wave devices to Home Assistant.
-productSecondaryDescription: Features the latest Z-Wave 800 series chip with Long Range support, SmartStart, and enhanced security for your smart home.
+productSubtitle: The ultimate way to connect Z-Wave devices to Home Assistant.
 
 actions:
   - title: Install original firmware
@@ -31,17 +28,18 @@ actions:
     description: User documentation, troubleshooting, and resources
     href: https://support.nabucasa.com/hc/en-us/categories/28669861145885
     icon: /svgs/doc.svg
-    target: _blank
 
   - title: Product info
     description: Learn more about the Connect ZWA-2 features, specifications, and where to buy
     href: https://www.home-assistant.io/connect/zwa-2/
     icon: /svgs/product.svg
-    target: _blank
 
   - title: Source code
     description: View the open-source Z-Wave firmware code
     href: https://github.com/NabuCasa/zwave-firmware
     icon: /svgs/github.svg
-    target: _blank
 ---
+
+
+
+Features the latest Z-Wave 800 series chip with Long Range support, SmartStart, and enhanced security for your smart home.

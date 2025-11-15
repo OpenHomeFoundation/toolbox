@@ -14,19 +14,14 @@ layout: base.html
       <div class="details-hero">
         <h1 class="details-hero-title">{{ productTitle }}</h1>
         <p class="details-hero-subtitle">{{ productSubtitle }}</p>
-        <p class="details-hero-description">
-          {{ productDescription }}
-        </p>
-        {%- if productSecondaryDescription %}
-        <p class="details-hero-secondary-description">
-          {{ productSecondaryDescription }}
-        </p>
-        {%- endif %}
+        
+        {{ content | safe }}
       </div>
 
       <div class="details-actions">
         {%- for action in actions %}
-        <a href="{{ action.href }}" class="action-item"{% if action.target %} target="{{ action.target }}"{% endif %}>
+        {% set external = action.href.startsWith('http') %}
+        <a href="{{ action.href }}" class="action-item"{% if external %} target="_blank" rel="noopener noreferrer"{% endif %}>
           <div class="action-icon">
             <div class="icon-mask" style="--icon-url: url('{{ action.icon }}')"></div>
           </div>
@@ -38,7 +33,7 @@ layout: base.html
             </p>
           </div>
           <div class="action-trailing">
-            {%- if action.target == "_blank" %}
+            {%- if external %}
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
               <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
             </svg>

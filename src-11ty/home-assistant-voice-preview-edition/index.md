@@ -1,12 +1,10 @@
 ---
 layout: product-overview.html
-title: VPE
+title: Home Assistant Voice Preview Edition
 description: Home Assistant Voice Preview Edition - Local voice control for your smart home
-permalink: /home-assistant-voice-preview-edition/index.html
 
 productTitle: Home Assistant Voice Preview Edition
 productSubtitle: Local voice control for your smart home
-productDescription: Experience the future of voice control with complete local processing. The Voice Preview Edition brings fast, private voice commands to your smart home without sending data to the cloud.
 
 actions:
   - title: Install firmware
@@ -18,23 +16,21 @@ actions:
     description: Complete guide to setting up voice control, wake words, and commands
     href: https://www.home-assistant.io/voice_control/
     icon: /svgs/doc.svg
-    target: _blank
 
   - title: Documentation
     description: Complete documentation, troubleshooting guides, and technical specifications
     href: https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition
     icon: /svgs/doc.svg
-    target: _blank
 
   - title: Product info
     description: Learn about Voice PE features, hardware specifications, and where to buy
     href: https://www.home-assistant.io/voice-pe/
     icon: /svgs/product.svg
-    target: _blank
 
   - title: Source code
     description: View the open-source Voice PE firmware code and contribute to development
     href: https://github.com/esphome/home-assistant-voice-pe
     icon: /svgs/github.svg
-    target: _blank
 ---
+
+Experience the future of voice control with complete local processing. The Voice Preview Edition brings fast, private voice commands to your smart home without sending data to the cloud.
