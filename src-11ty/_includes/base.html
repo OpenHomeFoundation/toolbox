@@ -1,5 +1,8 @@
-{% capture full_title -%} {%- if title -%} {{ title }} – Device Toolbox {%- else
--%} Device Toolbox {%- endif -%} {%- endcapture %}
+{%- if title -%}
+  {% set full_title = title + " – Device Toolbox" %}
+{%- else -%}
+  {% set full_title = "Device Toolbox" %}
+{%- endif -%}
 <!doctype html>
 <html lang="en">
   <head>
@@ -49,7 +52,7 @@
         </nav>
       </header>
     </div>
-    {{ content }}
+    {{ content | safe }}
     <script>
       (function () {
         const updateTheme = () => {
