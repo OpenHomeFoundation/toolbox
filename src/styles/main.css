@@ -119,11 +119,25 @@ body {
   }
 }
 
-details-page:not(:defined) {
-  opacity: 0;
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--wa-color-brand-50);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  margin: 16px 0;
+  background: var(--app-category-bg);
 }
 
-details-page {
-  opacity: 1;
-  transition: opacity 0.1s;
+.back-button:hover {
+  background: var(--app-bg-secondary);
+}
+
+.back-button svg {
+  margin-top: 2px;
+  width: 14px;
+  height: 14px;
 }

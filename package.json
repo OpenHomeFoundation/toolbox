@@ -4,38 +4,24 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm:dev:11ty\" \"npm:dev:vite\"",
+    "dev": "rm -rf dist && concurrently \"npm:dev:11ty\" \"npm:dev:vite\"",
     "dev:11ty": "eleventy --watch",
     "dev:vite": "vite",
-    "build": "eleventy && vite build",
+    "build": "rm -rf dist && eleventy && vite build",
     "format": "npx prettier --write src/**/*",
-    "format:check": "npx prettier --check src/**/*",
-    "lint": "eslint src --ext .ts",
-    "lint:fix": "eslint src --ext .ts --fix"
+    "format:check": "npx prettier --check src/**/*"
   },
   "dependencies": {
-    "@11ty/eleventy": "^3.1.2",
-    "@awesome.me/webawesome": "^3.0.0-beta.6",
     "@nabucasa/sl-web-tools": "^0.11.0",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-lit": "^2.1.1",
-    "eslint-plugin-wc": "^3.0.1",
-    "html-minifier-terser": "^7.2.0",
-    "improv-wifi-sdk": "^1.4.0",
-    "lit": "^3.3.1",
-    "prettier": "^3.6.2",
-    "ts-pattern": "^5.8.0"
+    "improv-wifi-sdk": "^1.4.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.36.0",
+    "@11ty/eleventy": "^3.1.2",
     "@types/html-minifier-terser": "^7.0.2",
     "@types/node": "^24.6.2",
     "concurrently": "^9.2.1",
-    "eslint": "^9.36.0",
-    "globals": "^16.4.0",
-    "jiti": "^2.5.1",
-    "typescript": "~5.8.3",
-    "typescript-eslint": "^8.44.0",
+    "html-minifier-terser": "^7.2.0",
+    "prettier": "^3.6.2",
     "vite": "^7.1.2"
   }
 }

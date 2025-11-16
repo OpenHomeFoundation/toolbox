@@ -1,0 +1,266 @@
+---
+layout: base.html
+---
+
+<style>
+  .details-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--wa-color-brand-50);
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    transition: opacity 0.2s;
+  }
+
+  .back-link:hover {
+    opacity: 0.8;
+  }
+
+  .back-link::before {
+    content: '←';
+    margin-right: 8px;
+    font-size: 1.2em;
+  }
+
+  .page-header {
+    margin-bottom: 30px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+  }
+
+  .page-subtitle {
+    color: var(--wa-color-brand-50);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .page-content {
+    background: var(--app-bg-card);
+    border-radius: 16px;
+    padding: 26px 32px 10px;
+    box-shadow: 0 2px 8px var(--app-shadow);
+    margin: 20px 0;
+  }
+
+  .page-content h3 {
+    margin-top: 24px;
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .page-content h3:first-child {
+    margin-top: 0;
+  }
+
+  .page-content ul,
+  .page-content ol {
+    margin: 8px 0;
+    padding-left: 24px;
+  }
+
+  .page-content ul {
+    list-style-type: disc;
+  }
+
+  .page-content ol {
+    list-style-type: decimal;
+  }
+
+  .page-content ol[type='a'] {
+    list-style-type: lower-alpha;
+  }
+
+  .page-content li {
+    margin: 8px 0;
+    line-height: 1.6;
+  }
+
+  .page-content p {
+    margin: 12px 0;
+    line-height: 1.6;
+  }
+
+  .page-content a {
+    color: var(--wa-color-brand-50);
+    text-decoration: none;
+  }
+
+  .page-content a:hover {
+    text-decoration: underline;
+  }
+
+  .page-content code {
+    background: var(--wa-color-neutral-95);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+  }
+
+  .wa-dark .page-content code {
+    background: var(--wa-color-neutral-10);
+  }
+
+  .installer-wrapper {
+    margin: 30px auto 0;
+  }
+
+  .installer-card {
+    background: var(--app-bg-card);
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+  }
+
+  .installer-card install-esphome-firmware,
+  .installer-card install-esp-bridge-firmware {
+    width: 100%;
+    border: none;
+    min-height: 600px;
+    border-radius: 16px;
+  }
+
+  install-esphome-firmware .min-h-screen,
+  install-esp-bridge-firmware .min-h-screen {
+    min-height: auto !important;
+  }
+
+  .troubleshooting-container {
+    margin: 30px auto 0;
+    display: none;
+  }
+
+  .troubleshooting-container.show {
+    display: block;
+  }
+
+  .troubleshooting-card {
+    background: var(--app-bg-card);
+    border-radius: 16px;
+    padding: 26px 32px 10px;
+    box-shadow: 0 2px 8px var(--app-shadow);
+    margin: 20px 0 30px;
+  }
+
+  .troubleshooting-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .troubleshooting-card p {
+    margin: 12px 0;
+    line-height: 1.6;
+  }
+
+  .troubleshooting-card ul,
+  .troubleshooting-card ol {
+    margin: 8px 0;
+    padding-left: 24px;
+  }
+
+  .troubleshooting-card li {
+    margin: 8px 0;
+    line-height: 1.6;
+  }
+
+  .troubleshooting-card a {
+    color: var(--wa-color-brand-50);
+    text-decoration: none;
+  }
+
+  .troubleshooting-card a:hover {
+    text-decoration: underline;
+  }
+
+  .warning-card {
+    background: var(--wa-color-warning-fill-quiet);
+    border: 1px solid var(--wa-color-warning-border-normal);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+  }
+
+  .warning-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  .warning-title {
+    color: var(--wa-color-warning-on-normal);
+    line-height: 1.4;
+  }
+
+  .warning-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: var(--wa-color-warning-50);
+  }
+
+  .warning-content {
+    flex: 1;
+  }
+
+  @media (max-width: 900px) {
+    .details-page {
+      padding: 20px 12px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 1.5rem;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+    }
+
+    .page-content {
+      padding: 20px 20px 10px;
+    }
+  }
+</style>
+
+<div class="details-page">
+  <a href="{{ backHref }}" class="back-button">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+    </svg>
+    Back
+  </a>
+
+  <div class="page-content">
+    <div class="page-header">
+      <h1 class="page-title">{{ title }}</h1>
+      {% if subtitle %}
+      <p class="page-subtitle">{{ subtitle }}</p>
+      {% endif %}
+    </div>
+    {{ hero | safe }}
+  </div>
+
+  {{ content | safe }}
+</div>
