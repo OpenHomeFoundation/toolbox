@@ -5,49 +5,55 @@ subtitle: Update your ZBT-1 with the latest Zigbee or Thread firmware
 description: Install the latest Zigbee or Thread firmware on your ZBT-1
 permalink: /home-assistant-connect-zbt-1/install/index.html
 backHref: /home-assistant-connect-zbt-1/
-backLabel: Back
-useNabucasaTools: true
-installerScript: https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js
----
+hero: |
+  <p>
+    Home Assistant will automatically detect updates for the Home
+    Assistant Connect ZBT-1 and allow you to install them. This page is
+    only needed if you are using the device with other software than
+    Home Assistant.
+  </p>
 
-<p>
-  Home Assistant will automatically detect updates for the Home
-  Assistant Connect ZBT-1 and allow you to install them. This page is
-  only needed if you are using the device with other software than
-  Home Assistant.
-</p>
-
-<div class="warning-card">
-  <div class="warning-icon">
-    <svg
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="2"
-      stroke="currentColor"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-      />
-    </svg>
-  </div>
-  <div class="warning-content">
-    <div class="warning-title">
-      Firmware update through web flasher is only available for Home
-      Assistant SkyConnect devices and Home Assistant ZBT-1 devices
-      purchased after October 20, 2024.
+  <div class="warning-card">
+    <div class="warning-icon">
+      <svg
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+        />
+      </svg>
+    </div>
+    <div class="warning-content">
+      <div class="warning-title">
+        Firmware update through web flasher is only available for Home
+        Assistant SkyConnect devices and Home Assistant ZBT-1 devices
+        purchased after October 20, 2024.
+      </div>
     </div>
   </div>
-</div>
 
-<p>
-  This firmware installer supports installing both the latest version
-  of the Zigbee and Thread firmware.
-</p>
+  <p>
+    This firmware installer supports installing both the latest version
+    of the Zigbee and Thread firmware.
+  </p>
 
-<div class="flasher-container">
-  <nabucasa-zigbee-flasher manifest="/assets/manifests/zbt1.json">
-    <span slot="button">Install firmware</span>
-  </nabucasa-zigbee-flasher>
-</div>
+  <div class="flasher-container">
+    <nabucasa-zigbee-flasher manifest="/assets/manifests/zbt1.json">
+      <span slot="button">Install firmware</span>
+    </nabucasa-zigbee-flasher>
+  </div>
+
+  <script type="module" src="/src/pages/zbt1-install.ts"></script>
+
+---
+
+<style>
+.flasher-container {
+    margin: 24px 0 12px 4px;
+}
+</style>

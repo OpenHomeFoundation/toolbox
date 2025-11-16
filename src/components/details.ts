@@ -34,29 +34,6 @@ export class DetailsPage extends LitElement {
       text-decoration: underline;
     }
 
-    .back-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--wa-color-brand-50);
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 8px;
-      transition: all 0.2s ease;
-      margin-bottom: 20px;
-      background: var(--app-category-bg);
-    }
-
-    .back-button:hover {
-      background: var(--app-bg-secondary);
-    }
-
-    .back-button svg {
-      margin-top: 2px;
-      width: 14px;
-      height: 14px;
-    }
-
     .layout {
       display: grid;
       grid-template-columns: 1.2fr 1fr;

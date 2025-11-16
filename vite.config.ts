@@ -114,7 +114,7 @@ export default defineConfig({
           __dirname,
           'dist/home-assistant-connect-zbt-1/install/index.html'
         ),
-        improv: resolve(__dirname, 'dist/improv.html'),
+        improv: resolve(__dirname, 'dist/improv/index.html'),
       },
     },
   },

@@ -4,7 +4,7 @@ layout: base.html
 
 <style>
   .details-page {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
   }
@@ -24,7 +24,7 @@ layout: base.html
   }
 
   .back-link::before {
-    content: "←";
+    content: '←';
     margin-right: 8px;
     font-size: 1.2em;
   }
@@ -62,10 +62,26 @@ layout: base.html
     font-weight: 600;
   }
 
+  .page-content h3:first-child {
+    margin-top: 0;
+  }
+
   .page-content ul,
   .page-content ol {
     margin: 8px 0;
     padding-left: 24px;
+  }
+
+  .page-content ul {
+    list-style-type: disc;
+  }
+
+  .page-content ol {
+    list-style-type: decimal;
+  }
+
+  .page-content ol[type='a'] {
+    list-style-type: lower-alpha;
   }
 
   .page-content li {
@@ -100,7 +116,6 @@ layout: base.html
   }
 
   .installer-wrapper {
-    max-width: 1200px;
     margin: 30px auto 0;
   }
 
@@ -125,7 +140,6 @@ layout: base.html
   }
 
   .troubleshooting-container {
-    max-width: 1200px;
     margin: 30px auto 0;
     display: none;
   }
@@ -172,11 +186,42 @@ layout: base.html
     text-decoration: underline;
   }
 
-  @media (max-width: 1200px) {
-    .details-page,
-    .installer-wrapper,
-    .troubleshooting-container {
-      padding: 0 20px;
+  .warning-card {
+    background: var(--wa-color-warning-fill-quiet);
+    border: 1px solid var(--wa-color-warning-border-normal);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+  }
+
+  .warning-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  .warning-title {
+    color: var(--wa-color-warning-on-normal);
+    line-height: 1.4;
+  }
+
+  .warning-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: var(--wa-color-warning-50);
+  }
+
+  .warning-content {
+    flex: 1;
+  }
+
+  @media (max-width: 900px) {
+    .details-page {
+      padding: 20px 12px;
     }
   }
 
@@ -196,15 +241,25 @@ layout: base.html
 </style>
 
 <div class="details-page">
-  {% if backHref %}
-  <a href="{{ backHref }}" class="back-link">Back</a>
-  {% endif %}
+  <a href="{{ backHref }}" class="back-button">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+    </svg>
+    Back
+  </a>
 
-  <div class="page-header">
-    <h1 class="page-title">{{ title }}</h1>
-    {% if subtitle %}
-    <p class="page-subtitle">{{ subtitle }}</p>
-    {% endif %}
+  <div class="page-content">
+    <div class="page-header">
+      <h1 class="page-title">{{ title }}</h1>
+      {% if subtitle %}
+      <p class="page-subtitle">{{ subtitle }}</p>
+      {% endif %}
+    </div>
+    {{ hero | safe }}
   </div>
 
   {{ content | safe }}

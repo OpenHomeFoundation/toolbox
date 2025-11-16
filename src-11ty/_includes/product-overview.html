@@ -21,7 +21,11 @@ layout: base.html
       <div class="details-actions">
         {%- for action in actions %}
         {% set external = action.href.startsWith('http') %}
-        <a href="{{ action.href }}" class="action-item"{% if external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+        {% if action.tag_open %}
+          {{ action.tag_open | safe }}
+        {% else %}
+          <a href="{{ action.href }}" class="action-item"{% if external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+        {% endif %}
           <div class="action-icon">
             <div class="icon-mask" style="--icon-url: url('{{ action.icon }}')"></div>
           </div>
@@ -43,7 +47,11 @@ layout: base.html
             </svg>
             {%- endif %}
           </div>
-        </a>
+        {% if action.tag_close %}
+          {{ action.tag_close | safe }}
+        {% else %}
+          </a>
+        {% endif %}
         {%- endfor %}
       </div>
     </div>

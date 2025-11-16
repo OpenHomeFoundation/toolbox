@@ -5,15 +5,17 @@ subtitle: Connect ZWA-2 directly to Home Assistant via USB
 description: Restore the original firmware on your Home Assistant Connect ZWA-2
 permalink: /home-assistant-connect-zwa-2/install/index.html
 backHref: /home-assistant-connect-zwa-2/
----
-
-<div class="page-content">
+hero: |
   <p>
     This is the original firmware that is pre-installed on the Home Assistant
     Connect ZWA-2. It allows you to use the device directly connected to Home
     Assistant with the included USB cable.
   </p>
   <p>Follow this tutorial to restore the original firmware on your ZWA-2.</p>
+---
+
+
+<div class="page-content">
 
   <h3>Requirements</h3>
   <ul>
@@ -68,11 +70,4 @@ backHref: /home-assistant-connect-zwa-2/
   </div>
 </div>
 
-<script type="module">
-  document.addEventListener('DOMContentLoaded', () => {
-    const installerScript = document.createElement('script');
-    installerScript.type = 'module';
-    installerScript.src = 'https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js';
-    document.head.appendChild(installerScript);
-  });
-</script>
+<script type="module" src="https://home-assistant.github.io/zwa2-toolbox/standalone/install-esp-bridge-firmware.js"></script>
