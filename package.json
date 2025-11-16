@@ -4,14 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm:dev:11ty\" \"npm:dev:vite\"",
+    "dev": "rm -rf dist && concurrently \"npm:dev:11ty\" \"npm:dev:vite\"",
     "dev:11ty": "eleventy --watch",
     "dev:vite": "vite",
-    "build": "eleventy && vite build",
+    "build": "rm -rf dist && eleventy && vite build",
     "format": "npx prettier --write src/**/*",
-    "format:check": "npx prettier --check src/**/*",
-    "lint": "eslint src --ext .ts",
-    "lint:fix": "eslint src --ext .ts --fix"
+    "format:check": "npx prettier --check src/**/*"
   },
   "dependencies": {
     "@nabucasa/sl-web-tools": "^0.11.0",
