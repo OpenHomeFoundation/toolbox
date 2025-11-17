@@ -2,6 +2,7 @@
 layout: product-overview.html
 title: Improv Wi-Fi
 description: Connect devices to Wi-Fi via Bluetooth from your browser
+image: /images/improv.png
 
 productTitle: Improv Wi‑Fi
 productSubtitle: Provision Wi‑Fi for devices without a custom app
