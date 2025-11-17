@@ -2,6 +2,7 @@
 layout: product-overview.html
 title: ZBT2
 description: Update firmware for your Connect ZBT-2 adapter
+image: /images/zbt2.webp
 
 productTitle: Home Assistant Connect ZBT-2
 productSubtitle: Zigbee 3.0 USB adapter
