@@ -2,6 +2,7 @@
 layout: product-overview.html
 title: Home Assistant Connect ZWA-2
 description: Home Assistant Connect ZWA-2 - 800 series Z-Wave Long Range adapter
+image: /images/zwa2.webp
 
 productTitle: Home Assistant Connect ZWA-2
 productSubtitle: The ultimate way to connect Z-Wave devices to Home Assistant.

@@ -2,6 +2,7 @@
 layout: product-overview.html
 title: Home Assistant Voice Preview Edition
 description: Home Assistant Voice Preview Edition - Local voice control for your smart home
+image: /images/voice.jpg
 
 productTitle: Home Assistant Voice Preview Edition
 productSubtitle: Local voice control for your smart home
