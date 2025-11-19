@@ -1,40 +1,33 @@
 {
   "product_name": "Home Assistant Connect ZBT-2",
-  "baudrates": {
-    "bootloader": [
-      115200
-    ],
-    "cpc": [],
-    "ezsp": [
-      460800
-    ],
-    "spinel": [
-      460800
-    ]
-  },
-  "usb_filters": [
-    {
-      "pid": 16385,
-      "vid": 12346
-    },
-    {
-      "pid": 33562,
-      "vid": 12346
-    }
-  ],
-  "firmwares": [
-    {
-      "name": "Zigbee (EZSP)",
-      "url": "/assets/firmwares/zbt2_zigbee_ncp_7.4.4.5.gbl",
-      "type": "ncp-uart-hw",
-      "version": "7.4.4.5"
-    },
-    {
-      "name": "OpenThread (RCP)",
-      "url": "/assets/firmwares/zbt2_openthread_rcp_2.4.4.0_GitHub-7074a43e4_gsdk_4.4.4.gbl",
-      "type": "ot-rcp",
-      "version": "2.4.4.0"
-    }
-  ],
+  "probe_methods": [{
+    "protocol": "bootloader",
+    "baudrate": 115200
+  }, {
+    "protocol": "ezsp",
+    "baudrate": 460800
+  }, {
+    "protocol": "spinel",
+    "baudrate": 460800
+  }],
+  "usb_filters": [{
+    "pid": 16385,
+    "vid": 12346
+  }, {
+    "pid": 33562,
+    "vid": 12346
+  }],
+  "firmwares": [{
+    "name": "Zigbee (EZSP)",
+    "url": "/assets/firmwares/zbt2_zigbee_ncp_7.4.4.5.gbl",
+    "type": "ncp-uart-hw",
+    "version": "7.4.4.5"
+  }, {
+    "name": "OpenThread (RCP)",
+    "url": "/assets/firmwares/zbt2_openthread_rcp_2.4.4.0_GitHub-7074a43e4_gsdk_4.4.4.gbl",
+    "type": "ot-rcp",
+    "version": "2.4.4.0"
+  }],
+  "bootloader_reset": ["rts_dtr", "bootloader"],
   "allow_custom_firmware_upload": true
 }
