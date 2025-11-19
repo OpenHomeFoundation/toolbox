@@ -9,9 +9,6 @@
   }, {
     "protocol": "spinel",
     "baudrate": 460800
-  }, {
-    "protocol": "router",
-    "baudrate": 115200
   }],
   "usb_filters": [{
     "pid": 16385,
