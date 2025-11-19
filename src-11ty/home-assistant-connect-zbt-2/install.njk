@@ -1,0 +1,35 @@
+---
+layout: install.html
+title: Install Firmware
+subtitle: Update your ZBT-2 with the latest Zigbee or Thread firmware
+description: Install the latest Zigbee or Thread firmware on your ZBT-2
+backHref: /home-assistant-connect-zbt-2/
+hero: |
+  <p>
+    Home Assistant will automatically detect updates for the Home
+    Assistant Connect ZBT-2 and allow you to install them. This page is
+    only needed if you are using the device with other software than
+    Home Assistant.
+  </p>
+  <p>
+    This firmware installer supports installing both the latest version
+    of the Zigbee and Thread firmware.
+  </p>
+
+  <div class="flasher-container">
+    <nabucasa-zigbee-flasher manifest="/assets/manifests/zbt2.json">
+      <span slot="button">Install firmware</span>
+    </nabucasa-zigbee-flasher>
+  </div>
+
+---
+
+<style>
+.flasher-container {
+    margin: 24px 0 12px 4px;
+}
+</style>
+
+<script type="module">
+  import '@nabucasa/sl-web-tools';
+</script>

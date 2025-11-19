@@ -5,7 +5,7 @@ description: Update firmware for your Connect ZBT-1 adapter
 image: /images/zbt1.jpg
 
 productTitle: Home Assistant Connect ZBT-1
-productSubtitle: Zigbee 3.0 USB adapter
+productSubtitle: Zigbee & Thread 3.0 USB adapter
 
 actions:
   - title: Install firmware
@@ -29,4 +29,4 @@ actions:
     icon: /svgs/github.svg
 ---
 
-The Home Assistant Connect ZBT-1 (formerly SkyConnect) is a powerful Zigbee 3.0 USB adapter that connects your Zigbee devices to Home Assistant. Easy setup, reliable performance, and seamless integration.
+The Home Assistant Connect ZBT-1 (formerly SkyConnect) is a Zigbee 3.0 & Thread USB adapter that connects your Zigbee devices to Home Assistant. Easy setup, reliable performance, and seamless integration.

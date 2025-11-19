@@ -8,6 +8,14 @@ export const tools = [
     url: '/home-assistant-connect-zwa-2/',
   },
   {
+    slug: 'zbt-2',
+    title: 'Home Assistant Connect ZBT-2',
+    description:
+      'Easiest way to get Zigbee and Matter over Thread devices in Home Assistant.',
+    image: '/images/zbt2.webp',
+    url: '/home-assistant-connect-zbt-2/',
+  },
+  {
     slug: 'vpe',
     title: 'Home Assistant Voice Preview Edition',
     description:
@@ -19,7 +27,7 @@ export const tools = [
     slug: 'zbt-1',
     title: 'Home Assistant Connect ZBT-1',
     description:
-      'Bring Zigbee and Matter over Thread devices in Home Assistant.',
+      'First generation adapter to bring Zigbee and Matter over Thread devices in Home Assistant.',
     image: '/images/zbt1.jpg',
     url: '/home-assistant-connect-zbt-1/',
   },
