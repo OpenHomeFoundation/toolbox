@@ -12,7 +12,7 @@
     "format:check": "npx prettier --check src/**/*"
   },
   "dependencies": {
-    "@nabucasa/sl-web-tools": "^0.12.1",
+    "@nabucasa/sl-web-tools": "^0.12.2",
     "improv-wifi-sdk": "^1.4.0"
   },
   "devDependencies": {
