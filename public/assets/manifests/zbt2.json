@@ -19,9 +19,9 @@
   }],
   "firmwares": [{
     "name": "Zigbee (EZSP)",
-    "url": "/assets/firmwares/zbt2_zigbee_ncp_7.4.4.5.gbl",
+    "url": "/assets/firmwares/zbt2_zigbee_ncp_7.4.4.6.gbl",
     "type": "ncp-uart-hw",
-    "version": "7.4.4.5"
+    "version": "7.4.4.6"
   }, {
     "name": "OpenThread (RCP)",
     "url": "/assets/firmwares/zbt2_openthread_rcp_2.4.4.0_GitHub-7074a43e4_gsdk_4.4.4.gbl",
