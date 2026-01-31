@@ -54,6 +54,14 @@ export const tools = [
     url: 'https://esphome.io/projects/index.html?type=empty',
   },
   {
+    slug: 'infrared-proxy',
+    title: 'Infrared Proxy',
+    description:
+      'Create a device to allow Home Assistant to control infrared devices.',
+    image: '/images/infrared-proxy.png',
+    url: 'https://esphome.io/projects/index.html?type=irrf',
+  },
+  {
     slug: 'improv',
     title: 'Improv Wi-Fi',
     description: 'Connect devices to Wi-Fi via Bluetooth from your browser',
