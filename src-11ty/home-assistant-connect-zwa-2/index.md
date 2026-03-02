@@ -28,7 +28,7 @@ actions:
   - title: Recover adapter
     description: Recover a non-responsive ZWA-2 adapter.
     href: /home-assistant-connect-zwa-2/recover
-    icon: /svgs/install.svg
+    icon: /svgs/wrench.svg
 
   - title: Documentation
     description: User documentation, troubleshooting, and resources
