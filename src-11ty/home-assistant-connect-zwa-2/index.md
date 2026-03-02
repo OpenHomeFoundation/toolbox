@@ -25,6 +25,11 @@ actions:
     icon: /svgs/install.svg
     experimental: true
 
+  - title: Recover adapter
+    description: Recover a non-responsive ZWA-2 adapter.
+    href: /home-assistant-connect-zwa-2/recover
+    icon: /svgs/install.svg
+
   - title: Documentation
     description: User documentation, troubleshooting, and resources
     href: https://support.nabucasa.com/hc/en-us/categories/28669861145885
