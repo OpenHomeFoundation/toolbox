@@ -106,6 +106,10 @@ export default defineConfig({
           __dirname,
           'dist/home-assistant-connect-zwa-2/use-poe/index.html'
         ),
+        homeAssistantConnectZwa2Recover: resolve(
+          __dirname,
+          'dist/home-assistant-connect-zwa-2/recover/index.html'
+        ),
         homeAssistantConnectZbt1: resolve(
           __dirname,
           'dist/home-assistant-connect-zbt-1/index.html'
