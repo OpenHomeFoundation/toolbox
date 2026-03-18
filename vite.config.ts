@@ -15,30 +15,12 @@ export default defineConfig({
   plugins: [
     {
       name: 'py-raw-loader',
-      transform(code, id) {
-        if (id.endsWith('.py')) {
-          return { code: `export default ${JSON.stringify(code)};`, map: null };
+      enforce: 'pre',
+      load(id) {
+        if (id.endsWith('.py') || id.endsWith('.txt')) {
+          const content = fs.readFileSync(id, 'utf-8');
+          return { code: `export default ${JSON.stringify(content)};`, map: null };
         }
-
-        if (id.endsWith('.txt')) {
-          if (code.startsWith('export default "data:text/plain;base64,')) {
-            const match = code.match(/data:text\/plain;base64,(.+?)"$/);
-            if (match) {
-              const base64Content = match[1];
-              const decodedContent = Buffer.from(
-                base64Content,
-                'base64'
-              ).toString('utf-8');
-              return {
-                code: `export default ${JSON.stringify(decodedContent)};`,
-                map: null,
-              };
-            }
-          }
-          return { code: `export default ${JSON.stringify(code)};`, map: null };
-        }
-
-        return null;
       },
     },
     {
@@ -69,6 +51,7 @@ export default defineConfig({
   ],
 
   optimizeDeps: {
+    include: ['@nabucasa/sl-web-tools'],
     esbuildOptions: {
       loader: {
         '.py': 'text',
