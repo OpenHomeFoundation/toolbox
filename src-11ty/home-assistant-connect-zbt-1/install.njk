@@ -42,7 +42,12 @@ hero: |
   </p>
 
   <div class="flasher-container">
-    <nabucasa-zigbee-flasher manifest="/assets/manifests/zbt1.json">
+    <nabucasa-zigbee-flasher
+      id="zbt1-flasher"
+      manifest="/assets/manifests/zbt1.json"
+      github-releases-api="https://api.github.com/repos/NabuCasa/silabs-firmware-builder/releases"
+      firmware-regex="^(skyconnect_|zbt1_)"
+    >
       <span slot="button">Install firmware</span>
     </nabucasa-zigbee-flasher>
   </div>
@@ -57,4 +62,15 @@ hero: |
 
 <script type="module">
   import '@nabucasa/sl-web-tools';
+
+  document.querySelector('#zbt1-flasher').assetUrlTransformer = (url) => {
+    const match = url.match(
+      /github\.com\/([^/]+)\/([^/]+)\/releases\/download\/([^/]+)\/(.+)/,
+    );
+    if (match) {
+      const [, owner, repo, tag, filename] = match;
+      return `https://raw.githubusercontent.com/${owner}/${repo}/refs/heads/releases/${tag}/${filename}`;
+    }
+    return url;
+  };
 </script>
