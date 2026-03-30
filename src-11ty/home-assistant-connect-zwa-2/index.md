@@ -25,6 +25,23 @@ actions:
     icon: /svgs/install.svg
     experimental: true
 
+  - title: Install Z-Wave repeater firmware
+    description: This firmware turns ZWA-2 into a standalone Z-Wave device, which can help strengthen an existing Z-Wave network.
+    href: /home-assistant-connect-zwa-2/install-repeater
+    icon: /svgs/install.svg
+    experimental: true
+
+  - title: Install Z-Wave Zniffer firmware
+    description: This firmware is for Z-Wave developers, and can be used to inspect packets, decode traffic, send commands, gather statistics, and more.
+    href: /home-assistant-connect-zwa-2/install-zniffer
+    icon: /svgs/install.svg
+    experimental: true
+
+  - title: Configure ZWA-2
+    description: Change region, view DSK and QR code for an existing ZWA-2.
+    href: /home-assistant-connect-zwa-2/configure-zwa2
+    icon: /svgs/wrench.svg
+
   - title: Recover adapter
     description: Recover a non-responsive ZWA-2 adapter.
     href: /home-assistant-connect-zwa-2/recover
