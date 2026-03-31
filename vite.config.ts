@@ -93,6 +93,22 @@ export default defineConfig({
           __dirname,
           'dist/home-assistant-connect-zwa-2/recover/index.html'
         ),
+        homeAssistantConnectZwa2InstallController: resolve(
+          __dirname,
+          'dist/home-assistant-connect-zwa-2/install-controller/index.html'
+        ),
+        homeAssistantConnectZwa2InstallRepeater: resolve(
+          __dirname,
+          'dist/home-assistant-connect-zwa-2/install-repeater/index.html'
+        ),
+        homeAssistantConnectZwa2InstallZniffer: resolve(
+          __dirname,
+          'dist/home-assistant-connect-zwa-2/install-zniffer/index.html'
+        ),
+        homeAssistantConnectZwa2ConfigureZwa2: resolve(
+          __dirname,
+          'dist/home-assistant-connect-zwa-2/configure-zwa2/index.html'
+        ),
         homeAssistantConnectZbt1: resolve(
           __dirname,
           'dist/home-assistant-connect-zbt-1/index.html'

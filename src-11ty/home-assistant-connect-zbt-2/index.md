@@ -9,7 +9,7 @@ productSubtitle: Zigbee 3.0 & Thread USB adapter
 
 actions:
   - title: Install firmware
-    description: Update your ZBT-2 with the latest Zigbee or Thread firmware
+    description: Update your ZBT-2 with the latest Zigbee, Zigbee Repeater or Thread firmware
     href: /home-assistant-connect-zbt-2/install
     icon: /svgs/install.svg
 

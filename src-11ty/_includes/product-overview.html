@@ -20,6 +20,9 @@ layout: base.html
 
       <div class="details-actions">
         {%- for action in actions %}
+        {% if action.section_header %}
+          <div class="action-section-header">{{ action.section_header }}</div>
+        {% endif %}
         {% set external = action.href.startsWith('http') %}
         {% if action.tag_open %}
           {{ action.tag_open | safe }}

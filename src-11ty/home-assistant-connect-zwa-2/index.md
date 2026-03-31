@@ -8,22 +8,47 @@ productTitle: Home Assistant Connect ZWA-2
 productSubtitle: The ultimate way to connect Z-Wave devices to Home Assistant.
 
 actions:
-  - title: Install original firmware
+  - title: Install original USB bridge firmware
+    section_header: ESP firmware
     description: The original firmware that allows to connect the ZWA-2 directly to Home Assistant hub via USB cable.
     href: /home-assistant-connect-zwa-2/install
-    icon: /svgs/install.svg
+    icon: /svgs/chip.svg
 
   - title: Install portable Z-Wave firmware
     description: Place the ZWA-2 in the most optimal position and connect it to Home Assistant via Wi-Fi.
     href: /home-assistant-connect-zwa-2/install-portable
-    icon: /svgs/install.svg
+    icon: /svgs/chip.svg
     experimental: true
 
   - title: Use Portable Z-Wave with Power-over-Ethernet
     description: Place the ZWA-2 in the most optimal position and connect it to Home Assistant via Power-over-Ethernet.
     href: /home-assistant-connect-zwa-2/use-poe
-    icon: /svgs/install.svg
+    icon: /svgs/chip.svg
     experimental: true
+
+  - title: Install Z-Wave controller firmware
+    section_header: Z-Wave firmware
+    description: Restore the original Z-Wave controller firmware after using the repeater or Zniffer firmware.
+    href: /home-assistant-connect-zwa-2/install-controller
+    icon: /svgs/zwave.svg
+
+  - title: Install Z-Wave repeater firmware
+    description: This firmware turns ZWA-2 into a standalone Z-Wave device, which can help strengthen an existing Z-Wave network.
+    href: /home-assistant-connect-zwa-2/install-repeater
+    icon: /svgs/zwave.svg
+    experimental: true
+
+  - title: Install Z-Wave Zniffer firmware
+    description: This is a development firmware that can be used to inspect packets, decode traffic, send commands, gather statistics, and more.
+    href: /home-assistant-connect-zwa-2/install-zniffer
+    icon: /svgs/zwave.svg
+    experimental: true
+
+  - title: Configure ZWA-2
+    section_header: Tools
+    description: Change region, view DSK and QR code for an existing ZWA-2.
+    href: /home-assistant-connect-zwa-2/configure-zwa2
+    icon: /svgs/wrench.svg
 
   - title: Recover adapter
     description: Recover a non-responsive ZWA-2 adapter.
