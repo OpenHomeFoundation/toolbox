@@ -39,7 +39,7 @@ actions:
     experimental: true
 
   - title: Install Z-Wave Zniffer firmware
-    description: This is an advanced firmware that can be used to inspect packets, decode traffic, send commands, gather statistics, and more.
+    description: This is a development firmware that can be used to inspect packets, decode traffic, send commands, gather statistics, and more.
     href: /home-assistant-connect-zwa-2/install-zniffer
     icon: /svgs/zwave.svg
     experimental: true
