@@ -71,6 +71,15 @@
   flex-direction: column;
 }
 
+.action-section-header {
+  padding: 12px 16px 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--app-text-muted);
+}
+
 .action-item {
   display: grid;
   grid-template-columns: auto 1fr auto;
