@@ -1,0 +1,52 @@
+---
+layout: base.html
+title: Page not found
+description: The page you were looking for could not be found.
+permalink: /404.html
+---
+
+<style>
+  .not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--app-text-primary);
+  }
+
+  .not-found .code {
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+    color: var(--app-text-primary);
+  }
+
+  .not-found h1 {
+    font-size: 1.75rem;
+    margin: 16px 0 8px;
+  }
+
+  .not-found p {
+    color: var(--app-text-secondary);
+    line-height: 1.6;
+    margin: 0 0 24px;
+  }
+</style>
+
+<div class="not-found">
+  <p class="code">404</p>
+  <h1>Page not found</h1>
+  <p>The page you were looking for could not be found.</p>
+  <a href="/">Go back home</a>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    plausible('404');
+  });
+</script>

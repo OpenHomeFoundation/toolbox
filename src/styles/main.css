@@ -141,3 +141,22 @@ body {
   width: 14px;
   height: 14px;
 }
+
+.app-footer {
+  text-align: center;
+  padding: 24px 20px;
+}
+
+.app-footer p {
+  margin: 0 auto;
+  max-width: 30rem;
+  font-size: 0.8rem;
+  color: var(--app-text-secondary);
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+.app-footer a {
+  color: var(--wa-color-brand-50);
+}
+

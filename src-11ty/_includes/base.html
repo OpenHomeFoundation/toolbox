@@ -21,6 +21,25 @@
     <meta property="og:type" content="website" />
 
     <link rel="stylesheet" href="/src/styles/main.css" />
+
+    <!-- Plausible analytics -->
+    <script
+      async
+      src="https://plausible.openhomefoundation.org/js/pa-EkXAQjbzUhwwqEPi6iRK5.js"
+    ></script>
+    <script>
+      window.plausible =
+        window.plausible ||
+        function () {
+          (plausible.q = plausible.q || []).push(arguments);
+        };
+      plausible.init =
+        plausible.init ||
+        function (i) {
+          plausible.o = i || {};
+        };
+      plausible.init();
+    </script>
   </head>
   <body class="wa-palette-shoelace wa-theme-shoelace">
     <div class="app-header">
@@ -45,7 +64,7 @@
             class="nav-link"
             target="_blank"
           >
-            OHF
+            Open Home Foundation
           </a>
           <a
             href="https://www.home-assistant.io/"
@@ -58,6 +77,22 @@
       </header>
     </div>
     {{ content | safe }}
+    <footer class="app-footer">
+      <p>
+        This website uses
+        <a
+          href="https://www.openhomefoundation.org/blog/making-our-web-analytics-open-source-with-plausible/"
+          rel="noopener"
+          >privacy-first analytics</a
+        >
+        to help us improve the site. You can view all data in our
+        <a
+          href="https://plausible.openhomefoundation.org/toolbox.openhomefoundation.org"
+          rel="noopener"
+          >public dashboard</a
+        >.
+      </p>
+    </footer>
     <script>
       (function () {
         const updateTheme = () => {

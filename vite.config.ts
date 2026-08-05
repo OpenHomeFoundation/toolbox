@@ -41,6 +41,9 @@ export default defineConfig({
               );
               if (fs.existsSync(indexPath)) {
                 req.url = req.url + '/index.html';
+              } else {
+                // Unknown route: serve the 404 page
+                req.url = '/404.html';
               }
             }
           }
@@ -65,6 +68,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'dist/index.html'),
+        notFound: resolve(__dirname, 'dist/404.html'),
         homeAssistantVoicePreviewEdition: resolve(
           __dirname,
           'dist/home-assistant-voice-preview-edition/index.html'
